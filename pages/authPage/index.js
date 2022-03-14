@@ -8,15 +8,21 @@ const Auth = () => {
             <PageWrapper>
 
             <div className={styles.hero}>
-                <div className={styles.auth_holder}>
-                    <h2>Sign In</h2>
-                    <FirebaseAuth />
+                <div className={styles.auth_landing}>
+
+                    <div className={styles.auth_explainer}>
+
+                    </div>
+
+                    <div className={styles.auth_holder}>
+                        <h2 className={styles.header_main}>Sign In</h2>
+                        <h3 className={styles.header_main2}>Become a part of our community, ensure your voice is <em>heard</em></h3>
+                        <FirebaseAuth />
+                    </div>
+                    
                 </div>
             </div>
             
-            <div className={styles.rest}>
-
-            </div>
             </PageWrapper>   
         </div>
     )
