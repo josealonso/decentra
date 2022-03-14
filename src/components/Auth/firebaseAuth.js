@@ -1,4 +1,4 @@
-import { initFirebase } from '../../firebase/initFirebase'
+import { initFirebase } from '../../../firebase/initFirebase'
 import { useEffect, useState } from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import {
@@ -6,8 +6,8 @@ import {
     GoogleAuthProvider,
     EmailAuthProvider
 } from "firebase/auth";
-import { setUserCookie } from '../../firebase/userCookie'
-import { mapUserData } from '../../firebase/mapUserData'
+import { setUserCookie } from '../../../firebase/userCookie'
+import { mapUserData } from '../../../firebase/mapUserData'
 
 initFirebase() // initialize firebase
 
@@ -23,7 +23,7 @@ const firebaseAuthConfig = {
         // add additional auth flows below
         GoogleAuthProvider.PROVIDER_ID,
     ],
-    signInSuccessUrl: '/mainPage',
+    signInSuccessUrl: '/MainPage',
     credentialHelper: 'none',
     callbacks: {
         signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {

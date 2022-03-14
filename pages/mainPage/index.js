@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import WriteToCloudFirestore from '../../components/cloudFirestore/Write'
-import ReadDataFromCloudFirestore from '../../components/cloudFirestore/Read'
 import { useUser } from '../../firebase/useUser'
 import styles from './styles.module.css'
 
@@ -18,9 +16,6 @@ export default function Home() {
             <hr />
             {user.profilePic ? <image src={user.profilePic} height={100} width={100}></image> : <p>No profile pic</p>}
             <hr />
-            <WriteToCloudFirestore />
-            <ReadDataFromCloudFirestore />
-    
             <hr />
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
               <button onClick={() => logout()} style={{ width: '100px' }}>Log Out</button>
@@ -33,7 +28,7 @@ export default function Home() {
 
   else return (
     <div className={styles.page_wrapper}>
-      <Link href="/authPage" className={styles.login_btn}>Log In!</Link>
+      <Link href="/AuthPage" className={styles.login_btn}>Log In!</Link>
     </div>
   )
 }

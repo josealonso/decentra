@@ -20,7 +20,7 @@ const useUser = () => {
         try {
             await auth.signOut();
             removeUserCookie();
-            router.push("/authPage");
+            router.push("/AuthPage");
         } catch (e) {
             console.log(e.message);
         }
@@ -43,7 +43,7 @@ const useUser = () => {
 
         const userFromCookie = getUserFromCookie()
         if (!userFromCookie) {
-            router.push('/mainPage')
+            router.push('/MainPage')
             return
         }
         setUser(userFromCookie)
