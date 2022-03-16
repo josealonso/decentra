@@ -1,0 +1,25 @@
+@media screen and (min-width: 786px) {
+  
+}
+
+@media screen and (max-width: 786px) {
+  
+}
+
+.circularImg{
+  border-radius: 50%;
+  height: 20vh;
+  width: 20vh;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text{
+  margin-top: 1em;
+  color: rgb(50, 99, 196);
+}

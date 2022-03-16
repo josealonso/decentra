@@ -29,14 +29,14 @@ export default function Navbar() {
               </li>
 
               <li className={styles.pushLeft}>
-                <Link href="/admin">
+                <Link href="/">
                   <button className={styles.btnBlue} onClick={() => auth.signOut()}>Log Out</button>
                 </Link>
               </li>
              
              <li>
                 <Link href={`/${username}`}>
-                  <img style={{height: '5vh'}} src={user?.photoURL}></img>
+                  <img style={{height: '5vh'}} src={user.photoURL}></img>
                 </Link>
              </li>
             </>

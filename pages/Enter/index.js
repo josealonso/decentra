@@ -13,7 +13,7 @@ export default function Enter(props) {
   // 3. user signed in, has username <SignOutButton />
   return (
     <main className={styles.container}>
-      {user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}
+      {user ? username ? <SignOutButton />  :  <UsernameForm />: <SignInButton />}
     </main>
   );
 }
@@ -26,7 +26,7 @@ function SignInButton() {
 
   return (
       <button className="btn-google" onClick={signInWithGoogle}>
-        <img src={'/google.png'} width="30px" /> Sign in with Google
+        <img src={'/google.jpg'} width="30px" /> Sign in with Google
       </button>
   );
 }

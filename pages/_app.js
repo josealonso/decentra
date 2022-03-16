@@ -5,7 +5,6 @@ import { useUserData } from '../lib/hooks';
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-
   const userData = useUserData();
 
   return (
