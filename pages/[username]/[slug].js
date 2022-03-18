@@ -1,49 +1,55 @@
 import React from 'react'
 import Link from 'next/link'
+import { UserContext } from '../../lib/context'
+import { useContext } from 'react'
+import PostContent from '../../components/layout/PostContent'
 import AuthCheck from '../../components/helpers/AuthCheck'
 import Heart from '../../components/layout/HeartButton'
-import PostContent from '../../components/layout/PostContent'
+import Metatags from '../../components/helpers/metatags'
 import {getUserWithUsername, firestore, postToJSON } from '../../lib/firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import styles from './styles.module.css'
 
 
 export async function getStaticProps({ params }) {
-  const {username,slug} = params;
+  const { username, slug } = params;
   const userDoc = await getUserWithUsername(username);
 
   let post;
   let path;
 
-  if(userDoc){
+  if (userDoc) {
     const postRef = userDoc.ref.collection('posts').doc(slug);
     post = postToJSON(await postRef.get());
-  
+
     path = postRef.path;
   }
 
   return {
-    props: {post, path},
-    revalidate: 5000,
-  }
+    props: { post, path },
+    revalidate: 100,
+  };
 }
 
 export async function getStaticPaths() {
-
+  // Improve my using Admin SDK to select empty docs
   const snapshot = await firestore.collectionGroup('posts').get();
 
   const paths = snapshot.docs.map((doc) => {
     const { slug, username } = doc.data();
-
     return {
-      params: {username, slug},
+      params: { username, slug },
     };
-  })
+  });
 
   return {
+    // must be in this format:
+    // paths: [
+    //   { params: { username, slug }}
+    // ],
     paths,
     fallback: true,
-  }
+  };
 }
 
 export default function Post(props) {
@@ -52,9 +58,12 @@ export default function Post(props) {
 
   const post = realtimePost || props.post;
 
+  const { user: currentUser } = useContext(UserContext);
+
   return (
     <main className={styles.container}>
-
+      <Metatags title={post.title} description={post.title} />
+      
       <section>
         <PostContent post={post} />
       </section>
@@ -66,13 +75,19 @@ export default function Post(props) {
 
         <AuthCheck
           fallback={
-            <Link href={"/Enter"}>
-              <button>Sign Up To Heart</button>
+            <Link href="/enter">
+              <button>💗 Sign Up</button>
             </Link>
           }
         >
-          <Heart postRef={postRef}/>
+          <Heart postRef={postRef} />
         </AuthCheck>
+
+        {currentUser?.uid === post.uid && (
+          <Link href={`/admin/${post.slug}`}>
+            <button className="btn-blue">Edit Post</button>
+          </Link>
+        )}
       </aside>
     </main>
   );
