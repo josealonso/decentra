@@ -10,6 +10,7 @@
     "deploy": "yarn build && cross-env NODE_ENV=production firebase deploy --only functions,hosting"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.0",
     "babel-preset-es2015": "^6.24.1",
     "cross-env": "^7.0.2",
     "firebase": "^9.6.8",

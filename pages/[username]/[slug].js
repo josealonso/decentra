@@ -1,5 +1,8 @@
 import React from 'react'
-import PostContent from '../../components/layout/PostContent/index.js'
+import Link from 'next/link'
+import AuthCheck from '../../components/helpers/AuthCheck'
+import Heart from '../../components/layout/HeartButton'
+import PostContent from '../../components/layout/PostContent'
 import {getUserWithUsername, firestore, postToJSON } from '../../lib/firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import styles from './styles.module.css'
@@ -61,6 +64,15 @@ export default function Post(props) {
           <strong>{post.heartCount || 0} 🤍</strong>
         </p>
 
+        <AuthCheck
+          fallback={
+            <Link href={"/Enter"}>
+              <button>Sign Up To Heart</button>
+            </Link>
+          }
+        >
+          <Heart postRef={postRef}/>
+        </AuthCheck>
       </aside>
     </main>
   );
