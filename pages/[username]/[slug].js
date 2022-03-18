@@ -14,7 +14,7 @@ import styles from './styles.module.css'
 export async function getStaticProps({ params }) {
   const { username, slug } = params;
   const userDoc = await getUserWithUsername(username);
-
+  console.log(`Building slug: ${slug}`)
   let post;
   let path;
 
