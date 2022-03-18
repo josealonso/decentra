@@ -23,7 +23,7 @@ export default function Navbar() {
           user && (
             <>
               <li className={styles.pushLeft}>
-                <Link href="/admin">
+                <Link href="/Admin">
                   <button className={styles.btnBlue}>Write Posts</button>
                 </Link>
               </li>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Metatags from '../../components/helpers/metatags'
 import UserProfile from '../../components/layout/UserProfile'
 import PostFeed from '../../components/layout/PostFeed'
 import { getUserWithUsername, postToJSON } from '../../lib/firebase'
@@ -9,6 +10,12 @@ export async function getServerSideProps({query}){
   const {username} = query;
 
   const userDoc = await getUserWithUsername(username)
+
+  if(!userDoc){
+    return {
+      notFound: true,
+    }
+  }
 
   let user = null;
   let posts = null;
@@ -33,6 +40,7 @@ export async function getServerSideProps({query}){
 export default function UserProfilePage({ user, posts }) {
   return (
     <main className={styles.container}>
+      <Metatags title={`${user}'s page`}/>
       <UserProfile user={user} />
       <PostFeed posts={posts}/>
     </main>
