@@ -48,7 +48,7 @@ export async function getStaticPaths() {
     //   { params: { username, slug }}
     // ],
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 

@@ -1,13 +1,12 @@
 {
   "name": "next-deploy",
   "version": "0.1.0",
-  "main": "function.js",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "yarn build && cross-env NODE_ENV=production firebase deploy --only functions,hosting"
+    "export": "next export"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.0",

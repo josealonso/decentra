@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PostFeed from '../components/layout/PostFeed';
 import Loader from '../components/simple/Loader';
 import { firestore, fromMillis, postToJSON } from '../lib/firebase';
-import toast from 'react-hot-toast'
+
 import styles from './styles.module.css'
 
 const LIMIT = 1;
@@ -22,8 +22,6 @@ export async function getServerSideProps(context){
 }
 
 export default function Home(props) {
-
-  
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false);
 
