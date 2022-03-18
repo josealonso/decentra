@@ -40,7 +40,7 @@ export async function getServerSideProps({query}){
 export default function UserProfilePage({ user, posts }) {
   return (
     <main className={styles.container}>
-      <Metatags title={`${user}'s page`}/>
+      <Metatags title={`${user.username}'s page`}/>
       <UserProfile user={user} />
       <PostFeed posts={posts}/>
     </main>

@@ -1,13 +1,12 @@
 {
   "name": "next-deploy",
   "version": "0.1.0",
-  "main": "function.js",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "yarn build && cross-env NODE_ENV=production firebase deploy --only functions,hosting"
+    "export": "next export"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
@@ -15,7 +14,7 @@
     "cross-env": "^7.0.2",
     "firebase": "^9.6.8",
     "firebase-admin": "^10.0.2",
-    "firebase-functions": "^3.18.1",
+    "firebase-functions": "^3.19.0",
     "js-cookie": "^3.0.1",
     "lodash.debounce": "^4.0.8",
     "lodash.kebabcase": "^4.1.1",

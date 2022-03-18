@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  experimental: { esmExternals: true }
+module.exports = {
+  swcMinify: true,
+  experimental: {
+    esmExternals: false
+  }
 }
-

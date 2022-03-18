@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 import { useContext, useState } from 'react';
 import styles from './styles.module.css'
 
-export default function AdminPostsPage({}) {
+export default function AdminPostsPage(props) {
   return (
     <main className={styles.container}>
       <AuthCheck>

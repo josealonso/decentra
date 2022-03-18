@@ -13,7 +13,7 @@ export default function Enter(props) {
   // 3. user signed in, has username <SignOutButton />
   return (
     <main className={styles.container}>
-      {user ? username ? <SignOutButton />  :  <UsernameForm />: <SignInButton />}
+      {user ? !username ? <UsernameForm /> : <SignOutButton />  : <SignInButton />}
     </main>
   );
 }
