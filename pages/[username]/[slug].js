@@ -14,7 +14,7 @@ import styles from './styles.module.css'
 export async function getStaticProps({ params }) {
   const { username, slug } = params;
   const userDoc = await getUserWithUsername(username);
-  console.log(`Building slug: ${slug}`)
+
   let post;
   let path;
 
@@ -84,7 +84,7 @@ export default function Post(props) {
         </AuthCheck>
 
         {currentUser?.uid === post.uid && (
-          <Link href={`/admin/${post.slug}`}>
+          <Link href={`/Admin/${post.slug}`}>
             <button className="btn-blue">Edit Post</button>
           </Link>
         )}
