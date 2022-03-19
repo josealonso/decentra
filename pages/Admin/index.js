@@ -12,7 +12,7 @@ import styles from './styles.module.css'
 
 export default function AdminPostsPage(props) {
   return (
-    <main className={styles.container}>
+    <main>
       <AuthCheck>
         <PostList />
         <CreateNewPost />
@@ -31,7 +31,7 @@ function PostList() {
 
   return (
     <>
-      <h1>Manager your Posts!</h1>
+      <h1 className={styles.postManage}>Manage your Posts!</h1>
       <PostFeed posts={posts} admin/>
     </>
   )
@@ -77,8 +77,8 @@ function CreateNewPost() {
         placeholder="My Awesome Post"
         className={styles.input}
       />
-      <p>
-        <strong>
+      <p className={styles.slug}>
+        <strong >
           Slug: 
         </strong>
         {slug}

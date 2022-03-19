@@ -70,7 +70,7 @@ export default function Post(props) {
 
       <aside className="card">
         <p>
-          <strong>{post.heartCount || 0} 🤍</strong>
+          <strong className={styles.btnheart}>{post.heartCount || 0} 🤍</strong>
         </p>
 
         <AuthCheck
@@ -85,7 +85,7 @@ export default function Post(props) {
 
         {currentUser?.uid === post.uid && (
           <Link href={`/Admin/${post.slug}`}>
-            <button className="btn-blue">Edit Post</button>
+            <button className={styles.blueBtn}>Edit Post</button>
           </Link>
         )}
       </aside>

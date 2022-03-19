@@ -1,5 +1,57 @@
-.container{
-  padding-top: 7vh;
-  height: 100vh;
-  width: 100vw;
+.postManage{
+  margin-bottom: 1em;
+  font-size: x-large;
+}
+
+.input{
+  height: 6vh;
+  width: 50vw;
+  padding: 1em;
+  border: 2px solid rgb(73, 140, 162);
+  border-radius: 12px;
+}
+
+.slug{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: large;
+}
+
+.submit{
+  height: 5vh;
+  width: 30vw;
+  margin-bottom: 2em;
+}
+
+.text_area{
+  width: 100%;
+  height: 55vh;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 12px;
+  padding: 1em;
+  border: 3px solid rgb(36, 88, 194);
+}
+
+.title{
+  font-size: xx-large;
+  color: #303030ce;
+}
+
+.field{
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  border: 0;
+}
+
+.greenBtn{
+  height: 7vh;
+  width: 40vw;
+  background-color: rgb(32, 202, 114);
+  color: white;
+  margin-bottom: 2em;
+  border-radius: 12px;
+  border: none;
 }

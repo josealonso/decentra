@@ -36,17 +36,17 @@ function PostManager() {
       {post && (
         <>
           <section>
-            <h1>{post.title}</h1>
-            <p>ID: {post.slug}</p>
+            <h1 className={styles.title}>{post.title}</h1>
+            <p className={styles.slug}>ID: {post.slug}</p>
 
             <PostForm postRef={postRef} defaultValues={post} preview={preview} />
           </section>
 
           <aside>
           <h3>Tools</h3>
-            <button onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview'}</button>
+            <button className={styles.greenBtn} onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview'}</button>
             <Link href={`/${post.username}/${post.slug}`}>
-              <button className="btn-blue">Live view</button>
+              <button className={styles.greenBtn}>Live view</button>
             </Link>
           </aside>
         </>
@@ -85,7 +85,7 @@ function PostForm({ defaultValues, postRef, preview }) {
   
       <ImageUploader />
 
-        <textarea {...register(
+        <textarea  className={styles.text_area} {...register(
           "content", {
             required: "content is required",
             maxLength: {
@@ -98,12 +98,12 @@ function PostForm({ defaultValues, postRef, preview }) {
             }
           })}></textarea>
 
-          <fieldset>
+          <fieldset className={styles.field}>
             <input className={styles.checkbox} name="published" type="checkbox" {...register("published")} />
-            <label>Published</label>
+            <label >Published</label>
           </fieldset>
 
-        <button type="submit" disabled={!isDirty || !isValid} className="btn-green">
+        <button className={styles.greenBtn} type="submit" disabled={!isDirty || !isValid}>
           Save Changes
         </button>
       </div>
