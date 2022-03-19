@@ -54,7 +54,7 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       <PostFeed posts={posts}/>
-      {!loading && !postsEnd && <button onClick={getMorePosts}>Load more</button>} 
+      {!loading && !postsEnd && <button onClick={getMorePosts} className={styles.loadBtn}>Load more</button>} 
     
       <Loader show={loading}/>
 

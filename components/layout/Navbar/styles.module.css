@@ -1,52 +1,94 @@
-.navbar{
-  width: 100vw;
-  height: 7vh;
-  background-color: #303030;
-  position: fixed;
-  top: 0;
-  left: 0;
-  font-weight: bold;
-  z-index: 99;
-  padding-left: 10vw;
+
+
+
+@media screen and (max-width: 786px) {
+  .navbar{
+    width: 100vw;
+    height: 8vh;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+    z-index: 99;
+
+  }
+
+  .linkList{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style: none;
+  }
+
+  .btnBlue{
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: rgb(0, 0, 0);
+    border-right: 1px solid #4e4b4b68;
+  }
+
+  .img{
+    height: 8vh;
+    width: 100%;
+    display: none;
+  }
 }
 
 
 
-.linkList{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  list-style: none;
+@media screen and (min-width: 786px) {
+  .navbar{
+    width: 100vw;
+    height: 7vh;
+    background-color: #303030;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    z-index: 99;
+    padding-left: 10vw;
+  }
+  
+  .linkList{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    list-style: none;
+  }
+  
+  .btnBlue{
+    margin-top: 0.5em;
+    margin-right: 1em;
+    border: none;
+    color: white;
+    width: 20vw;
+    background-color: rgb(50, 99, 196);
+    border-radius: 10px;
+    height: 5vh;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  .btnLogo{
+    margin-top: 0.5em;
+    margin-right: 1em;
+    border: none;
+    font-weight: 500;
+    font-size: larger;
+    color: rgb(0, 0, 0);
+    width: 20vw;
+    background-color: rgb(167, 179, 208);
+    height: 5vh;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  .btnBlue:hover{
+    transform: scale(0.9);
+  }
 }
 
-.btnBlue{
-  margin-top: 0.5em;
-  margin-right: 1em;
-  border: none;
-  color: white;
-  width: 20vw;
-  background-color: rgb(50, 99, 196);
-  border-radius: 10px;
-  height: 5vh;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.btnLogo{
-  margin-top: 0.5em;
-  margin-right: 1em;
-  border: none;
-  font-weight: 500;
-  font-size: larger;
-  color: rgb(0, 0, 0);
-  width: 20vw;
-  background-color: rgb(167, 179, 208);
-  height: 5vh;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.btnBlue:hover{
-  transform: scale(0.9);
-}

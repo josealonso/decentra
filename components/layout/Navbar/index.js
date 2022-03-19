@@ -15,7 +15,7 @@ export default function Navbar() {
       <ul className={styles.linkList}>
         <li>
           <Link href="/">
-            <button className={styles.btnLogo}>Main</button>
+            <button className={styles.btnBlue}>Main</button>
           </Link>
         </li>
 
@@ -23,7 +23,7 @@ export default function Navbar() {
           user && (
             <>
               <li className={styles.pushLeft}>
-                <Link href="/Admin">
+                <Link href='/Admin'>
                   <button className={styles.btnBlue}>Write Posts</button>
                 </Link>
               </li>
@@ -36,7 +36,10 @@ export default function Navbar() {
              
              <li>
                 <Link href={`/${username}`}>
-                  <img style={{height: '5vh'}} src={user.photoURL}></img>
+                  <button className={styles.btnBlue}>
+                  Profile
+                  <img style={{height: '5vh'}} src={user.photoURL} className={styles.img}></img>
+                  </button>
                 </Link>
              </li>
             </>

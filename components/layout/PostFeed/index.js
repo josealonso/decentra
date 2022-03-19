@@ -14,23 +14,23 @@ function PostItem({post, admin = false}){
   return (
     <div className={styles.container}>
       <Link href={`/${post.username}`}>
-        <a>
+        <a className={styles.user_nav}> 
           <strong>By @{post.username}</strong>
         </a>
       </Link>
 
       <Link href={`/${post.username}/${post.slug}`}>
-        <h2>
+        <h2 className={styles.post_title}>
           <a>{post.title}</a>
         </h2>
       </Link>
 
       <footer>
-        <span>
+        <span className={styles.top_corner}>
           {wordCount} words. {minutesToRead} min read
         </span>
 
-        <span>
+        <span className={styles.likes}>
           {post.heartCount} Likes
         </span>
       </footer>

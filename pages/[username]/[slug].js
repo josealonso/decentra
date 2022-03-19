@@ -61,7 +61,7 @@ export default function Post(props) {
   const { user: currentUser } = useContext(UserContext);
 
   return (
-    <main className={styles.container}>
+    <main>
       <Metatags title={post.title} description={post.title} />
       
       <section>
@@ -75,7 +75,7 @@ export default function Post(props) {
 
         <AuthCheck
           fallback={
-            <Link href="/enter">
+            <Link href="/Enter">
               <button>💗 Sign Up</button>
             </Link>
           }

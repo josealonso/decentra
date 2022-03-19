@@ -1,14 +1,52 @@
 @media screen and (min-width: 786px) {
-  
+  .container{
+    border: 2px solid black;
+    padding: 2em;
+    width: 70vw;
+    margin-bottom: 1em;
+  }
+
 }
 
 @media screen and (max-width: 786px) {
-  
+  .container{
+    background-color: rgb(224, 224, 224);
+    border-radius: 12px;
+    padding: 2em;
+    width: 90vw;
+    margin-bottom: 1em;
+    position: relative;
+  }
+
+  .user_nav{
+    color: rgba(84, 84, 196, 0.489);
+    text-decoration: underline;
+  }
+
+  .post_title{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #303030ce;
+  }
+
+  .top_corner{
+    position: absolute;
+    top: 0px;
+    color: white;
+    right: 0;
+    background: linear-gradient(rgba(84, 84, 196, 0.762), rgba(46, 132, 186, 0.762));
+    padding: 0.5em;
+    border-radius: 0px 12px 0px 0px;
+  }
+
+  .likes{
+    position: absolute;
+    bottom: 0px;
+    color: rgb(148, 144, 144);
+    left: 0;
+    font-size: small;
+    padding: 0.5em;
+    border-radius: 0px 0px 0px 12px;
+  }
 }
 
-.container{
-  border: 2px solid black;
-  padding: 2em;
-  width: 70vw;
-  margin-bottom: 1em;
-}
