@@ -10,4 +10,9 @@
   height: 5vh;
   width: 30vw;
   cursor: pointer;
+  background-color: #9e56da;
+  color: white;
+  font-size: larger;
+  font-weight: 600;
+  border-radius: 12px;
 }
