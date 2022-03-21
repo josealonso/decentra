@@ -1,6 +1,6 @@
 import { auth, firestore, googleAuthProvider } from '../../lib/firebase';
+import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
-
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
 import styles from './styles.module.css'
@@ -25,9 +25,17 @@ function SignInButton() {
   };
 
   return (
-      <button className="btn-google" onClick={signInWithGoogle}>
-        <img src={'/google.jpg'} width="30px" /> Sign in with Google
+    <>
+      <h2>Sign Up</h2>
+      <SignUpForm />
+      <hr></hr>
+      <h2>Sign In</h2>
+      <SignInForm />
+      <button className="btn-google"style={{marginTop: '5em'}} onClick={signInWithGoogle}>
+        <img src={'/google.jpg'}  width="30px" /> Sign in with Google
       </button>
+    </>
+      
   );
 }
 
