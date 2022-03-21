@@ -1,8 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@lib/firebase';
-
 import React, { useState } from 'react'
+import styles from './styles.module.css'
 
 export function SignUpForm() {
   const [email, setEmail] = useState('')
@@ -32,21 +32,21 @@ export function SignUpForm() {
   
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.form_collection}>
+          <label className={styles.form_label}>
             Email
           </label>
-          <input type='email' name='email' onChange={(event) => handleChangeEmail(event)} />
+          <input type='email' name='email' onChange={(event) => handleChangeEmail(event)} className={styles.form_input}/>
         </div>
 
-        <div>
-          <label>
+        <div className={styles.form_collection}>
+          <label className={styles.form_label}>
             password
           </label>
-          <input type='password' name='password' onChange={(event) => handleChangePassword(event)} />
+          <input type='password' name='password' onChange={(event) => handleChangePassword(event)} className={styles.form_input}/>
         </div>
-        <button>Sign in</button>
+        <button className={styles.form_submit}>Sign in</button>
       </form>
       <hr></hr>
       <br></br>
@@ -82,21 +82,21 @@ export function SignInForm() {
   
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.form_collection}>
+          <label className={styles.form_label}>
             Email
           </label>
-          <input type='email' name='email' onChange={(event) => handleChangeEmail(event)} />
+          <input type='email' name='email' onChange={(event) => handleChangeEmail(event)} className={styles.form_input} />
         </div>
 
-        <div>
-          <label>
+        <div className={styles.form_collection}>
+          <label className={styles.form_label}>
             password
           </label>
-          <input type='password' name='password' onChange={(event) => handleChangePassword(event)} />
+          <input type='password' name='password' onChange={(event) => handleChangePassword(event)} className={styles.form_input}/>
         </div>
-        <button>Sign in</button>
+        <button className={styles.form_submit}>Sign in</button>
       </form>
       <hr></hr>
       <br></br>

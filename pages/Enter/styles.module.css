@@ -8,20 +8,6 @@
   flex-direction: column;
 }
 
-.google_btn{
-  height: 10vh;
-  width: 30vw;
-  padding: 2em;
-  background-color:  white;
-  border-radius: 12px;
-  color: black;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-}
-
 .loginLogo{
   height: 5vh;
   width: 5vh;

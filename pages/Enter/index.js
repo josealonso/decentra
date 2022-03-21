@@ -20,19 +20,35 @@ export default function Enter(props) {
 
 // Sign in with Google button
 function SignInButton() {
+
+  const [signIn, ToggleSignIn] = useState(false)
+
   const signInWithGoogle = async () => {
     await auth.signInWithPopup(googleAuthProvider);
   };
 
   return (
     <>
-      <h2>Sign Up</h2>
-      <SignUpForm />
-      <hr></hr>
-      <h2>Sign In</h2>
-      <SignInForm />
+      {signIn? 
+        <>
+          <h2>Sign Up</h2>
+            <SignUpForm />
+          <hr></hr>
+        </>
+        :
+        <>
+          <h2>Sign In</h2>
+          <SignInForm />
+        </>
+      }
+      
+      
       <button className="btn-google"style={{marginTop: '5em'}} onClick={signInWithGoogle}>
         <img src={'/google.jpg'}  width="30px" /> Sign in with Google
+      </button>
+
+      <button className="btn-google"style={{marginTop: '5em'}} onClick={() => {ToggleSignIn(!signIn)}}>
+        Or {signIn? 'Sign In' : 'Sign Up'}
       </button>
     </>
       
@@ -41,7 +57,13 @@ function SignInButton() {
 
 // Sign out button
 function SignOutButton() {
-  return <button onClick={() => auth.signOut()}>Sign Out</button>;
+  return (
+    <>
+      <iframe style={{border: 'none', overflowX: 'none'}} src="https://docs.google.com/forms/d/e/1FAIpQLSeD8uGZ7MiyZubM1WeYb82m1TaHrXPtBjl1GwCuRQ83g7FZXQ/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
+      <button onClick={() => auth.signOut()}>Sign Out</button>
+    </>
+
+  )
 }
 
 // Username form
