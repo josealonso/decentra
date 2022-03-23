@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 import AuthCheck from '../../components/helpers/AuthCheck';
-
+import ReactMarkdown from 'react-markdown';
 import ImageUploader from '../../components/layout/ImageUploader';
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 
@@ -77,7 +77,7 @@ function PostForm({ defaultValues, postRef, preview }) {
     <form onSubmit={handleSubmit(updatePost)}>
       {preview && (
         <div className="card">
-          <p>{watch('content')}</p>
+        <ReactMarkdown>{watch('content')}</ReactMarkdown>
         </div>
       )}
 
