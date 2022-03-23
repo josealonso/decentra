@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 import AuthCheck from '../../components/helpers/AuthCheck';
-import ReactMarkdown from 'react-markdown/react-markdown.min';
+
 import ImageUploader from '../../components/layout/ImageUploader';
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 
@@ -12,6 +12,8 @@ import { useForm } from 'react-hook-form';
 
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+
+const ReactMarkdown = dynamic(() => import('react-markdown/react-markdown.min').then((module) => module.Stage), { ssr: false });
 
 export default function AdminPostEdit(props) {
   return (
