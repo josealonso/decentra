@@ -19,7 +19,6 @@ service cloud.firestore {
         allow create: if isValidUsername(username);
       }
 
-      
       match /users/{userId}/posts/{postId} {
       	allow read;
         allow create: if canCreatePost(userId); 
@@ -49,6 +48,10 @@ service cloud.firestore {
         
         return isOwner && isValidLength && isValidUserDoc;     
       }
+
+      // Scores 
+
+
 
       // Posts
       
