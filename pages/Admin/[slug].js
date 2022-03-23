@@ -1,9 +1,8 @@
 import styles from './styles.module.css';
 import AuthCheck from '../../components/helpers/AuthCheck';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown/react-markdown.min';
 import ImageUploader from '../../components/layout/ImageUploader';
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
-
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
