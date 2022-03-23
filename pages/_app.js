@@ -9,7 +9,6 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
-
   useEffect(() => {
     if("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
