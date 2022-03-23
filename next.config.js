@@ -1,8 +1,3 @@
-const withTM = require('next-transpile-modules')(['react-markdown']);
-
-module.exports = withTM({
+module.exports = {
   swcMinify: true,
-  experimental: {
-    esmExternals: false
-  }
-})
+}
