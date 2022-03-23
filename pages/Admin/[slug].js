@@ -13,8 +13,6 @@ import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 
-const ReactMarkdown = dynamic(() => import('react-markdown/react-markdown.min').then((module) => module.Stage), { ssr: false });
-
 export default function AdminPostEdit(props) {
   return (
     <AuthCheck>
@@ -78,7 +76,7 @@ function PostForm({ defaultValues, postRef, preview }) {
     <form onSubmit={handleSubmit(updatePost)}>
       {preview && (
         <div className="card">
-        <ReactMarkdown>{watch('content')}</ReactMarkdown>
+        <p>{watch('content')}</p>
         </div>
       )}
 
