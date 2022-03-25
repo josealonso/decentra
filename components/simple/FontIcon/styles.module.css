@@ -1,6 +1,7 @@
 .fontIcon{
   background-size: cover;
-  filter: brightness(0) invert(0.9);
-  height: 3.5vh;
-  width: 3.5vh;
+  filter: brightness(0) invert(0.3);
+  height: 3vh;
+  width: 3vh;
+  margin-bottom: 0.5em;
 }

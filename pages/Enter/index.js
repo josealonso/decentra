@@ -31,24 +31,25 @@ function SignInButton() {
     <>
       {signIn? 
         <>
-          <h2>Sign Up</h2>
+          <h2 className={styles.header}>Sign Up</h2>
             <SignUpForm />
-          <hr></hr>
+            <button className={styles.sign_up_btn} onClick={() => {ToggleSignIn(!signIn)}}>
+              Or {signIn? 'Sign In' : 'Sign Up'}
+            </button>
         </>
         :
         <>
-          <h2>Sign In</h2>
+          <h2  className={styles.header}>Sign In</h2>
           <SignInForm />
+          <button className={styles.sign_up_btn} onClick={() => {ToggleSignIn(!signIn)}}>
+            Or {signIn? 'Sign In' : 'Sign Up'}
+          </button>
         </>
       }
       
       
-      <button className="btn-google"style={{marginTop: '5em'}} onClick={signInWithGoogle}>
+      <button className={styles.google_btn} style={{marginTop: '5em'}} onClick={signInWithGoogle}>
         <img src={'/google.jpg'}  width="30px" /> Sign in with Google
-      </button>
-
-      <button className="btn-google"style={{marginTop: '5em'}} onClick={() => {ToggleSignIn(!signIn)}}>
-        Or {signIn? 'Sign In' : 'Sign Up'}
       </button>
     </>
       
@@ -59,8 +60,20 @@ function SignInButton() {
 function SignOutButton() {
   return (
     <>
-      <iframe style={{border: 'none', overflowX: 'none'}} src="https://docs.google.com/forms/d/e/1FAIpQLSeD8uGZ7MiyZubM1WeYb82m1TaHrXPtBjl1GwCuRQ83g7FZXQ/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
-      <button onClick={() => auth.signOut()}>Sign Out</button>
+      <div className={styles.announcement}>
+        <div className={styles.background_img} />
+        <h2 className={styles.header}>Welcome to Metrodao!</h2>
+        <p className={styles.para}>
+          Over the next few months we will be building a platform to elevate public private relations.
+          <br></br>
+          <br></br>
+          Our goal is simple, we want everyone to get a chance at being heard. 
+          And to celebrate your opinions we are offering 1 of our community members <em><b>500$ to for completing the survey</b></em>
+          <br></br>
+        </p>
+      </div>
+      <iframe className={styles.form} src="https://docs.google.com/forms/d/e/1FAIpQLSeD8uGZ7MiyZubM1WeYb82m1TaHrXPtBjl1GwCuRQ83g7FZXQ/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
+      <button style={{marginTop: '2em'}} className={styles.sign_up_btn} onClick={() => auth.signOut()}>Sign Out</button>
     </>
 
   )
@@ -131,16 +144,16 @@ function UsernameForm() {
 
   return (
     !username && (
-      <section>
-        <h3>Choose Username</h3>
-        <form onSubmit={onSubmit}>
-          <input name="username" placeholder="myname" value={formValue} onChange={onChange} />
+      <>
+      
+      <section className={styles.username_container}>
+        <h3 className={styles.username_header}>Secure your username</h3>
+        <form className={styles.username_form} onSubmit={onSubmit}>
+          <input className={styles.username_input} name="username" placeholder="myname" value={formValue} onChange={onChange} />
           <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
-          <button type="submit" className="btn-green" disabled={!isValid}>
+          <button type="submit" className={styles.username_btn} disabled={!isValid}>
             Choose
           </button>
-
-          <h3>Debug State</h3>
           <div>
             Username: {formValue}
             <br />
@@ -150,6 +163,25 @@ function UsernameForm() {
           </div>
         </form>
       </section>
+
+      <div>
+      <div className={styles.announcement}>
+        <div className={styles.background_img} />
+        <h2 className={styles.header}>Welcome to Metrodao!</h2>
+        <p className={styles.para}>
+          Over the next few months we will be building a platform to elevate public private relations.
+          <br></br>
+          <br></br>
+          Our goal is simple, we want everyone to get a chance at being heard. 
+          And to celebrate your opinions we are offering 1 of our community members <em><b>500$ to for completing the survey</b></em>
+          <br></br>
+        </p>
+      </div>
+      
+      <iframe className={styles.form} src="https://docs.google.com/forms/d/e/1FAIpQLSeD8uGZ7MiyZubM1WeYb82m1TaHrXPtBjl1GwCuRQ83g7FZXQ/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
+      </div>
+      </>
+      
     )
   );
 }

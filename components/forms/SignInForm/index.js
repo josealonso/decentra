@@ -48,7 +48,7 @@ export function SignUpForm() {
         </div>
         <button className={styles.form_submit}>Sign in</button>
       </form>
-      <hr></hr>
+
       <br></br>
     </div>
   )
@@ -98,7 +98,6 @@ export function SignInForm() {
         </div>
         <button className={styles.form_submit}>Sign in</button>
       </form>
-      <hr></hr>
       <br></br>
     </div>
   )

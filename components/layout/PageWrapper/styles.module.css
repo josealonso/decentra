@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-    padding-top: 6vh;
+    padding-top: 10vh;
     padding-bottom: 8vh;
     overflow-x: hidden;
   }

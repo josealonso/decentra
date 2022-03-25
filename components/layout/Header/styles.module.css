@@ -1,21 +1,25 @@
 @media screen and (max-width: 786px){
   .header{
-    background-color: #016da8;
+    background-color: #005583;
     position: fixed;
     top: 0;
     left: 0;
-    height: 5vh;
+    height: 7vh;
     width: 100vw;
     z-index: 100;
-    color: white;
+    color: rgba(255, 255, 255, 0.645);
     font-size: x-large;
     display: flex;
     align-items: center;
     justify-content: left;
-    padding-left: 1em;
+    padding-left: 0.5em;
     font-weight: 500;
   }
   
+  .logo_img{
+    height: 7.5vh;
+    filter: brightness(0.8);
+  }
 }
 
 @media screen and (min-width: 786px){

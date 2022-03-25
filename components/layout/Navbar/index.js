@@ -23,6 +23,7 @@ export default function Navbar() {
           </Link>
         </li>
 
+      
         {
           user && (
             <>
@@ -58,13 +59,18 @@ export default function Navbar() {
             </>
           )
         }
+        
+        
 
         {
           !user && (
             <>
               <li>
                 <Link href={`/Enter`}>
-                  <button className={styles.btnBlue}>Log In</button>
+                  <button className={styles.btnBlue}>
+                    <FontIcon image={"https://i.imgur.com/9m8zvCV.png"}/>
+                    Log In
+                  </button>
                 </Link>
               </li>
             </>

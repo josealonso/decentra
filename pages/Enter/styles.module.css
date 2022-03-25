@@ -14,18 +14,124 @@
 }
 
 @media screen and (max-width: 786px) {
-  .google_btn{
-    height: 10vh;
-    width: 80vw;
-    padding: 2em;
-    background-color:  white;
-    border-radius: 12px;
-    color: black;
-    font-weight: bold;
+
+  .container{
+    height: 200vh;
+    width: 100vw;
+    padding-top: 7vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-  
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .sign_up_btn{
+    height: 6vh;
+    min-height: 50px;
+    min-width: 200px;
+    width: 50%;
+    background-color: #005583;
+    font-size: large;
+    color: white;
+    font-weight: 500;
+    border-radius: 12px;
+  }
+
+  .google_btn{
+    height: 6vh;
+    min-height: 50px;
+    min-width: 200px;
+    width: 50%;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 2px solid #005583;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 500;
+ } 
+
+  .form{
+    border: 3px solid rgb(179, 179, 179);
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .header{
+    color: #303030;
+    margin-bottom: 1em;
+    font-size: x-large;
+    text-align: center;
+    margin-top: 1em;
+  }
+
+  .signOut{
+    margin-top: 2em;
+  }
+
+  .background_img{
+    background-image: url('https://i.imgur.com/HtU5wzB.jpg');
+    background-size: cover;
+    height: 20vh;
+    width: 100vw;
+    background-color: #005583;
+    margin-top: -5em;
+  }
+
+  .para{
+    padding-left: 2em;
+    width: 90vw;
+    margin-bottom: 1em;
+    font-size: larger;
+    color: #4d4d4d;
+  }
+
+  .username_container{
+    height: 100%;
+    width: 100%;
+    min-height: 300px;
+    margin-top: -5em;
+    height: 50vh;
+    padding: 2em;
+    background: linear-gradient(45deg, rgba(76, 154, 228, 0.986), rgb(188, 211, 240));
+  }
+
+  .username_header{
+    font-size: x-large;
+    color: #212121;
+    text-shadow: 2px 1px rgba(211, 211, 211, 0.234);
+  }
+
+  .username_form{
+    margin-top: 1em;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.323);
+    padding: 1em;
+    -webkit-box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
+    -moz-box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
+    box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
+  }
+
+  .username_input{
+    width: 80%;
+    height: 5vh;
+    padding: 1em;
+    margin-bottom: 0.7em;
+    -webkit-box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
+    -moz-box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
+    box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
+  }
+
+  .username_btn{
+    height: 5vh;
+    width: 50%;
+    margin-bottom: 1em;
+    background-color: #005583;
+    border: none;
+    border-radius: 12px;
+    color: white;
   }
 }
 
