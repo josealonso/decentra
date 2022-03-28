@@ -96,7 +96,7 @@ export function SignInForm() {
           </label>
           <input type='password' name='password' onChange={(event) => handleChangePassword(event)} className={styles.form_input}/>
         </div>
-        <button className={styles.form_submit}>Sign in</button>
+        <button className={styles.form_submit} disabled={email =="" && password ==""}>Sign in</button>
       </form>
       <br></br>
     </div>

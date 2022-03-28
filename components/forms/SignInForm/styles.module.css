@@ -7,6 +7,7 @@
 
 .form_label{
   margin-top: 1em;
+  margin-left: 10%;
 }
 
 .form_collection{
@@ -15,7 +16,7 @@
   font-weight: 500;
   font-size: large;
   color: rgb(67, 67, 67);
-  width: 70vw;
+  width: 100vw;
 }
 
 .form_input{
@@ -24,6 +25,8 @@
   -moz-box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
   box-shadow: 5px 3px 25px -11px rgba(54, 54, 54, 0.193);
   height: 6vh;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .form_submit{
@@ -31,7 +34,7 @@
   height: 6vh;
     min-height: 50px;
     min-width: 200px;
-    width: 50%;
+    width: 80%;
     font-weight: 500;
     border-radius: 12px;
     border: 2px solid #005583;

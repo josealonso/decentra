@@ -8,11 +8,14 @@
 
 .loadBtn{
   height: 5vh;
-  width: 30vw;
+  width: 40vw;
   cursor: pointer;
-  background-color: #9e56da;
+  background-color: #9E57DC;
+  border: none;
+  margin-top: 1em;
+  margin-left: 30vw;
   color: white;
-  font-size: larger;
+  font-size: medium;
   font-weight: 600;
   border-radius: 12px;
 }

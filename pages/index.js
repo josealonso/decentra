@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import PostFeed from '../components/layout/PostFeed';
 import Loader from '../components/simple/Loader';
+import DashboardNav from '@components/layout/DashboardNav';
 import { firestore, fromMillis, postToJSON } from '../lib/firebase';
 
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
-const LIMIT = 1;
+const LIMIT = 5;
 
 export async function getServerSideProps(context){
   const postsQuery = firestore
@@ -22,10 +23,12 @@ export async function getServerSideProps(context){
 }
 
 export default function Home(props) {
+
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false);
-
   const [postsEnd, setPostsEnd] = useState(false);
+
+  const [feed, setFeed] = useState('');
 
   const getMorePosts = async () => {
     setLoading(true);
@@ -50,9 +53,18 @@ export default function Home(props) {
     }
   }
 
+  const feeds = ['Forum', 'Surveys', 'Rewards', 'Wallet'];
 
   return (
     <div className={styles.container}>
+      <DashboardNav 
+        highlight={feed}
+        setWallet={() => {setFeed('Wallet')}}
+        setRewards={() => {setFeed('Rewards')}}
+        setSurveys={() => {setFeed('Surveys')}}
+        setForum={() => {setFeed('Forum')}}
+      />
+
       <PostFeed posts={posts}/>
       {!loading && !postsEnd && <button onClick={getMorePosts} className={styles.loadBtn}>Load more</button>} 
     

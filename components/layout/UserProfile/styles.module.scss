@@ -1,3 +1,5 @@
+@import '../../../theme/variables.scss';
+
 @media screen and (min-width: 786px) {
   
 }
@@ -10,21 +12,22 @@
   }
   
   .container{
+    background-color: $light-bg;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5em;
     flex-direction: column;
   }
   
   .text{
     margin-top: 1em;
     font-size: large;
-    color: rgba(52, 111, 247, 0.631);
   }
 
   .badge_container{
-    height: 30vh;
     width: 100vw;
+
     overflow-x: scroll;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -36,7 +39,14 @@
     padding-right: 1em;
   }
 
+  .scrollable{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
   .badgeBlock{
+    width: 43vw;
     padding: 1em;
     border-radius: 12px;
     height: 25vh;

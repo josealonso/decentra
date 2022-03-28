@@ -1,7 +1,7 @@
 .container{
   height: 100vh;
   width: 100vw;
-  padding-top: 7vh;
+  padding-top: 2vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,7 @@
   .container{
     height: 200vh;
     width: 100vw;
-    padding-top: 7vh;
+    padding-top: 0vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@
     height: 6vh;
     min-height: 50px;
     min-width: 200px;
-    width: 50%;
+    width: 80%;
     background-color: #005583;
     font-size: large;
     color: white;
@@ -41,7 +41,7 @@
     height: 6vh;
     min-height: 50px;
     min-width: 200px;
-    width: 50%;
+    width: 80%;
     font-weight: 500;
     border-radius: 12px;
     border: 2px solid #005583;
@@ -62,9 +62,8 @@
   .header{
     color: #303030;
     margin-bottom: 1em;
-    font-size: x-large;
+    font-size: xx-large;
     text-align: center;
-    margin-top: 1em;
   }
 
   .signOut{
@@ -126,7 +125,7 @@
 
   .username_btn{
     height: 5vh;
-    width: 50%;
+    width: 90%;
     margin-bottom: 1em;
     background-color: #005583;
     border: none;

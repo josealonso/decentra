@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 export default function PostFeed({posts, admin}) {
   return posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin}/>) : null;
@@ -24,6 +24,10 @@ function PostItem({post, admin = false}){
           <a>{post.title}</a>
         </h2>
       </Link>
+
+      <p className={styles.para}>
+        {post.content}
+      </p>
 
       <footer>
         <span className={styles.top_corner}>

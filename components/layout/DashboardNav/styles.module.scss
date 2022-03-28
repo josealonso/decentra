@@ -1,0 +1,33 @@
+@import '../../../theme/variables.scss';
+@import '../../../theme/mixins.scss';
+
+@media screen and (max-width: 786px) {
+  .nav{
+    height: 7vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: $light-highlight-color2;
+    @include flex(flex, row, center, space-evenly)
+  }
+  
+  .highlight{
+    margin-left: 1em;
+    width: 10vw;
+  }
+
+  .btn{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(0) invert(1);
+    background-color: #00000000;
+  }
+}
+
+@media screen and (min-width: 786px) {
+
+}

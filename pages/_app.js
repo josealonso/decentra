@@ -1,11 +1,10 @@
 import Navbar from '../components/layout/Navbar'
 import PageWrapper from '@components/layout/PageWrapper';
 import { Toaster } from 'react-hot-toast';
-import Header from '@components/layout/Header';
 import { UserContext } from '../lib/context';
 import { useUserData } from '../lib/hooks';
 import { useEffect } from 'react';
-import '../styles/globals.css'
+import '../theme/global.scss'
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
@@ -27,7 +26,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <UserContext.Provider value={userData}>
-        <Header />
         <Navbar />
           <PageWrapper>
             <Component {...pageProps} />

@@ -1,3 +1,5 @@
+@import '../../../theme/variables.scss';
+
 @media screen and (min-width: 786px) {
   .container{
     border: 2px solid black;
@@ -10,12 +12,13 @@
 
 @media screen and (max-width: 786px) {
   .container{
-    background-color: rgb(224, 224, 224);
-    border-radius: 12px;
-    padding: 2em;
-    width: 90vw;
-    margin-bottom: 1em;
+    background-color: $light-secondary-bg;
+    border: 1px solid rgba(0, 0, 0, 0.379);
+    width: 100vw;
+    padding: 1em;
+    margin-bottom: 0.2em;
     position: relative;
+    min-height: 50vw;
   }
 
   .user_nav{
@@ -25,8 +28,14 @@
 
   .post_title{
     margin-top: 1em;
-    margin-bottom: 1em;
-    color: #303030ce;
+    margin-bottom: 0.5em;
+    color: #303030e4;
+    font-size: larger;
+  }
+
+  .para{
+    color: #30303080;
+    width: 90%;
   }
 
   .top_corner{
@@ -34,15 +43,14 @@
     top: 0px;
     color: white;
     right: 0;
-    background: linear-gradient(rgba(84, 84, 196, 0.762), rgba(46, 132, 186, 0.762));
+    background: linear-gradient(rgba(137, 165, 225, 0.762), rgba(0, 40, 65, 0.762));
     padding: 0.5em;
-    border-radius: 0px 12px 0px 0px;
   }
 
   .likes{
     position: absolute;
     bottom: 0px;
-    color: rgb(148, 144, 144);
+    color: rgb(249, 44, 44);
     left: 0;
     font-size: small;
     padding: 0.5em;

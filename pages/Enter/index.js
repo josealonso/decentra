@@ -3,7 +3,7 @@ import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
