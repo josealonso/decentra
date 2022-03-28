@@ -3,7 +3,7 @@ import AuthCheck from '../../components/helpers/AuthCheck';
 
 import ImageUploader from '../../components/layout/ImageUploader';
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
-
+import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -76,7 +76,7 @@ function PostForm({ defaultValues, postRef, preview }) {
     <form onSubmit={handleSubmit(updatePost)}>
       {preview && (
         <div className="card">
-        <p>{watch('content')}</p>
+        <ReactMarkdown>{watch('content')}</ReactMarkdown>
         </div>
       )}
 
