@@ -1,0 +1,18 @@
+@import '../../../theme/variables.scss';
+@import '../../../theme/mixins.scss';
+
+.small_title{
+  margin-top: 1em;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.title{
+  margin-bottom: 1em;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.card{
+  @include section(92vh, 90vw, 1em);
+  border: 2px solid rgba(0, 0, 0, 0.249);
+} 
+
