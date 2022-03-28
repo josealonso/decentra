@@ -9,6 +9,13 @@ export default function PostFeed({posts, admin}) {
 function PostItem({post, admin = false}){
   const wordCount = post?.content.trim().split(/\s+/g).length;
 
+  const contentPreview = post?.content.trim().split(/\s+/g).map((word, i) => {
+    let preview = [];
+    if(i < 15 && word.length < 15){
+      preview.push(word)
+    }
+    return preview
+  })
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 
   return (
@@ -26,7 +33,7 @@ function PostItem({post, admin = false}){
       </Link>
 
       <p className={styles.para}>
-        {post.content}
+        {contentPreview.join(' ')}...
       </p>
 
       <footer>
