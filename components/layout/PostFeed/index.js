@@ -51,7 +51,7 @@ function PostItem({post, admin = false}) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} style={{marginTop: '1em'}}>
+    <Card style={{marginTop: '0.5em', width: '95%'}}>
       <Link href={`/${post.username}/${post.slug}`}>
         <CardHeader  
           avatar={

@@ -31,11 +31,11 @@ function PostList() {
   const posts = querySnapshot?.docs.map((doc) => doc.data());
 
   return (
-    <>
+    <div className={styles.admin_section}>
       <h1 className={styles.postManage}>Manage your Posts!</h1>
       <CommunitySurvey />
       <PostFeed posts={posts} admin/>
-    </>
+    </div>
   )
 }
 
