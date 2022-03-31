@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { Toaster } from 'react-hot-toast';
 import { UserContext } from '../lib/context';
 import { useUserData } from '../lib/hooks';
+import Header from '@components/layout/Header';
 import { useEffect } from 'react';
 import '../theme/global.scss'
 
@@ -31,6 +32,7 @@ function MyApp({ Component, pageProps }) {
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <Navbar />
+          <Header />
           <PageWrapper>
             <Component {...pageProps} />
           </PageWrapper>

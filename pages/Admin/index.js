@@ -2,7 +2,7 @@ import AuthCheck from "../../components/helpers/AuthCheck";
 import { UserContext } from "../../lib/context";
 import { useRouter } from 'next/router';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import CommunitySurvey from "@components/layout/Proposals/ProposalForms/CommunitySurvey";
+import ProposalSurvey from "@components/layout/Proposals/ProposalForms/ProposalSurvey";
 import PostFeed from '../../components/layout/PostFeed'
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 import kebabCase from 'lodash.kebabcase';
@@ -13,7 +13,7 @@ import styles from './styles.module.css'
 
 export default function AdminPostsPage(props) {
   return (
-    <main>
+    <main className={styles.wrapper}>
       <AuthCheck>
         <PostList />
         <CreateNewPost />
@@ -33,7 +33,7 @@ function PostList() {
   return (
     <div className={styles.admin_section}>
       <h1 className={styles.postManage}>Manage your Posts!</h1>
-      <CommunitySurvey />
+      <ProposalSurvey />
       <PostFeed posts={posts} admin/>
     </div>
   )
@@ -72,7 +72,7 @@ function CreateNewPost() {
   } 
 
   return (
-    <form onSubmit={createPost}>
+    <form onSubmit={createPost} className={styles.createPost}>
       <input 
         value={title}
         onChange={(e) => setTitle(e.target.value)}
