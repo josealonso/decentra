@@ -1,13 +1,36 @@
+@import '../../../../../theme/variables.scss';
+@import '../../../../../theme/mixins.scss';
+
+
 .form{
   padding: 1em;
-  background-color: white;
+  background-color: rgb(236, 236, 236);
 }
 
 .form_container{
   width: 100%;
 }
 
+.form_group{
+  background-color: rgb(255, 255, 255);
+  padding: 1em;
+  width: 100%;
+  min-width: 100vw;
+  margin-top: 1em;
+}
+
 .form_input{
   width: 100%;
   margin-top: 1em;
+}
+
+.submit{
+  background-color: $light-highlight-color2;
+  width: 60%;
+  height: 6vh;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  margin-left: 20%;
+  color: white;
+  border-radius: 12px;
 }

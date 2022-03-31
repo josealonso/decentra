@@ -45,11 +45,12 @@ export default function CommunitySurvey() {
           
           
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}>Which would you say is the single biggest PROBLEM in your neighborhood currently? </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>Which would you say is the single biggest PROBLEM in your neighborhood currently? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '2em'}} value="1" control={<Radio />} label="Violent crimes (gun crimes, armed robberies, violence against women and/or children)" />
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Non-violent crimes (thefts, vandalism)" />
@@ -70,11 +71,12 @@ export default function CommunitySurvey() {
           </FormControl>
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}>Do you have ideas of how to solve this problem – if you had the money to do it? </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>Do you have ideas of how to solve this problem – if you had the money to do it? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
@@ -82,52 +84,12 @@ export default function CommunitySurvey() {
           </FormControl>
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}>Do you currently volunteer with a community group or local non-profit?  </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>Do you currently volunteer with a community group or local non-profit?  </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
-            >
-              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
-              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
-            </RadioGroup>
-          </FormControl>
-
-
-
-
-
-
-          <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}>Do you currently attend civic association, town hall meetings, or similar community engagement activities?</FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
-              name="radio-buttons-group"
-            >
-              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
-              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
-            </RadioGroup>
-          </FormControl>
-
-          <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}> Do you currently know and/or communicate with your local leaders, council members, or state representatives? </FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
-              name="radio-buttons-group"
-            >
-              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
-              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
-            </RadioGroup>
-          </FormControl>
-
-          <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}> In 2022, do you know how much money will be dedicated to community impact projects by your government and local industries?  </FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
-              name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
@@ -136,12 +98,16 @@ export default function CommunitySurvey() {
 
 
 
+
+
+
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}>At any point in time, have you participated in deciding how public funds will be dedicated to community impact projects by your government and local industries?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>Do you currently attend civic association, town hall meetings, or similar community engagement activities?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
@@ -149,11 +115,12 @@ export default function CommunitySurvey() {
           </FormControl>
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}> Do you believe that public funds scheduled to be spent in 2022 by your local government and industries; will be used to fix some of the problems in your neighborhood? </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> Do you currently know and/or communicate with your local leaders, council members, or state representatives? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
@@ -161,11 +128,53 @@ export default function CommunitySurvey() {
           </FormControl>
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}> If you could vote on how to spend a portion of the public funds, but you had to attend in-person meetings to participate, would you want to?  </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> In 2022, do you know how much money will be dedicated to community impact projects by your government and local industries?  </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
+            >
+              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
+              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
+            </RadioGroup>
+          </FormControl>
+
+
+
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>At any point in time, have you participated in deciding how public funds will be dedicated to community impact projects by your government and local industries?</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+              className={styles.form_group}
+            >
+              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
+              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
+            </RadioGroup>
+          </FormControl>
+
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> Do you believe that public funds scheduled to be spent in 2022 by your local government and industries; will be used to fix some of the problems in your neighborhood? </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+              className={styles.form_group}
+            >
+              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Yes" />
+              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
+            </RadioGroup>
+          </FormControl>
+
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> If you could vote on how to spend a portion of the public funds, but you had to attend in-person meetings to participate, would you want to?  </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Definitely" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
@@ -177,11 +186,12 @@ export default function CommunitySurvey() {
 
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}>If you could vote on how to spend some of the public funds but had to attend video meetings to participate, would you want to?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>If you could vote on how to spend some of the public funds but had to attend video meetings to participate, would you want to?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Definitely" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
@@ -190,11 +200,12 @@ export default function CommunitySurvey() {
           </FormControl>
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}> If you could vote on how to spend a portion of the public funds, but you had to use a mobile app to participate, would you want to? </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> If you could vote on how to spend a portion of the public funds, but you had to use a mobile app to participate, would you want to? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Definitely" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="No" />
@@ -203,11 +214,12 @@ export default function CommunitySurvey() {
           </FormControl>
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}> If you could be rewarded for your civic engagement, which reward would be most meaningful to you?  </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> If you could be rewarded for your civic engagement, which reward would be most meaningful to you?  </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Money / Cash Rewards" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Coupons / Credits for Retail Stores (Groceries, Electronics, Clothing, etc)" />
@@ -219,11 +231,12 @@ export default function CommunitySurvey() {
           </FormControl>
 
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em'}}> How old are you? </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> How old are you? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
+              className={styles.form_group}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="17 or under" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="18 - 25" />
@@ -235,8 +248,8 @@ export default function CommunitySurvey() {
             </RadioGroup>
           </FormControl>
 
-          <FormGroup>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', marginBottom: '1.5em'}}> Which description represents you best? (select all that apply) </FormLabel>
+          <FormGroup  className={styles.form_group}>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}> Which description represents you best? (select all that apply) </FormLabel>
             
             <FormControlLabel control={<Checkbox defaultChecked />} label="I am a student" />
             <FormControlLabel disabled control={<Checkbox />} label="I work full-time" />
@@ -248,7 +261,7 @@ export default function CommunitySurvey() {
           </FormGroup>
 
           <FormGroup>
-            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', marginBottom: '1.5em'}}> Please share any questions, comments, or concerns (optional) </FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label" style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}> Please share any questions, comments, or concerns (optional) </FormLabel>
 
             <TextareaAutosize
               aria-label="minimum height"
@@ -260,6 +273,8 @@ export default function CommunitySurvey() {
           
           
         </fieldset>
+
+        <button className={styles.submit}>Submit</button>
       </form>
     </div>
   )

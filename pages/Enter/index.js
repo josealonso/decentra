@@ -1,6 +1,7 @@
 import { auth, firestore, googleAuthProvider } from '../../lib/firebase';
 import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
+import CommunitySurvey from '@components/layout/Proposals/ProposalForms/CommunitySurvey';
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
 import styles from './styles.module.scss'
@@ -13,7 +14,15 @@ export default function Enter(props) {
   // 3. user signed in, has username <SignOutButton />
   return (
     <main className={styles.container}>
-      {user ? !username ? <UsernameForm /> : <SignOutButton />  : <SignInButton />}
+      {user ? !username ? <UsernameForm /> 
+      : 
+      <div className={styles.survey_container}>
+        <SignOutButton />
+        
+        <CommunitySurvey />
+      </div>  
+      : 
+      <SignInButton />}
     </main>
   );
 }
@@ -72,7 +81,6 @@ function SignOutButton() {
           <br></br>
         </p>
       </div>
-      <iframe className={styles.form} src="https://docs.google.com/forms/d/e/1FAIpQLSeD8uGZ7MiyZubM1WeYb82m1TaHrXPtBjl1GwCuRQ83g7FZXQ/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
       <button style={{marginTop: '2em'}} className={styles.sign_up_btn} onClick={() => auth.signOut()}>Sign Out</button>
     </>
 
