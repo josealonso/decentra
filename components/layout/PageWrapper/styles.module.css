@@ -10,6 +10,7 @@
     align-items: center;
     overflow-y: scroll;
     padding-top:8vh;
+    background-color: rgb(214, 214, 214);
     padding-bottom: 20vh;
     overflow-x: hidden;
   }

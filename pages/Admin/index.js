@@ -2,6 +2,7 @@ import AuthCheck from "../../components/helpers/AuthCheck";
 import { UserContext } from "../../lib/context";
 import { useRouter } from 'next/router';
 import { useCollection } from 'react-firebase-hooks/firestore';
+import CommunitySurvey from "@components/layout/Proposals/ProposalForms/CommunitySurvey";
 import PostFeed from '../../components/layout/PostFeed'
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 import kebabCase from 'lodash.kebabcase';
@@ -32,6 +33,7 @@ function PostList() {
   return (
     <>
       <h1 className={styles.postManage}>Manage your Posts!</h1>
+      <CommunitySurvey />
       <PostFeed posts={posts} admin/>
     </>
   )

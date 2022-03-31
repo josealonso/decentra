@@ -1,5 +1,10 @@
 import React from 'react'
 import Header from '../Header';
+import CardHeader from '@mui/material/CardHeader';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styles from './styles.module.scss'
 
 export default function UserProfile({user}) {
@@ -7,14 +12,22 @@ export default function UserProfile({user}) {
   return (
     <div className={styles.container}>
       <Header />
-      <img src={user.photoURL} className={styles.circularImg} alt={"User Profile"}/>
-      <p className={styles.text}>
-        <i>@{user.username}</i>  
-      </p> 
 
-      <h1 className={styles.user}>
-        {user.displayName}
-      </h1>
+      <CardHeader
+        className={styles.heading}
+        avatar={
+          <Avatar aria-label="recipe"   sx={{ width: 100, height: 100 }} src={user.photoURL} alt={user.displayName}> 
+            
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={user.username}
+        subheader={user.displayName}
+      />
 
       <div className={styles.badge_container}>
 

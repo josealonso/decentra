@@ -42,7 +42,10 @@ export default function UserProfilePage({ user, posts}) {
     <main className={styles.container}>
       <Metatags title={`${user.username}'s page`}/>
       <UserProfile user={user}/>
-      <PostFeed posts={posts}/>
+      <div className={styles.posts}>
+        <PostFeed posts={posts}/>
+      </div>
+    
     </main>
   )
 }

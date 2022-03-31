@@ -1,19 +1,33 @@
-import React from 'react'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import BottomNavigation from '@mui/material/BottomNavigation';
 import { auth } from '../../../lib/firebase';
 import { useContext } from 'react';
 import { UserContext } from '../../../lib/context';
 import FontIcon from '@components/simple/FontIcon';
 import Link from 'next/link'
+import Paper from '@mui/material/Paper';
 
 import styles from './styles.module.css'
 
-export default function Navbar() {
+export default function FixedBottomNavigation() {
 
   const {user, username} = useContext(UserContext)
 
+  const [value, setValue] = React.useState(0);
+  const ref = React.useRef(null);
+
   return (
-    <nav className={styles.navbar}>
-      <ul className={styles.linkList}>
+    <Box sx={{ pb: 7 }} ref={ref} className={styles.navbar}>
+      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        >
+        <ul className={styles.linkList}>
         <li>
           <Link href="/">
             <button className={styles.btnBlue}>
@@ -77,6 +91,8 @@ export default function Navbar() {
           )
         }
       </ul>
-    </nav>
-  )
+        </BottomNavigation>
+      </Paper>
+    </Box>
+  );
 }

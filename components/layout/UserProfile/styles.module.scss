@@ -5,6 +5,11 @@
 }
 
 @media screen and (max-width: 786px) {
+
+  .heading{
+    font-size: larger;
+  }
+
   .circularImg{
     border-radius: 50%;
     height: 15vh;
@@ -26,7 +31,6 @@
 
   .badge_container{
     width: 100vw;
-
     overflow-x: scroll;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -45,10 +49,10 @@
   }
 
   .badgeBlock{
-    width: 43vw;
+    width: 40vw;
     padding: 1em;
     border-radius: 12px;
-    height: 25vh;
+    height: 20vh;
     background: linear-gradient(lightgray, black);
     margin-right: 1em;
     color: rgba(255, 255, 255, 0.734);
