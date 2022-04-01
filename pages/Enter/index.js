@@ -57,7 +57,7 @@ function SignInButton() {
       }
       
       
-      <button className={styles.google_btn} style={{marginTop: '5em'}} onClick={signInWithGoogle}>
+      <button className={styles.google_btn} style={{marginTop: '1em'}} onClick={signInWithGoogle}>
         <img src={'/google.jpg'}  width="30px" /> Sign in with Google
       </button>
     </>

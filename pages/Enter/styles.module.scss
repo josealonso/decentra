@@ -1,10 +1,10 @@
 .container{
-  height: 100%;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 30vh;
 }
 
 .loginLogo{
@@ -59,7 +59,7 @@
     height: 6vh;
     min-height: 50px;
     min-width: 200px;
-    width: 80%;
+    width: 60%;
     font-weight: 500;
     border-radius: 12px;
     border: 2px solid #005583;
