@@ -1,10 +1,10 @@
 rules_version = '2';
-rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
 
       // Required for collection group queries
+      
       match /posts/{postId} {
       	allow read;
       }
@@ -18,11 +18,18 @@ service cloud.firestore {
       	allow read;
         allow create: if isValidUsername(username);
       }
-
+            
       match /users/{userId}/posts/{postId} {
       	allow read;
         allow create: if canCreatePost(userId); 
         allow update: if canUpdatePost(userId) || canIncrementHearts(userId, postId);
+        allow delete: if request.auth.uid == userId;
+      }
+      
+      match /users/{userId}/surveyResults/{surveyId} {
+      	allow read;
+        allow create: if canCreateSurvey(userId); 
+        allow update: if canUpdateSurvey(userId) || canIncrementVotes(userId, surveyId);
         allow delete: if request.auth.uid == userId;
       }
       
@@ -48,10 +55,6 @@ service cloud.firestore {
         
         return isOwner && isValidLength && isValidUserDoc;     
       }
-
-      // Scores 
-
-
 
       // Posts
       
@@ -92,7 +95,43 @@ service cloud.firestore {
         return hasValidFields && validChange && ( countChange == 1 ? heartDocAdded : heartDocRemoved );
       }
       
+      // Surveys
+      
+			function canCreateSurvey(userId) {
+        let isOwner = request.auth.uid == userId;
+        let isNow = request.time == request.resource.data.createdAt;
+        let isValidContent = request.resource.data.slug.size() < 20000 && request.resource.data.upvotes == 0;
+        let username = get(/databases/$(database)/documents/users/$(request.auth.uid)).data.username;
+        let usernameMatches = username == request.resource.data.username;
 
+      	return isOwner && isNow && isValidContent && usernameMatches;
+      }
+      
+      function canUpdateSurvey(userId) {
+        let isOwner = request.auth.uid == userId;
+      	let isNow = request.time == request.resource.data.updatedAt;
+        let isValidContent = request.resource.data.slug.size() < 20000;
+        let doesNotUpdateForbidden = !request.resource.data.diff(resource.data).affectedKeys().hasAny(['uid', 'username', 'upvotes']);
+        
+        return isOwner && isNow && isValidContent && doesNotUpdateForbidden;
+      }
+
+      // votes
+      
+      function canIncrementVotes(userId, surveyId) {
+		    let hasValidFields = request.resource.data.diff(resource.data).affectedKeys().hasOnly(['upvotes']);
+        let currentUser = request.auth.uid;
+		    let voteDocExistsAfter = existsAfter(/databases/$(database)/documents/users/$(userId)/surveyResults/$(surveyId)/votes/$(currentUser));
+        let voteDocExists = exists(/databases/$(database)/documents/users/$(userId)/surveyResults/$(surveyId)/votes/$(currentUser));
+				
+        let voteDocAdded= !voteDocExists && voteDocExistsAfter;
+        let voteDocRemoved = voteDocExists && !voteDocExistsAfter;
+        
+        let countChange = request.resource.data.upvotes - resource.data.upvotes;
+        let validChange = countChange == 1 || countChange == -1;
+
+        return hasValidFields && validChange && ( countChange == 1 ? voteDocAdded : voteDocRemoved );
+      }
       
     }
     

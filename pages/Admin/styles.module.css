@@ -75,3 +75,9 @@
 .wrapper{
   margin-bottom: 10em;
 }
+
+.container{
+  max-width: 95vw;
+  height:400vh;
+  margin-bottom: 10vh;
+}
