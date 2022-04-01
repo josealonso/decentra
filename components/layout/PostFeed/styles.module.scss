@@ -11,7 +11,9 @@
 }
 
 @media screen and (max-width: 786px) {
-
+  .container{
+    height: 100%;
+  }
 
   .post_title{
     margin-bottom: 2em;
