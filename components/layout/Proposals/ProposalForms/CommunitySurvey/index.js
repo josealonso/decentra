@@ -49,6 +49,9 @@ export default function CommunitySurvey() {
             id="outlined-required"
             label="Required"
             defaultValue="Email Here"
+            onChange={async(e) => {
+              await setEmail(e.target.value)
+            }}
           />
 
         <TextField
@@ -56,6 +59,9 @@ export default function CommunitySurvey() {
             id="outlined-required"
             label="Required"
             defaultValue="Your Zipcode"
+            onChange={async(e) => {
+              await setZipcode(e.target.value)
+            }}
           />
 
           <TextField
@@ -63,6 +69,9 @@ export default function CommunitySurvey() {
             id="outlined-required"
             label="Optional"
             defaultValue="Your Instagram"
+            onChange={async(e) => {
+              await setInstagram(e.target.value)
+            }}
           />
           
           
@@ -72,6 +81,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setProblem(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '2em'}} value="Violent crimes (gun crimes, armed robberies, violence against women and/or children)" control={<Radio />} label="Violent crimes (gun crimes, armed robberies, violence against women and/or children)" />
               <FormControlLabel style={{marginTop: '1em'}} value="Non-violent crimes (thefts, vandalism)" control={<Radio />} label="Non-violent crimes (thefts, vandalism)" />
@@ -96,6 +108,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setInstagram(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -108,6 +123,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setVolunteer(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -126,6 +144,9 @@ export default function CommunitySurvey() {
               defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setAttend(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -138,6 +159,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setKnowLeader(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -150,6 +174,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setKnowCost(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -164,6 +191,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setDecideFund(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -176,6 +206,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setBelievePublicFund(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -188,6 +221,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setAttendInPerson(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Definitely" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -203,6 +239,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setAttendVideo(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Definitely" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -215,6 +254,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setAttendApp(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Definitely" />
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
@@ -227,6 +269,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setMeaningfulReward(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="Money / Cash Rewards" control={<Radio />} label="Money / Cash Rewards" />
               <FormControlLabel style={{marginTop: '1em'}} value="Coupons / Credits for Retail Stores (Groceries, Electronics, Clothing, etc)" control={<Radio />} label="Coupons / Credits for Retail Stores (Groceries, Electronics, Clothing, etc)" />
@@ -245,6 +290,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setMostConvenient(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Voting in person (It would be more convenient to meet and vote in person)" />
               <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Voting via video conference (It would be more convenient using a zoom conference call for voting)" />
@@ -276,6 +324,9 @@ export default function CommunitySurvey() {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
+              onChange={async(e) => {
+                await setAge(e.target.value)
+              }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="17 or under" control={<Radio />} label="17 or under" />
               <FormControlLabel style={{marginTop: '1em'}} value="18 - 25" control={<Radio />} label="18 - 25" />
