@@ -21,7 +21,6 @@ export default function CommunitySurvey() {
       <form>
         <fieldset className={styles.form}>
           <TextField
-            required
             className={styles.form_input}
             id="outlined-required"
             label="Required"
@@ -29,7 +28,6 @@ export default function CommunitySurvey() {
           />
 
         <TextField
-            required
             className={styles.form_input}
             id="outlined-required"
             label="Required"
@@ -48,7 +46,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>Which would you say is the single biggest PROBLEM in your neighborhood currently? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -74,7 +71,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>Do you have ideas of how to solve this problem – if you had the money to do it? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -87,7 +83,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>Do you currently volunteer with a community group or local non-profit?  </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -118,7 +113,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> Do you currently know and/or communicate with your local leaders, council members, or state representatives? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -131,7 +125,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> In 2022, do you know how much money will be dedicated to community impact projects by your government and local industries?  </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -146,7 +139,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>At any point in time, have you participated in deciding how public funds will be dedicated to community impact projects by your government and local industries?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -159,7 +151,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> Do you believe that public funds scheduled to be spent in 2022 by your local government and industries; will be used to fix some of the problems in your neighborhood? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -172,7 +163,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> If you could vote on how to spend a portion of the public funds, but you had to attend in-person meetings to participate, would you want to?  </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -189,7 +179,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>If you could vote on how to spend some of the public funds but had to attend video meetings to participate, would you want to?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -203,7 +192,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> If you could vote on how to spend a portion of the public funds, but you had to use a mobile app to participate, would you want to? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -217,7 +205,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}> If you could be rewarded for your civic engagement, which reward would be most meaningful to you?  </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -236,7 +223,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>If you could vote on how to spend a portion of public funds, what would be the most convenient method of voting for you? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >
@@ -268,7 +254,6 @@ export default function CommunitySurvey() {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> How old are you? </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
               name="radio-buttons-group"
               className={styles.form_group}
             >

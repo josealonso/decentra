@@ -8,11 +8,8 @@ import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import { firestore, auth, serverTimestamp } from '@lib/firebase';
 import FormLabel from '@mui/material/FormLabel';
-import { useCollection } from 'react-firebase-hooks/firestore';
 import toast from 'react-hot-toast';
 import styles from './styles.module.scss'
-
-
 
 export default function ProposalSurvey(props) { 
   const [ email, setEmail ] = useState('')
@@ -65,8 +62,8 @@ export default function ProposalSurvey(props) {
             id="outlined-required"
             label="Required"
             defaultValue="Email Here"
-            onChange={(e) => {
-              setEmail(e.target.value)
+            onChange={async(e) => {
+              await setEmail(e.target.value)
             }}
           />
              
@@ -76,8 +73,8 @@ export default function ProposalSurvey(props) {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
-              onChange={(e) => {
-                setProblem(e.target.value)
+              onChange={async(e) => {
+                await setProblem(e.target.value)
               }}
             >
               <FormControlLabel style={{marginTop: '2em'}} value="Violent crimes (gun crimes, armed robberies, violence against women and/or children)" control={<Radio />} label="Violent crimes (gun crimes, armed robberies, violence against women and/or children)" />
@@ -99,8 +96,8 @@ export default function ProposalSurvey(props) {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
-              onChange={(e) => {
-                setIdentify(e.target.value)
+              onChange={async(e) => {
+                await setIdentify(e.target.value)
               }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value="Individual Leader / Community Member (solo problem solver)" control={<Radio />} label="Individual Leader / Community Member (solo problem solver)" />
@@ -119,8 +116,8 @@ export default function ProposalSurvey(props) {
             id="outlined-required"
             label="Optional"
             defaultValue="Title of project"
-            onChange={(e) => {
-              setTitile(e.target.value)
+            onChange={async(e) => {
+              await setTitile(e.target.value)
             }}
           />
 
@@ -129,48 +126,48 @@ export default function ProposalSurvey(props) {
           <FormGroup  className={styles.form_group}>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}> Which description best represents your idea/solution? (select all that apply) </FormLabel>
             <FormControlLabel 
-              onClick={(e) => {
-                setDescription([...description, e.target.value])
+              onClick={async(e) => {
+                await setDescription([...description, e.target.value])
               }}
               control={<Checkbox value={"Skills teaching program (classes, workshops, training, apprenticeship, work opportunities)"} />} 
               label="Skills teaching program (classes, workshops, training, apprenticeship, work opportunities)" />
             <FormControlLabel 
-               onClick={(e) => {
-                setDescription([...description, e.target.value])
+               onClick={async(e) => {
+                await setDescription([...description, e.target.value])
               }}
               control={<Checkbox value={"Resource program (food bank, clothing drives, housing support, child care, addiction support)"}/>} 
               label="Resource program (food bank, clothing drives, housing support, child care, addiction support)" />
             <FormControlLabel 
-              onClick={(e) => {
-                setDescription([...description, e.target.value])
+              onClick={async(e) => {
+                await setDescription([...description, e.target.value])
               }}
               value={"3"} 
               control={<Checkbox value={"Investment / infrastructure project (road repairs, trash collection, home repairs, animal control)"}/>} 
               label="Investment / infrastructure project (road repairs, trash collection, home repairs, animal control)" />
             <FormControlLabel 
-              onClick={(e) => {
-                setDescription([...description, e.target.value])
+              onClick={async(e) => {
+                await setDescription([...description, e.target.value])
               }}
               value={"4"} 
               control={<Checkbox value={"Government / civic support funding  (law changes, access to technology, school reform, public services, public funding)"}/>} 
               label="Government / civic support funding  (law changes, access to technology, school reform, public services, public funding)" />
             <FormControlLabel 
-              onClick={(e) => {
-                setDescription([...description, e.target.value])
+              onClick={async(e) => {
+                await setDescription([...description, e.target.value])
               }}
               control={<Checkbox value={"Community events / activations (social events, festivals, celebrations, city-wide cleaning days)"}/>} 
               value={"5"} 
               label="Community events / activations (social events, festivals, celebrations, city-wide cleaning days)" />
             <FormControlLabel 
-              onClick={(e) => {
-                setDescription([...description, e.target.value])
+              onClick={async(e) => {
+                await setDescription([...description, e.target.value])
               }}
               control={<Checkbox value={"Media / promotional campaign (billboards, advertising, marketing, social media strategies)"}/>}
               value={"6"} 
               label="Media / promotional campaign (billboards, advertising, marketing, social media strategies)" />
             <FormControlLabel 
-              onClick={(e) => {
-                setDescription([...description, e.target.value])
+              onClick={async(e) => {
+                await setDescription([...description, e.target.value])
               }}
               value={"7"} 
               control={<Checkbox value={"Other"}/>} 
@@ -182,8 +179,8 @@ export default function ProposalSurvey(props) {
             className={styles.form_input}
             id="outlined-required"
             label="Optional"
-            onChange={(e) => {
-              setSummary(e.target.value)
+            onChange={async(e) => {
+              await setSummary(e.target.value)
             }}
             defaultValue="Summary of project"
           />
@@ -194,43 +191,43 @@ export default function ProposalSurvey(props) {
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}>What resources or support would you need to make your idea successful? (Select all that apply)</FormLabel>
             
             <FormControlLabel 
-              onClick={(e) => {
-                setResources([...resources, e.target.value])
+              onClick={async(e) => {
+                await setResources([...resources, e.target.value])
                 console.log(description)
               }}
               control={<Checkbox value={"Funding / money for supplies"}/>} 
               label="Funding / money for supplies" />
             <FormControlLabel 
-              onClick={(e) => {
-                setResources([...resources, e.target.value])
+              onClick={async(e) => {
+                await setResources([...resources, e.target.value])
                 console.log(description)
               }}
               control={<Checkbox value={"Changes in law / policies"}/>} 
               label="Changes in law / policies" />
             <FormControlLabel 
-              onClick={(e) => {
-                setResources([...resources, e.target.value])
+              onClick={async(e) => {
+                await setResources([...resources, e.target.value])
                 console.log(description)
               }}
               control={<Checkbox value={"Community support / adoption by your community"} />} 
               label="Community support / adoption by your community" />
             <FormControlLabel 
-              onClick={(e) => {
-                setResources([...resources, e.target.value])
+              onClick={async(e) => {
+                await setResources([...resources, e.target.value])
                 console.log(description)
               }}
               control={<Checkbox  value={"Expertise / professional support  (legal, management, technology, implementation, etc)"} />} 
               label="Expertise / professional support  (legal, management, technology, implementation, etc)" />
             <FormControlLabel 
-              onClick={(e) => {
-                setResources([...resources, e.target.value])
+              onClick={async(e) => {
+                await setResources([...resources, e.target.value])
                 console.log(description)
               }}
               control={<Checkbox value={"Resources / materials (tools, property, building materials, etc)"}  />} 
               label="Resources / materials (tools, property, building materials, etc)" />
             <FormControlLabel 
-              onClick={(e) => {
-                setResources([...resources, e.target.value])
+              onClick={async(e) => {
+                await setResources([...resources, e.target.value])
                 console.log(description)
               }}
               control={<Checkbox value={"Other"} />} 
@@ -243,8 +240,8 @@ export default function ProposalSurvey(props) {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
-              onChange={(e) => {
-                setBudget(e.target.value)
+              onChange={async(e) => {
+                await setBudget(e.target.value)
                 console.log(budget)
               }}
             >
@@ -265,8 +262,8 @@ export default function ProposalSurvey(props) {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
-              onChange={(e) => {
-                setTime(e.target.value)
+              onChange={async(e) => {
+                await setTime(e.target.value)
                 console.log(time)
               }}
             >
@@ -283,8 +280,8 @@ export default function ProposalSurvey(props) {
               aria-labelledby="demo-radio-buttons-group-label"
               name="radio-buttons-group"
               className={styles.form_group}
-              onChange={(e) => {
-                setOrganisation(e.target.value)
+              onChange={async(e) => {
+                await setOrganisation(e.target.value)
                 console.log(organisation)
               }}
             >
