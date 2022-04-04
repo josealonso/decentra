@@ -2,9 +2,7 @@ import React from 'react'
 import Metatags from '../../components/helpers/metatags'
 import UserProfile from '../../components/layout/UserProfile'
 import PostFeed from '../../components/layout/PostFeed'
-import AuthCheck from '@components/helpers/AuthCheck'
-import { useCollection } from 'react-firebase-hooks/firestore';
-import { getUserWithUsername, postToJSON, awardsToJSON, firestore, auth } from '../../lib/firebase'
+import { getUserWithUsername, postToJSON, awardsToJSON } from '../../lib/firebase'
 import styles from './styles.module.css'
 
 export async function getServerSideProps({query}){
