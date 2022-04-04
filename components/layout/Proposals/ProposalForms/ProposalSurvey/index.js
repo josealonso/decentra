@@ -8,10 +8,12 @@ import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import { firestore, auth, serverTimestamp } from '@lib/firebase';
 import FormLabel from '@mui/material/FormLabel';
+import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
 import styles from './styles.module.scss'
 
 export default function ProposalSurvey(props) { 
+  const router = useRouter();
   const [ email, setEmail ] = useState('')
   const [ problem, setProblem ] = useState('')
   const [ identify, setIdentify ] = useState('')
@@ -24,7 +26,7 @@ export default function ProposalSurvey(props) {
   const [ organisation, setOrganisation ] = useState('')
 
   const updateSurveyResults = async () => {
-    
+
     const uid = auth.currentUser.uid;
     const surveyRef = firestore.collection('users').doc(uid).collection('surveyResults').doc(props.survey_slug);
     
@@ -43,7 +45,7 @@ export default function ProposalSurvey(props) {
       organisation: organisation,
       uid: uid,
     });
-
+    router.push(`/survey`);
     toast.success('Survey answered successfully!')
   };
 
@@ -250,7 +252,6 @@ export default function ProposalSurvey(props) {
               <FormControlLabel style={{marginTop: '1em'}} value="between $100,000 and $250,000 per year" control={<Radio />} label="between $100,000 and $250,000 per year" />
               <FormControlLabel style={{marginTop: '1em'}} value="between $250,000 and $500,000 per year" control={<Radio />} label="between $250,000 and $500,000 per year" />
               <FormControlLabel style={{marginTop: '1em'}} value="between $500,000 and $1,000,000 per year" control={<Radio />} label="between $500,000 and $1,000,000 per year" />
-              <FormControlLabel style={{marginTop: '1em'}} value="between $50,000 and $100,000 per year" control={<Radio />} label="between $50,000 and $100,000 per year" />
               <FormControlLabel style={{marginTop: '1em'}} value="over 1 million dollars per year" control={<Radio />} label="over 1 million dollars per year" />
               <FormControlLabel style={{marginTop: '1em'}} value="I am not sure and would like assistance estimating the budget" control={<Radio />} label="I am not sure and would like assistance estimating the budget" />
             </RadioGroup>
