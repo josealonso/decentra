@@ -2,7 +2,6 @@ import AuthCheck from "../../components/helpers/AuthCheck";
 import { UserContext } from "../../lib/context";
 import { useRouter } from 'next/router';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import ProposalSurvey from "@components/layout/Proposals/ProposalForms/ProposalSurvey";
 import PostFeed from '../../components/layout/PostFeed'
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 import kebabCase from 'lodash.kebabcase';
@@ -33,7 +32,6 @@ function PostList() {
   return (
     <div className={styles.admin_section}>
       <h1 className={styles.postManage}>Manage your Posts!</h1>
-      <ProposalSurvey />
       <PostFeed posts={posts} admin/>
     </div>
   )
