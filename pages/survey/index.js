@@ -5,34 +5,71 @@ import SurveyFeed from '../../components/layout/SurveyFeed'
 import { UserContext } from "../../lib/context";
 import { useRouter } from 'next/router';
 import kebabCase from 'lodash.kebabcase';
+import Loader from "@components/simple/Loader";
 import toast from 'react-hot-toast';
-import { firestore, auth, serverTimestamp } from '../../lib/firebase';
+import { firestore, auth, serverTimestamp, fromMillis, postToJSON } from '../../lib/firebase';
 import styles from './styles.module.css'
 
+const LIMIT = 5;
+
+
+export async function getServerSideProps(context){
+  const surveyQuery = firestore
+    .collectionGroup('surveyResults')
+    .where('published', '==', true)
+    .orderBy('createdAt', 'desc')
+    .limit(LIMIT)
+
+  const surveys = (await surveyQuery.get()).docs.map(postToJSON)
+
+  return {
+    props: {surveys},
+  }
+}
+
 export default function SurveyPage(props) {
+  const [surveys, setSurveys] = useState(props.surveys);
+  const [loading, setLoading] = useState(false);
+  const [surveysEnd, setSurveysEnd] = useState(false);
+
+  const [feed, setFeed] = useState('');
+
+  const getMoreSurveys = async () => {
+    setLoading(true);
+    const last = surveys[surveys.length - 1];
+
+    const cursor = typeof last.createdAt === 'number' ? fromMillis(last.createdAt) : last.createdAt;
+  
+    const query = firestore
+      .collectionGroup('surveyResults')
+      .where('published', '==', true)
+      .orderBy('createdAt', 'desc')
+      .startAfter(cursor)
+      .limit(LIMIT);
+    
+    const newSurveys = (await query.get()).docs.map((doc) => doc.data());
+
+    setSurveys(surveys.concat(newSurveys));
+    setLoading(false)
+
+    if(newSurveys.length < LIMIT) {
+      setSurveysEnd(true);
+    }
+  }
+
+
   return (
     <main className={styles.wrapper}>
       <AuthCheck>
         <CreateNewSurvey />
-        <SurveyList />
+        <SurveyFeed surveys={surveys}/>
+        {!loading && !surveysEnd && <button onClick={getMoreSurveys} className={styles.loadBtn}>Load more</button>} 
+    
+        <Loader show={loading}/>
+
+        {surveysEnd && "You have reached the end."}
       </AuthCheck>
     </main>
-  )
-}
-
-function SurveyList() {
-  const ref = firestore.collection('users').doc(auth.currentUser.uid).collection('surveyResults');
-  
-  const query = ref.orderBy('createdAt');
-  const [querySnapshot] = useCollection(query);
-
-  const surveys = querySnapshot?.docs.map((doc) => doc.data());
-  console.log(surveys)
-  return (
-    <div className={styles.admin_section}>
-      <h1 className={styles.postManage}>Manage your Surveys!</h1>
-      <SurveyFeed surveys={surveys} admin/>
-    </div>
   )
 }
 
