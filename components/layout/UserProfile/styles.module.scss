@@ -49,10 +49,9 @@
   }
 
   .badgeBlock{
-    width: 40vw;
-    padding: 1em;
+    width: 25vh;
     border-radius: 12px;
-    height: 20vh;
+    height: 25vh;
     background: linear-gradient(lightgray, black);
     margin-right: 1em;
     color: rgba(255, 255, 255, 0.734);
@@ -69,8 +68,9 @@
   }
 
   .award_img{
-    height: 7vh;
-    margin-bottom: 0.5em;
+    height:100%;
+    width:100%;
+    border-radius: 12px;
   }
 }
 

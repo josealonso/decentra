@@ -72,10 +72,6 @@ function AwardBlock({award}){
   return (
     <div className={styles.badgeBlock}>
       <img src={award.img} alt={award.title} className={styles.award_img}/>
-
-      <h3>
-        {award.title}
-      </h3>
     </div>
   )
 }

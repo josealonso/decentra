@@ -115,7 +115,7 @@ function UsernameForm() {
     const data = {
       received: true,
       joinedAt: serverTimestamp(),
-      img: "https://i.imgur.com/eBvP8vc.png",
+      img: "https://i.imgur.com/bvJUIdL.png",
       title: "Community Member"
     }
 
