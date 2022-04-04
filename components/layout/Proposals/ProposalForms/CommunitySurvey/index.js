@@ -230,6 +230,40 @@ export default function CommunitySurvey() {
             </RadioGroup>
           </FormControl>
 
+
+
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>If you could vote on how to spend a portion of public funds, what would be the most convenient method of voting for you? </FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+              className={styles.form_group}
+            >
+              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Voting in person (It would be more convenient to meet and vote in person)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Voting via video conference (It would be more convenient using a zoom conference call for voting)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Voting via mobile app (It would be more convenient to vote from my phone using a mobile app)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Voting by mail (It would be more convenient to fill out and mail in a ballot)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Voting online (It would be more convenient to vote on a website from my desktop or laptop)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Other" />
+            </RadioGroup>
+          </FormControl>
+
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>Are there any barriers currently preventing you from being engaged in community decision-making activities? (Select all that apply)</FormLabel>
+            
+            <FormControlLabel control={<Checkbox defaultChecked />} label="I don't know when / where meetings happen" />
+            <FormControlLabel disabled control={<Checkbox />} label="I don't have time to attend meetings / voting sessions" />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="I don't have transportation to attend in-person meetings" />
+            <FormControlLabel disabled control={<Checkbox />} label="I don't have reliable internet to attend virtual meetings / voting sessions" />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="I don't have any interest in participating in community decision making" />
+            <FormControlLabel disabled control={<Checkbox />} label="I feel I am too uninformed to participate in community decision making" />
+            <FormControlLabel disabled control={<Checkbox />} label="I don't experience any barriers - I am frequently engaged in community decision making" />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="Other" />
+          </FormControl>
+
+
+
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> How old are you? </FormLabel>
             <RadioGroup

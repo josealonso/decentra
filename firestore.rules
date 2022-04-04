@@ -26,6 +26,11 @@ service cloud.firestore {
         allow delete: if request.auth.uid == userId;
       }
       
+      match /users/{userId}/awards/{awardId} {
+      	allow read;
+        allow create: if canCreateAwards(userId); 
+      }
+      
       match /users/{userId}/surveyResults/{surveyId} {
       	allow read;
         allow create: if canCreateSurvey(userId); 
@@ -131,6 +136,14 @@ service cloud.firestore {
         let validChange = countChange == 1 || countChange == -1;
 
         return hasValidFields && validChange && ( countChange == 1 ? voteDocAdded : voteDocRemoved );
+      }
+      
+      // awards
+      
+      function canCreateAwards(userId) {
+        let isOwner = request.auth.uid == userId;
+      	let isNow = request.time == request.resource.data.joinedAt;
+        return isOwner && isNow
       }
       
     }

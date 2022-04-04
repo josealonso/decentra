@@ -6,7 +6,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
+import { firestore, auth, serverTimestamp } from '@lib/firebase';
 import FormLabel from '@mui/material/FormLabel';
+import toast from 'react-hot-toast';
 import styles from './styles.module.scss'
 
 export default function ProposalSurvey() {
@@ -22,20 +24,29 @@ export default function ProposalSurvey() {
   const [ time, setTime ] = useState('')
   const [ organisation, setOrganisation ] = useState('')
 
-  const displayValues = () => {
-    console.log(
-      'email ', email,
-      'problem  ', problem,
-      'identify as ', identify,
-      'title ', title,
-      'description ', description,
-      'summary ', summary,
-      'resources ', resources,
-      'bduget ', budget,
-      'time ', time,
-      'organisation ', organisation,
-    )
-  }
+  const updateSurveyResults = async () => {
+    
+    const uid = auth.currentUser.uid;
+    const surveyRef = firestore.collection('users').doc(uid).collection('surveyResults').doc('checking');
+
+    await surveyRef.update({
+      published: true,
+      updatedAt: serverTimestamp(),
+      email: email,
+      problem: problem,
+      identify: identify,
+      title: title,
+      description: description,
+      summary: summary,
+      resources: resources,
+      bduget: budget,
+      time: time,
+      organisation: organisation,
+      uid: uid,
+    });
+
+    toast.success('Survey answered successfully!')
+  };
 
   return (
     <div className={styles.form_container}>
@@ -99,6 +110,9 @@ export default function ProposalSurvey() {
             </RadioGroup>
           </FormControl>
 
+
+          {/* Title */}
+
           <TextField
             required="false"
             className={styles.form_input}
@@ -110,50 +124,56 @@ export default function ProposalSurvey() {
             }}
           />
 
+          {/* Description */}
+
           <FormGroup  className={styles.form_group}>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}> Which description best represents your idea/solution? (select all that apply) </FormLabel>
             <FormControlLabel 
               onClick={(e) => {
-                setDescription(e.target.value)
+                setDescription([...description, e.target.value])
               }}
-              control={<Checkbox defaultChecked />} 
+              control={<Checkbox value={"description-1"} />} 
               label="Skills teaching program (classes, workshops, training, apprenticeship, work opportunities)" />
             <FormControlLabel 
                onClick={(e) => {
-                setDescription(e.target.value)
+                setDescription([...description, e.target.value])
               }}
-              control={<Checkbox />} 
+              control={<Checkbox value={"description-2"}/>} 
               label="Resource program (food bank, clothing drives, housing support, child care, addiction support)" />
             <FormControlLabel 
               onClick={(e) => {
-                setDescription(e.target.value)
+                setDescription([...description, e.target.value])
               }}
-              control={<Checkbox defaultChecked />} 
+              value={"3"} 
+              control={<Checkbox value={"description-3"}/>} 
               label="Investment / infrastructure project (road repairs, trash collection, home repairs, animal control)" />
             <FormControlLabel 
               onClick={(e) => {
-                setDescription(e.target.value)
+                setDescription([...description, e.target.value])
               }}
-              disabled 
-              control={<Checkbox />} label="Government / civic support funding  (law changes, access to technology, school reform, public services, public funding)" />
+              value={"4"} 
+              control={<Checkbox value={"description-4"}/>} 
+              label="Government / civic support funding  (law changes, access to technology, school reform, public services, public funding)" />
             <FormControlLabel 
               onClick={(e) => {
-                setDescription(e.target.value)
+                setDescription([...description, e.target.value])
               }}
-              control={<Checkbox defaultChecked />} 
+              control={<Checkbox value={"description-5"}/>} 
+              value={"5"} 
               label="Community events / activations (social events, festivals, celebrations, city-wide cleaning days)" />
             <FormControlLabel 
               onClick={(e) => {
-                setDescription(e.target.value)
+                setDescription([...description, e.target.value])
               }}
-              disabled 
-              control={<Checkbox />} 
+              control={<Checkbox value={"description-6"}/>}
+              value={"6"} 
               label="Media / promotional campaign (billboards, advertising, marketing, social media strategies)" />
             <FormControlLabel 
               onClick={(e) => {
-                setDescription(e.target.value)
+                setDescription([...description, e.target.value])
               }}
-              control={<Checkbox defaultChecked />} 
+              value={"7"} 
+              control={<Checkbox value={"description-7"}/>} 
               label="Other" />
           </FormGroup>
 
@@ -168,53 +188,57 @@ export default function ProposalSurvey() {
             defaultValue="Summary of project"
           />
 
+          {/* Resources */}
 
           <FormGroup  className={styles.form_group}>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}>What resources or support would you need to make your idea successful? (Select all that apply)</FormLabel>
             
             <FormControlLabel 
               onClick={(e) => {
-                setResources(e.target.value)
+                setResources([...resources, e.target.value])
                 console.log(description)
               }}
-              control={<Checkbox defaultChecked />} 
+              control={<Checkbox value={"resource-1"}/>} 
               label="Funding / money for supplies" />
             <FormControlLabel 
               onClick={(e) => {
-                setResources(e.target.value)
+                setResources([...resources, e.target.value])
                 console.log(description)
               }}
-              disabled 
-              control={<Checkbox />} 
+              value={"2"} 
+              control={<Checkbox value={"resource-2"}/>} 
               label="Changes in law / policies" />
             <FormControlLabel 
               onClick={(e) => {
-                setResources(e.target.value)
+                setResources([...resources, e.target.value])
                 console.log(description)
               }}
-              control={<Checkbox defaultChecked />} 
+              value={"3"} 
+              control={<Checkbox value={"resource-3"} />} 
               label="Community support / adoption by your community" />
             <FormControlLabel 
               onClick={(e) => {
-                setResources(e.target.value)
+                setResources([...resources, e.target.value])
                 console.log(description)
               }}
-              disabled 
-              control={<Checkbox />} 
+              value={"4"} 
+              control={<Checkbox  value={"resource-4"} />} 
               label="Expertise / professional support  (legal, management, technology, implementation, etc)" />
             <FormControlLabel 
               onClick={(e) => {
-                setResources(e.target.value)
+                setResources([...resources, e.target.value])
                 console.log(description)
               }}
-              control={<Checkbox defaultChecked />} 
+              value={"5"} 
+              control={<Checkbox value={"resource-5"}  />} 
               label="Resources / materials (tools, property, building materials, etc)" />
             <FormControlLabel 
               onClick={(e) => {
-                setResources(e.target.value)
+                setResources([...resources, e.target.value])
                 console.log(description)
               }}
-              control={<Checkbox defaultChecked />} 
+              value={"6"} 
+              control={<Checkbox value={"resource-6"} />} 
               label="Other" />
           </FormGroup>
 
@@ -281,7 +305,7 @@ export default function ProposalSurvey() {
       </form>
 
       
-      <button className={styles.submit} onClick={() => {displayValues()}}>Submit</button>
+      <button className={styles.submit} onClick={() => {updateSurveyResults()}}>Submit</button>
     </div>
   )
 }

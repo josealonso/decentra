@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styles from './styles.module.scss'
 
-export default function UserProfile({user}) {
+export default function UserProfile({user, awards}) {
 
   return (
     <div className={styles.container}>
@@ -32,42 +32,50 @@ export default function UserProfile({user}) {
       <div className={styles.badge_container}>
 
         <div className={styles.scrollable}>
-          <div className={styles.badgeBlock}>
-            <h3>
-              Community Role
-            </h3>
-            <h5>
-              Badge example
-            </h5>
-          </div>
-          <div className={styles.badgeBlock}>
-            <h3>
-              Community Role
-            </h3>
-            <h5>
-              Badge example
-            </h5>
-          </div>
+          {
+          awards ? awards.map((award, i) => {
 
-          <div className={styles.badgeBlock}>
-            <h3>
-              Community Role
-            </h3>
-            <h5>
-              Badge example
-            </h5>
-          </div>
-          <div className={styles.badgeBlock}>
-            <h3>
-              Community Role
-            </h3>
-            <h5>
-              Badge example
-            </h5>
-          </div>
+            console.log(award)
+
+            if(award.received){
+              return ( 
+                <>
+                  <AwardBlock award={award}/>
+                </>
+        
+              )
+            }
+            else{
+              return (
+                <div className={styles.badgeBlock}>
+                  <h3>
+                    Community Role
+                  </h3>
+                  <h5>
+                    Badge example
+                  </h5>
+                </div>
+              )
+            }
+          })
+          : 
+          ''
+          }
         </div>
         
       </div>
+    </div>
+  )
+}
+
+function AwardBlock({award}){
+  return (
+    <div className={styles.badgeBlock}>
+      <img src={award.img} alt={award.title} className={styles.award_img}/>
+
+      <h3>
+        {award.title}
+      </h3>
     </div>
   )
 }

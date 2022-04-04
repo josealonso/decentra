@@ -52,17 +52,28 @@ function CreateNewSurvey() {
     const ref = firestore.collection('users').doc(uid).collection('surveyResults').doc(slug);
 
     const data = {
-      title,
-      slug,
-      uid,
+      slug: slug,
+      uid: uid,
       username,
       published: false,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
       upvotes: 0,
+      email: '',
+      problem: '',
+      identify: '',
+      title: slug,
+      description: [''],
+      summary: '',
+      resources: [''],
+      bduget: '',
+      time: '',
+      organisation: false,
+      uid: uid,
     }
 
     await ref.set(data);
+
     toast.success('Survey response created!')
     router.push(`/survey/${slug}`);
   } 

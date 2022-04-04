@@ -2,7 +2,7 @@ import React from 'react'
 import Metatags from '../../components/helpers/metatags'
 import UserProfile from '../../components/layout/UserProfile'
 import PostFeed from '../../components/layout/PostFeed'
-import { getUserWithUsername, postToJSON } from '../../lib/firebase'
+import { getUserWithUsername, postToJSON, awardsToJSON } from '../../lib/firebase'
 import styles from './styles.module.css'
 
 export async function getServerSideProps({query}){
@@ -19,8 +19,10 @@ export async function getServerSideProps({query}){
 
   let user = null;
   let posts = null;
+  let awards = null;
 
   if(userDoc) {
+    console.log('working', userDoc)
     user = userDoc.data();
     const postsQuery = userDoc.ref
       .collection('posts')
@@ -29,19 +31,22 @@ export async function getServerSideProps({query}){
       .limit(5);
 
     posts = (await postsQuery.get()).docs.map(postToJSON);
-    console.log('hi',posts)
-  }
+
+    const awardsQuery = userDoc.ref
+      .collection('awards')
+    awards = (await awardsQuery.get()).docs.map(awardsToJSON);
+  }  
   
   return {
-    props: {user, posts},
+    props: {user, posts, awards},
   }
 }
 
-export default function UserProfilePage({ user, posts}) {
+export default function UserProfilePage({ user, posts, awards}) {
   return (
     <main className={styles.container}>
       <Metatags title={`${user.username}'s page`}/>
-      <UserProfile user={user}/>
+      <UserProfile user={user} awards={awards}/>
       <div className={styles.posts}>
         <PostFeed posts={posts}/>
       </div>

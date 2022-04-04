@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import ProposalSurvey from '@components/layout/Proposals/ProposalForms/ProposalSurvey'
 import './styles.module.css'
 
 export default function survey() {
@@ -9,7 +10,7 @@ export default function survey() {
 
   return (
     <div>
-      hi ${survey}
+      <ProposalSurvey />
     </div>
   )
 }

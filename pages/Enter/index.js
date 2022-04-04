@@ -1,9 +1,10 @@
-import { auth, firestore, googleAuthProvider } from '../../lib/firebase';
+import { auth, firestore, googleAuthProvider, serverTimestamp } from '../../lib/firebase';
 import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
 import CommunitySurvey from '@components/layout/Proposals/ProposalForms/CommunitySurvey';
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
+import toast from 'react-hot-toast';
 import styles from './styles.module.scss'
 
 export default function Enter(props) {
@@ -108,6 +109,19 @@ function UsernameForm() {
     batch.set(usernameDoc, { uid: user.uid });
 
     await batch.commit();
+
+    const awardRef = firestore.collection('users').doc(auth.currentUser.uid).collection('awards').doc('communityBadge');
+
+    const data = {
+      received: true,
+      joinedAt: serverTimestamp(),
+      img: "https://i.imgur.com/eBvP8vc.png",
+      title: "Community Member"
+    }
+
+    await awardRef.set(data);
+
+    toast.success('You are now a community member!')
   };
 
   const onChange = (e) => {
@@ -153,7 +167,6 @@ function UsernameForm() {
   return (
     !username && (
       <>
-      
       <section className={styles.username_container}>
         <h3 className={styles.username_header}>Secure your username</h3>
         <form className={styles.username_form} onSubmit={onSubmit}>
