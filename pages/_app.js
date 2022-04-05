@@ -38,12 +38,11 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </PageWrapper>
         <Toaster />
-        
         {
           userData.SurveyStatus ? 
           ''
           :
-          <CommunitySurveyContainer />
+          <CommunitySurveyContainer isUser={userData.user}/>
         }
       </UserContext.Provider>
     </>

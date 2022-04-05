@@ -1,7 +1,6 @@
 import { auth, firestore, googleAuthProvider, serverTimestamp } from '../../lib/firebase';
 import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
-import CommunitySurvey from '@components/forms/CommunitySurvey';
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
 import toast from 'react-hot-toast';
