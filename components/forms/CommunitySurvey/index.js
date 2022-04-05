@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useState, useContext} from 'react'
 import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -8,10 +8,13 @@ import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import FormLabel from '@mui/material/FormLabel';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import toast from 'react-hot-toast';
+import { UserContext } from '@lib/context';
+import { firestore, auth, serverTimestamp } from '@lib/firebase';
 import styles from './styles.module.scss'
 
 export default function CommunitySurvey() {
-
+  const { username } = useContext(UserContext);
   const [email, setEmail] = useState('') 
   const [zipcode, setZipcode] = useState('') 
   const [instagram, setInstagram] = useState('') 
@@ -22,18 +25,93 @@ export default function CommunitySurvey() {
   const [knowLeader, setKnowLeader] = useState('') 
   const [knowCost, setKnowCost] = useState('') 
   const [decideFund, setDecideFund] = useState('') 
-
   const [believePublicFund, setBelievePublicFund] = useState('') 
   const [attendInPerson, setAttendInPerson] = useState('') 
   const [attendVideo, setAttendVideo] = useState('') 
-
   const [attendApp, setAttendApp] = useState('') 
   const [meaningfulReward, setMeaningfulReward] = useState('') 
   const [mostConvenient, setMostConvenient] = useState('') 
-
-  const [age, setAge] = useState('') 
   const [barriers, setBarriers] = useState('') 
+  const [age, setAge] = useState('') 
   const [description, setDescription] = useState('') 
+  const [additional, setAdditional] = useState('') 
+
+  function CheckSurveyValid(){
+    const surveyAnswers = [email, zipcode, instagram, problem, ideaSolve, volunteer, attend, knowLeader, knowCost, decideFund, believePublicFund, 
+                          attendInPerson, attendVideo, attendApp, meaningfulReward, mostConvenient, barriers, age, description, additional]
+    
+    let incompleteAnswers = []
+
+    surveyAnswers.forEach((answer) => {
+      if(answer == ''){
+        incompleteAnswers.push(answer)
+      }
+    })
+
+    if( incompleteAnswers.length > 0 ){
+      return false
+    }
+    else return true
+  }
+
+  const SubmitSurveyResults = async(e) =>{
+    e.preventDefault();
+    let valid = false
+    valid = CheckSurveyValid()
+
+    if(valid){
+      const uid = auth.currentUser.uid;
+      const userDoc = firestore.doc(`users/${uid}`);
+      const surveyRef = firestore.collection('users').doc(uid).collection('surveyResults').doc(uid);
+      const awardRef = firestore.collection('users').doc(auth.currentUser.uid).collection('awards').doc('thinker');
+
+      const data = {
+        email: email,
+        zipcode: zipcode,
+        instagram: instagram,
+        problem: problem,
+        ideaSolve: ideaSolve,
+        volunteer: volunteer,
+        attend: attend,
+        knowLeader: knowLeader,
+        knowCost: knowCost,
+        decideFund: decideFund,
+        believePublicFund: believePublicFund,
+        attendInPerson: attendInPerson,
+        attendVideo: attendVideo,
+        attendApp: attendApp,
+        meaningfulReward: meaningfulReward,
+        mostConvenient: mostConvenient,
+        barriers: barriers,
+        age: age,
+        description: description,
+        additional: additional,
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+        upvotes: 0,
+        slug: uid,
+        username: username,
+      }
+
+      const awardData = {
+        received: true,
+        joinedAt: serverTimestamp(),
+        img: "https://i.imgur.com/S9SFd01.png",
+        title: "Thinker LvL 1"
+      }
+
+      await surveyRef.set(data);
+      await awardRef.set(awardData);
+      await userDoc.update({completedSurvey: true})
+
+      toast.success('Successfully completed our community survey')
+      toast.success('Gained x points and a BADGE')
+    }
+    else{
+      toast.error('Please complete survey')
+    }
+  
+  }
 
   return (
     <div className={styles.form_container}>
@@ -42,7 +120,7 @@ export default function CommunitySurvey() {
 
       </div>
 
-      <form>
+      <form onSubmit={SubmitSurveyResults}>
         <fieldset className={styles.form}>
           <TextField
             className={styles.form_input}
@@ -109,7 +187,7 @@ export default function CommunitySurvey() {
               name="radio-buttons-group"
               className={styles.form_group}
               onChange={async(e) => {
-                await setInstagram(e.target.value)
+                await setIdeaSolve(e.target.value)
               }}
             >
               <FormControlLabel style={{marginTop: '1em'}} value={true} control={<Radio />} label="Yes" />
@@ -131,11 +209,6 @@ export default function CommunitySurvey() {
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
             </RadioGroup>
           </FormControl>
-
-
-
-
-
 
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>Do you currently attend civic association, town hall meetings, or similar community engagement activities?</FormLabel>
@@ -183,8 +256,6 @@ export default function CommunitySurvey() {
             </RadioGroup>
           </FormControl>
 
-
-
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>At any point in time, have you participated in deciding how public funds will be dedicated to community impact projects by your government and local industries?</FormLabel>
             <RadioGroup
@@ -229,9 +300,6 @@ export default function CommunitySurvey() {
               <FormControlLabel style={{marginTop: '1em'}} value={false} control={<Radio />} label="No" />
             </RadioGroup>
           </FormControl>
-
-
-
 
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>If you could vote on how to spend some of the public funds but had to attend video meetings to participate, would you want to?</FormLabel>
@@ -282,8 +350,6 @@ export default function CommunitySurvey() {
             </RadioGroup>
           </FormControl>
 
-
-
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>If you could vote on how to spend a portion of public funds, what would be the most convenient method of voting for you? </FormLabel>
             <RadioGroup
@@ -294,29 +360,27 @@ export default function CommunitySurvey() {
                 await setMostConvenient(e.target.value)
               }}
             >
-              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Voting in person (It would be more convenient to meet and vote in person)" />
-              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Voting via video conference (It would be more convenient using a zoom conference call for voting)" />
-              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Voting via mobile app (It would be more convenient to vote from my phone using a mobile app)" />
-              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Voting by mail (It would be more convenient to fill out and mail in a ballot)" />
-              <FormControlLabel style={{marginTop: '1em'}} value="3" control={<Radio />} label="Voting online (It would be more convenient to vote on a website from my desktop or laptop)" />
-              <FormControlLabel style={{marginTop: '1em'}} value="2" control={<Radio />} label="Other" />
+              <FormControlLabel style={{marginTop: '1em'}} value="Voting in person (It would be more convenient to meet and vote in person)" control={<Radio />} label="Voting in person (It would be more convenient to meet and vote in person)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="Voting via video conference (It would be more convenient using a zoom conference call for voting)" control={<Radio />} label="Voting via video conference (It would be more convenient using a zoom conference call for voting)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="Voting via mobile app (It would be more convenient to vote from my phone using a mobile app)" control={<Radio />} label="Voting via mobile app (It would be more convenient to vote from my phone using a mobile app)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="Voting by mail (It would be more convenient to fill out and mail in a ballot)" control={<Radio />} label="Voting by mail (It would be more convenient to fill out and mail in a ballot)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="Voting online (It would be more convenient to vote on a website from my desktop or laptop)" control={<Radio />} label="Voting online (It would be more convenient to vote on a website from my desktop or laptop)" />
+              <FormControlLabel style={{marginTop: '1em'}} value="Other" control={<Radio />} label="Other" />
             </RadioGroup>
           </FormControl>
 
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}>Are there any barriers currently preventing you from being engaged in community decision-making activities? (Select all that apply)</FormLabel>
             
-            <FormControlLabel control={<Checkbox value="I don't know when / where meetings happen" />} label="I don't know when / where meetings happen" />
-            <FormControlLabel control={<Checkbox value="I don't have time to attend meetings / voting sessions"/>} label="I don't have time to attend meetings / voting sessions" />
-            <FormControlLabel control={<Checkbox value="I don't have transportation to attend in-person meetings" />} label="I don't have transportation to attend in-person meetings" />
-            <FormControlLabel control={<Checkbox value="I don't have reliable internet to attend virtual meetings / voting sessions"/>} label="I don't have reliable internet to attend virtual meetings / voting sessions" />
-            <FormControlLabel control={<Checkbox value="I don't have any interest in participating in community decision making" />} label="I don't have any interest in participating in community decision making" />
-            <FormControlLabel control={<Checkbox value="I feel I am too uninformed to participate in community decision making" />} label="I feel I am too uninformed to participate in community decision making" />
-            <FormControlLabel control={<Checkbox value="I don't experience any barriers - I am frequently engaged in community decision making" />} label="I don't experience any barriers - I am frequently engaged in community decision making" />
-            <FormControlLabel control={<Checkbox value="Other" />} label="Other" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="I don't know when / where meetings happen" />} label="I don't know when / where meetings happen" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="I don't have time to attend meetings / voting sessions"/>} label="I don't have time to attend meetings / voting sessions" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="I don't have transportation to attend in-person meetings" />} label="I don't have transportation to attend in-person meetings" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="I don't have reliable internet to attend virtual meetings / voting sessions"/>} label="I don't have reliable internet to attend virtual meetings / voting sessions" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="I don't have any interest in participating in community decision making" />} label="I don't have any interest in participating in community decision making" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="I feel I am too uninformed to participate in community decision making" />} label="I feel I am too uninformed to participate in community decision making" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="I don't experience any barriers - I am frequently engaged in community decision making" />} label="I don't experience any barriers - I am frequently engaged in community decision making" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setBarriers(e.target.value)}} value="Other" />} label="Other" />
           </FormControl>
-
-
 
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em',}}> How old are you? </FormLabel>
@@ -341,13 +405,13 @@ export default function CommunitySurvey() {
           <FormGroup  className={styles.form_group}>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}> Which description represents you best? (select all that apply) </FormLabel>
             
-            <FormControlLabel control={<Checkbox value="I am a student" />} label="I am a student" />
-            <FormControlLabel control={<Checkbox value="I work full-time" />} label="I work full-time" />
-            <FormControlLabel control={<Checkbox value="I work part-time" />} label="I work part-time" />
-            <FormControlLabel control={<Checkbox value="I am a parent/guardian"/>} label="I am a parent/guardian" />
-            <FormControlLabel control={<Checkbox value="I have limited mobility (physical disability)" />} label="I have limited mobility (physical disability)" />
-            <FormControlLabel control={<Checkbox value="I do not work" />} label="I do not work" />
-            <FormControlLabel control={<Checkbox value="Other" />} label="Other" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="I am a student" />} label="I am a student" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="I work full-time" />} label="I work full-time" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="I work part-time" />} label="I work part-time" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="I am a parent/guardian"/>} label="I am a parent/guardian" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="I have limited mobility (physical disability)" />} label="I have limited mobility (physical disability)" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="I do not work" />} label="I do not work" />
+            <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="Other" />} label="Other" />
           </FormGroup>
 
           <FormGroup>
@@ -358,13 +422,13 @@ export default function CommunitySurvey() {
               minRows={3}
               placeholder="Minimum 5 rows"
               style={{ width: '100%', marginTop: '1em', padding: '0.5em' }}
+              onChange={(e)=> {setAdditional(e.target.value)}}
             />
           </FormGroup>
           
-          
         </fieldset>
 
-        <button className={styles.submit}>Submit</button>
+        <button className={styles.submit} >Submit</button>
       </form>
     </div>
   )

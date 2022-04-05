@@ -1,7 +1,7 @@
 import { auth, firestore, googleAuthProvider, serverTimestamp } from '../../lib/firebase';
 import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
-import CommunitySurvey from '@components/layout/Proposals/ProposalForms/CommunitySurvey';
+import CommunitySurvey from '@components/forms/CommunitySurvey';
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
 import toast from 'react-hot-toast';
@@ -19,8 +19,6 @@ export default function Enter(props) {
       : 
       <div className={styles.survey_container}>
         <SignOutButton />
-        
-        <CommunitySurvey />
       </div>  
       : 
       <SignInButton />}
@@ -105,7 +103,7 @@ function UsernameForm() {
 
     // Commit both docs together as a batch write.
     const batch = firestore.batch();
-    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName });
+    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName, completedSurvey: false });
     batch.set(usernameDoc, { uid: user.uid });
 
     await batch.commit();
