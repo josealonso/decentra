@@ -33,3 +33,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+/node_modules
+/functions/node_modules
+functions/service-account.json
