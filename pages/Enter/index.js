@@ -102,7 +102,7 @@ function UsernameForm() {
 
     // Commit both docs together as a batch write.
     const batch = firestore.batch();
-    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName, completedSurvey: false });
+    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName, completedSurvey: false, points: 10});
     batch.set(usernameDoc, { uid: user.uid });
 
     await batch.commit();
@@ -119,6 +119,7 @@ function UsernameForm() {
     await awardRef.set(data);
 
     toast.success('You are now a community member!')
+    toast.success('You have gained 10 points and a community member badge!')
   };
 
   const onChange = (e) => {
@@ -183,20 +184,7 @@ function UsernameForm() {
       </section>
 
       <div>
-      <div className={styles.announcement}>
-        <div className={styles.background_img} />
-        <h2 className={styles.header}>Welcome to Metrodao!</h2>
-        <p className={styles.para}>
-          Over the next few months we will be building a platform to elevate public private relations.
-          <br></br>
-          <br></br>
-          Our goal is simple, we want everyone to get a chance at being heard. 
-          And to celebrate your opinions we are offering 1 of our community members <em><b>500$ to for completing the survey</b></em>
-          <br></br>
-        </p>
-      </div>
       
-      <iframe className={styles.form} src="https://docs.google.com/forms/d/e/1FAIpQLSeD8uGZ7MiyZubM1WeYb82m1TaHrXPtBjl1GwCuRQ83g7FZXQ/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
       </div>
       </>
       

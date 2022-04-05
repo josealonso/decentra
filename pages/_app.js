@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }) {
           userData.SurveyStatus ? 
           ''
           :
-          <CommunitySurveyContainer isUser={userData.user}/>
+          <CommunitySurveyContainer isUser={userData.user} username={userData.username}/>
         }
       </UserContext.Provider>
     </>

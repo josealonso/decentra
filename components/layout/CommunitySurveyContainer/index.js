@@ -12,7 +12,7 @@ export default function CommunitySurveyContainer(props) {
     <div className={styles.container}>
       
       { 
-      props.isUser ?
+      props.isUser && props.username ?
       <button onClick={async() => {await setSurveyOpen(!surveyOpen)}}>
         <FloatingActionButton />
       </button>

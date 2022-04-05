@@ -102,10 +102,10 @@ export default function CommunitySurvey() {
 
       await surveyRef.set(data);
       await awardRef.set(awardData);
-      await userDoc.update({completedSurvey: true})
+      await userDoc.update({completedSurvey: true, points: 20})
 
       toast.success('Successfully completed our community survey')
-      toast.success('Gained x points and a BADGE')
+      toast.success('Gained 10 points and a BADGE')
     }
     else{
       toast.error('Please complete survey')

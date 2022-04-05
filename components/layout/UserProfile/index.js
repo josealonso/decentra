@@ -26,7 +26,7 @@ export default function UserProfile({user, awards}) {
           </IconButton>
         }
         title={user.username}
-        subheader={user.displayName}
+        subheader={`${user.points} points`}
       />
 
       <div className={styles.badge_container}>
