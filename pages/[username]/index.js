@@ -3,6 +3,7 @@ import Metatags from '../../components/helpers/metatags'
 import UserProfile from '../../components/layout/UserProfile'
 import PostFeed from '../../components/layout/PostFeed'
 import { getUserWithUsername, postToJSON, awardsToJSON } from '../../lib/firebase'
+import AuthCheck from '@components/helpers/AuthCheck';
 import styles from './styles.module.css'
 
 export async function getServerSideProps({query}){
@@ -46,15 +47,18 @@ export async function getServerSideProps({query}){
 
 export default function UserProfilePage({ user, posts, awards}) {
   return (
-    <main className={styles.container}>
-      <Metatags title={`${user.username}'s page`}/>
-      <UserProfile user={user} awards={awards}/>
-      <div className={styles.posts}>
-        <PostFeed posts={posts}/>
-      </div>
-      <div className={styles.posts}>
-        
-      </div>
-    </main>
+    <AuthCheck>
+      <main className={styles.container}>
+        <Metatags title={`${user.username}'s page`}/>
+        <UserProfile user={user} awards={awards}/>
+        <div className={styles.posts}>
+          <PostFeed posts={posts}/>
+        </div>
+        <div className={styles.posts}>
+          
+        </div>
+      </main>
+    </AuthCheck>
+    
   )
 }

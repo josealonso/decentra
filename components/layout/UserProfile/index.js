@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../Header';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
@@ -11,8 +10,6 @@ export default function UserProfile({user, awards}) {
 
   return (
     <div className={styles.container}>
-      <Header />
-
       <CardHeader
         className={styles.heading}
         avatar={

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import AuthCheck from '@components/helpers/AuthCheck';
 import ProposalSurvey from '@components/layout/Proposals/ProposalForms/ProposalSurvey'
 import './styles.module.css'
 
@@ -10,7 +11,9 @@ export default function survey() {
   console.log(survey_slug)
   return (
     <div>
-      <ProposalSurvey survey_slug={survey_slug.slug}/>
+      <AuthCheck>
+        <ProposalSurvey survey_slug={survey_slug.slug}/>
+      </AuthCheck>
     </div>
   )
 }

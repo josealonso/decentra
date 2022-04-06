@@ -8,6 +8,7 @@ import Heart from '../../components/layout/HeartButton'
 import Metatags from '../../components/helpers/metatags'
 import {getUserWithUsername, firestore, postToJSON } from '../../lib/firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
+import AuthCheck from '@components/helpers/AuthCheck';
 import styles from './styles.module.css'
 
 
@@ -62,33 +63,36 @@ export default function Post(props) {
 
   return (
     <main>
-      <Metatags title={post.title} description={post.title} />
-      
-      <section>
-        <PostContent post={post} />
-      </section>
+      <AuthCheck>
+        <Metatags title={post.title} description={post.title} />
+        
+        <section>
+          <PostContent post={post} />
+        </section>
 
-      <aside className="card">
-        <p>
-          <strong className={styles.btnheart}>{post.heartCount || 0} 🤍</strong>
-        </p>
+        <aside className="card">
+          <p>
+            <strong className={styles.btnheart}>{post.heartCount || 0} 🤍</strong>
+          </p>
 
-        <AuthCheck
-          fallback={
-            <Link href="/Enter">
-              <button>💗 Sign Up</button>
+          <AuthCheck
+            fallback={
+              <Link href="/Enter">
+                <button>💗 Sign Up</button>
+              </Link>
+            }
+          >
+            <Heart postRef={postRef} />
+          </AuthCheck>
+
+          {currentUser?.uid === post.uid && (
+            <Link href={`/Admin/${post.slug}`}>
+              <button className={styles.blueBtn}>Edit Post</button>
             </Link>
-          }
-        >
-          <Heart postRef={postRef} />
-        </AuthCheck>
-
-        {currentUser?.uid === post.uid && (
-          <Link href={`/Admin/${post.slug}`}>
-            <button className={styles.blueBtn}>Edit Post</button>
-          </Link>
-        )}
-      </aside>
+          )}
+        </aside>
+      </AuthCheck>
+      
     </main>
   );
 }

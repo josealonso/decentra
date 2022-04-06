@@ -11,6 +11,7 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 import toast from 'react-hot-toast';
 import { UserContext } from '@lib/context';
 import { firestore, auth, serverTimestamp } from '@lib/firebase';
+import { increment } from "firebase/firestore";
 import styles from './styles.module.scss'
 
 export default function CommunitySurvey() {
@@ -102,7 +103,7 @@ export default function CommunitySurvey() {
 
       await surveyRef.set(data);
       await awardRef.set(awardData);
-      await userDoc.update({completedSurvey: true, points: 20})
+      await userDoc.update({completedSurvey: true, points: increment(10)})
 
       toast.success('Successfully completed our community survey')
       toast.success('Gained 10 points and a BADGE')

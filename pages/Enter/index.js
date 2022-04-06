@@ -1,7 +1,9 @@
 import { auth, firestore, googleAuthProvider, serverTimestamp } from '../../lib/firebase';
+import { increment } from "firebase/firestore";
 import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
 import { useEffect, useState, useCallback, useContext } from 'react';
+import { useRouter } from 'next/router'
 import debounce from 'lodash.debounce';
 import toast from 'react-hot-toast';
 import styles from './styles.module.scss'
@@ -90,7 +92,7 @@ function UsernameForm() {
   const [formValue, setFormValue] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const router = useRouter();
   const { user, username } = useContext(UserContext);
 
   const onSubmit = async (e) => {
@@ -102,7 +104,7 @@ function UsernameForm() {
 
     // Commit both docs together as a batch write.
     const batch = firestore.batch();
-    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName, completedSurvey: false, points: 10});
+    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName, completedSurvey: false, points: increment(10)});
     batch.set(usernameDoc, { uid: user.uid });
 
     await batch.commit();
@@ -120,6 +122,7 @@ function UsernameForm() {
 
     toast.success('You are now a community member!')
     toast.success('You have gained 10 points and a community member badge!')
+    router.push(`/`);
   };
 
   const onChange = (e) => {
@@ -170,9 +173,6 @@ function UsernameForm() {
         <form className={styles.username_form} onSubmit={onSubmit}>
           <input className={styles.username_input} name="username" placeholder="myname" value={formValue} onChange={onChange} />
           <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
-          <button type="submit" className={styles.username_btn} disabled={!isValid}>
-            Choose
-          </button>
           <div>
             Username: {formValue}
             <br />
@@ -180,6 +180,9 @@ function UsernameForm() {
             <br />
             Username Valid: {isValid.toString()}
           </div>
+          <button type="submit" className={styles.username_btn} disabled={!isValid}>
+            Choose
+          </button>
         </form>
       </section>
 

@@ -4,7 +4,7 @@
 @media screen and (max-width: 786px) {
   .navbar{
     width: 100vw;
-    height: 8vh;
+    min-height: 50px;
     background-color: #ffffff;
     -webkit-box-shadow: 0px -12px 25px -17px rgba(110,110,110,1);
     -moz-box-shadow: 0px -12px 25px -17px rgba(110,110,110,1);
@@ -14,7 +14,6 @@
     left: 0;
     font-weight: bold;
     z-index: 99;
-
   }
 
   .linkList{

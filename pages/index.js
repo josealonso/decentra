@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
 import PostFeed from '../components/layout/PostFeed';
 import Loader from '../components/simple/Loader';
-import DashboardNav from '@components/layout/DashboardNav';
 import { firestore, fromMillis, postToJSON } from '../lib/firebase';
-
+import AuthCheck from '@components/helpers/AuthCheck';
 import styles from './styles.module.scss'
 
 const LIMIT = 5;
@@ -57,20 +56,14 @@ export default function Home(props) {
 
   return (
     <div className={styles.container}>
-      <DashboardNav 
-        highlight={feed}
-        setWallet={() => {setFeed('Wallet')}}
-        setRewards={() => {setFeed('Rewards')}}
-        setSurveys={() => {setFeed('Surveys')}}
-        setForum={() => {setFeed('Forum')}}
-      />
+      <AuthCheck>
+        <PostFeed posts={posts}/>
+        {!loading && !postsEnd && <button onClick={getMorePosts} className={styles.loadBtn}>Load more</button>} 
+      
+        <Loader show={loading}/>
 
-      <PostFeed posts={posts}/>
-      {!loading && !postsEnd && <button onClick={getMorePosts} className={styles.loadBtn}>Load more</button>} 
-    
-      <Loader show={loading}/>
-
-      {postsEnd && "You have reached the end."}
+        {postsEnd && "You have reached the end."}
+      </AuthCheck>
     </div>
   )
 }

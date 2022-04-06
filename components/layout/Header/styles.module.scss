@@ -2,25 +2,40 @@
 
 @media screen and (max-width: 786px){
   .header{
-    background-color: $light-highlight-color3;
     position: fixed;
     top: 0;
     left: 0;
+    min-height: 40px;
     height: 7vh;
     width: 100vw;
     z-index: 100;
-    color: rgba(255, 255, 255, 0.645);
+    color: rgb(255, 255, 255);
     font-size: x-large;
     display: flex;
     align-items: center;
     justify-content: left;
-    padding-left: 0.5em;
     font-weight: 500;
+  }
+
+  .wrap{
+    height: 100%;
+    margin-top: -0.3em;
+    padding-right: 1em;
   }
   
   .logo_img{
     height: 5vh;
     filter: brightness(0) invert(0.2);
+  }
+
+  .btnBlue{
+    background-color: rgba(255, 255, 255, 0);
+    border: none; 
+  }
+
+  .invertIcon{
+    color: white;
+    margin-top: 0.2em;
   }
 }
 
