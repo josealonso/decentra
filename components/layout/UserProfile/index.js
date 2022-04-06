@@ -13,7 +13,7 @@ export default function UserProfile({user, awards}) {
       <CardHeader
         className={styles.heading}
         avatar={
-          <Avatar aria-label="recipe"   sx={{ width: 100, height: 100 }} src={user.photoURL} alt={user.displayName}> 
+          <Avatar aria-label="recipe"   sx={{ width: 50, height: 50 }} src={user.photoURL} alt={user.displayName}> 
             
           </Avatar>
         }

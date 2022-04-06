@@ -1,6 +1,6 @@
 import AuthCheck from "../../components/helpers/AuthCheck";
 import { useContext, useState } from 'react';
-import { useCollection } from 'react-firebase-hooks/firestore';
+import FeedTab from "@components/layout/FeedTab";
 import SurveyFeed from '../../components/layout/SurveyFeed'
 import { UserContext } from "../../lib/context";
 import { useRouter } from 'next/router';
@@ -61,6 +61,7 @@ export default function SurveyPage(props) {
   return (
     <main className={styles.wrapper}>
       <AuthCheck>
+        <FeedTab path={1}/>
         <CreateNewSurvey />
         <SurveyFeed surveys={surveys}/>
         {!loading && !surveysEnd && <button onClick={getMoreSurveys} className={styles.loadBtn}>Load more</button>} 

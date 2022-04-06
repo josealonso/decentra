@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
 import { UserContext } from '@lib/context';
 import { firestore, auth, serverTimestamp } from '@lib/firebase';
 import { increment } from "firebase/firestore";
+import Loader from '@components/simple/Loader';
 import styles from './styles.module.scss'
 
 export default function CommunitySurvey() {
@@ -36,6 +37,7 @@ export default function CommunitySurvey() {
   const [age, setAge] = useState('') 
   const [description, setDescription] = useState('') 
   const [additional, setAdditional] = useState('') 
+  const [loading, setLoading] = useState(false)
 
   function CheckSurveyValid(){
     const surveyAnswers = [email, zipcode, instagram, problem, ideaSolve, volunteer, attend, knowLeader, knowCost, decideFund, believePublicFund, 
@@ -56,6 +58,7 @@ export default function CommunitySurvey() {
   }
 
   const SubmitSurveyResults = async(e) =>{
+    setLoading(true)
     e.preventDefault();
     let valid = false
     valid = CheckSurveyValid()
@@ -104,14 +107,14 @@ export default function CommunitySurvey() {
       await surveyRef.set(data);
       await awardRef.set(awardData);
       await userDoc.update({completedSurvey: true, points: increment(10)})
-
+     
       toast.success('Successfully completed our community survey')
       toast.success('Gained 10 points and a BADGE')
     }
     else{
       toast.error('Please complete survey')
     }
-  
+    setLoading(false)
   }
 
   return (
@@ -122,38 +125,7 @@ export default function CommunitySurvey() {
       </div>
 
       <form onSubmit={SubmitSurveyResults}>
-        <fieldset className={styles.form}>
-          <TextField
-            className={styles.form_input}
-            id="outlined-required"
-            label="Required"
-            defaultValue="Email Here"
-            onChange={async(e) => {
-              await setEmail(e.target.value)
-            }}
-          />
-
-        <TextField
-            className={styles.form_input}
-            id="outlined-required"
-            label="Required"
-            defaultValue="Your Zipcode"
-            onChange={async(e) => {
-              await setZipcode(e.target.value)
-            }}
-          />
-
-          <TextField
-            className={styles.form_input}
-            id="outlined-required"
-            label="Optional"
-            defaultValue="Your Instagram"
-            onChange={async(e) => {
-              await setInstagram(e.target.value)
-            }}
-          />
-          
-          
+        <fieldset className={styles.form}> 
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label"  style={{marginTop: '2em',  color: 'black', marginLeft: '1em',}}>Which would you say is the single biggest PROBLEM in your neighborhood currently? </FormLabel>
             <RadioGroup
@@ -415,6 +387,35 @@ export default function CommunitySurvey() {
             <FormControlLabel control={<Checkbox onClick={async(e) => {setDescription(e.target.value)}} value="Other" />} label="Other" />
           </FormGroup>
 
+          <TextField
+            className={styles.form_input}
+            id="outlined-required"
+            label="Required"
+            defaultValue="Email Here"
+            onChange={async(e) => {
+              await setEmail(e.target.value)
+            }}
+          />
+        <TextField
+            className={styles.form_input}
+            id="outlined-required"
+            label="Required"
+            defaultValue="Your Zipcode"
+            onChange={async(e) => {
+              await setZipcode(e.target.value)
+            }}
+          />
+
+          <TextField
+            className={styles.form_input}
+            id="outlined-required"
+            label="Optional"
+            defaultValue="Your Instagram"
+            onChange={async(e) => {
+              await setInstagram(e.target.value)
+            }}
+          />
+
           <FormGroup>
             <FormLabel id="demo-radio-buttons-group-label" style={{marginTop: '2em', color: 'black', marginLeft: '1em', marginBottom: '1.5em'}}> Please share any questions, comments, or concerns (optional) </FormLabel>
 
@@ -426,10 +427,9 @@ export default function CommunitySurvey() {
               onChange={(e)=> {setAdditional(e.target.value)}}
             />
           </FormGroup>
-          
         </fieldset>
 
-        <button className={styles.submit} >Submit</button>
+        <button className={styles.submit} disabled={loading}>{loading? <Loader show={loading}/> : 'Submit'}</button>
       </form>
     </div>
   )

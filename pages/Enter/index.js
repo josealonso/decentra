@@ -29,11 +29,13 @@ export default function Enter(props) {
 
 // Sign in with Google button
 function SignInButton() {
+  const router = useRouter();
 
   const [signIn, ToggleSignIn] = useState(false)
 
   const signInWithGoogle = async () => {
     await auth.signInWithPopup(googleAuthProvider);
+    router.push(`/`);
   };
 
   return (
@@ -119,10 +121,10 @@ function UsernameForm() {
     }
 
     await awardRef.set(data);
-
+    router.push(`/`);
     toast.success('You are now a community member!')
     toast.success('You have gained 10 points and a community member badge!')
-    router.push(`/`);
+
   };
 
   const onChange = (e) => {

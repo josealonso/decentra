@@ -9,26 +9,27 @@
 .form_container{
   background-color: rgb(236, 236, 236);
   width: 100%;
-  margin-top: 2vh;
+  padding-top: 5vh;
 }
 
 .form_group{
   background-color: rgb(255, 255, 255);
   padding: 1em;
   width: 100%;
-  min-width: 92vw;
+  min-width: 100vw;
   margin-top: 1em;
 }
 
 .form_input{
   width: 100%;
   margin-top: 1em;
+  background-color: white;
 }
 
 .submit{
   background-color: $light-highlight-color2;
   width: 60%;
-  height: 6vh;
+  height: 60px;
   margin-top: 1em;
   margin-left: 20%;
   color: white;

@@ -3,6 +3,7 @@ import PostFeed from '../components/layout/PostFeed';
 import Loader from '../components/simple/Loader';
 import { firestore, fromMillis, postToJSON } from '../lib/firebase';
 import AuthCheck from '@components/helpers/AuthCheck';
+import FeedTab from '@components/layout/FeedTab';
 import styles from './styles.module.scss'
 
 const LIMIT = 5;
@@ -57,6 +58,7 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       <AuthCheck>
+        <FeedTab path={0}/>
         <PostFeed posts={posts}/>
         {!loading && !postsEnd && <button onClick={getMorePosts} className={styles.loadBtn}>Load more</button>} 
       
