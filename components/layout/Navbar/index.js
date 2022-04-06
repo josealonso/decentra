@@ -18,7 +18,7 @@ export default function SimpleBottomNavigation() {
   const {username} = useContext(UserContext)
 
   return (
-    <Box sx={{ width: 500 }} className={styles.navbar}>
+    <Box className={styles.navbar}>
       <BottomNavigation
         showLabels
         value={value}
