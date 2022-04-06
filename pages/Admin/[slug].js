@@ -55,7 +55,7 @@ function PostManager() {
 }
 
 function PostForm({ defaultValues, postRef, preview }) {
-
+  const router = useRouter();
   const { register, handleSubmit, reset, watch, formState } = useForm({ defaultValues, mode: 'onChange' });
 
   const { isValid, isDirty } = formState;
@@ -70,6 +70,7 @@ function PostForm({ defaultValues, postRef, preview }) {
     reset({ content, published });
 
     toast.success('Post updated successfully!')
+    router.push('/')
   };
 
   return (

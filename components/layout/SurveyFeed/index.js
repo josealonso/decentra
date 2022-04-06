@@ -42,7 +42,7 @@ function SurveyItem({survey, admin = false}) {
   };
 
   return (
-    <Card style={{marginTop: '0.5em', width: '95%', marginLeft: '2.5%'}}>
+    <Card style={{marginTop: '0.5em', width: '95%', marginLeft: '2.5%', border: '1px solid lightgray', backgroundColor: '#DCF7FF'}}>
       <Link href={`/`}>
         <CardHeader  
           avatar={

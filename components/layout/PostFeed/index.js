@@ -51,11 +51,11 @@ function PostItem({post, admin = false}) {
   };
 
   return (
-    <Card style={{marginTop: '0.5em', width: '95%', marginLeft: '2.5%'}}>
+    <Card style={{marginTop: '0.5em', width: '95%', marginLeft: '2.5%', border: '1px solid lightgray', backgroundColor: '#DCF7FF'}}>
       <Link href={`/${post.username}/${post.slug}`}>
         <CardHeader  
           avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            <Avatar aria-label="recipe">
               P
             </Avatar>
           }

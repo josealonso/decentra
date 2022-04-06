@@ -118,18 +118,21 @@ function CreateNewSurvey() {
 
   return (
     <form onSubmit={createPost} className={styles.createPost}>
+      <div>
       <input 
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="My Awesome Post"
+        placeholder="My Awesome Survey"
         className={styles.input}
       />
       <p className={styles.slug}>
         <strong >
-          Slug: 
+          Proposal title:  
         </strong>
         {slug}
       </p>
+      </div>
+      
       <button type="submit" disabled={!isValid} className={styles.submit}>
         Create New Proposal
       </button>

@@ -14,8 +14,8 @@ export default function AdminPostsPage(props) {
   return (
     <main className={styles.wrapper}>
       <AuthCheck>
-        <PostList />
         <CreateNewPost />
+        <PostList />
       </AuthCheck>
     </main>
   )
@@ -71,18 +71,21 @@ function CreateNewPost() {
 
   return (
     <form onSubmit={createPost} className={styles.createPost}>
-      <input 
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="My Awesome Post"
-        className={styles.input}
-      />
-      <p className={styles.slug}>
-        <strong >
-          Slug: 
-        </strong>
-        {slug}
-      </p>
+      <div>
+        <input 
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="My Awesome Post"
+          className={styles.input}
+        />
+        <p className={styles.slug}>
+          <strong >
+            Title: 
+          </strong>
+          {slug}
+        </p>
+      </div>
+      
       <button type="submit" disabled={!isValid} className={styles.submit}>
         Create New Post
       </button>
