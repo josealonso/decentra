@@ -15,11 +15,12 @@ export default function FeedTab(props) {
   return (
     <Box sx={{ width: '100vw', bgcolor: '#DCF7FF', marginBottom: '1em' }}>
       <Tabs value={value} onChange={handleChange} centered>
-        <Link href={"/"}>
-          <Tab label="Posts"/>
-        </Link>
         <Link href={"/survey"}>
           <Tab label="Proposals"/>
+        </Link>
+
+        <Link href={"/"}>
+          <Tab label="Forum"/>
         </Link>
       </Tabs>
     </Box>

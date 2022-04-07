@@ -9,9 +9,14 @@ service cloud.firestore {
       	allow read;
       }
       
+      match /surveyResults/{surveyId} {
+      	allow read;
+      }
+      
       match /users/{userId} {
       	allow read;
         allow create: if isValidUser(userId);
+        allow update: if isValidUser(userId);
       }
       
       match /usernames/{username} {
@@ -32,6 +37,13 @@ service cloud.firestore {
       }
       
       match /users/{userId}/surveyResults/{surveyId} {
+      	allow read;
+        allow create: if canCreateSurvey(userId); 
+        allow update: if canUpdateSurvey(userId) || canIncrementVotes(userId, surveyId);
+        allow delete: if request.auth.uid == userId;
+      }
+      
+       match /users/{userId}/communitySurveyResults/{surveyId} {
       	allow read;
         allow create: if canCreateSurvey(userId); 
         allow update: if canUpdateSurvey(userId) || canIncrementVotes(userId, surveyId);
@@ -145,6 +157,7 @@ service cloud.firestore {
       	let isNow = request.time == request.resource.data.joinedAt;
         return isOwner && isNow
       }
+      
       
     }
     

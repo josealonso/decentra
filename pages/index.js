@@ -58,7 +58,7 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       <AuthCheck>
-        <FeedTab path={0}/>
+        <FeedTab path={1}/>
         <PostFeed posts={posts}/>
         {!loading && !postsEnd && <button onClick={getMorePosts} className={styles.loadBtn}>Load more</button>} 
       

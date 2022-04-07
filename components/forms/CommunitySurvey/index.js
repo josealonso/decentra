@@ -66,9 +66,10 @@ export default function CommunitySurvey() {
     if(valid){
       const uid = auth.currentUser.uid;
       const userDoc = firestore.doc(`users/${uid}`);
-      const surveyRef = firestore.collection('users').doc(uid).collection('surveyResults').doc(uid);
+      const resultsDoc = firestore.doc('Surveys/communitySurveyResults');
+      const surveyRef = firestore.collection('users').doc(uid).collection('communitySurveyResults').doc(uid);
       const awardRef = firestore.collection('users').doc(auth.currentUser.uid).collection('awards').doc('thinker');
-
+ 
       const data = {
         email: email,
         zipcode: zipcode,
@@ -104,10 +105,119 @@ export default function CommunitySurvey() {
         title: "Thinker LvL 1"
       }
 
+      const surveyPairs = []
+
+      function surveyAggregateData(){
+
+        const surveyData = [attend, believePublicFund, knowLeader, knowCost, decideFund, ideaSolve,  volunteer,  attendApp, attendInPerson, attendVideo, ]
+
+        surveyData.map((data) => {
+          if(data){
+            surveyPairs.push([data, true])
+          }
+          else{
+            surveyPairs.push([data, false])
+          }
+        })
+      }
+    
+      await surveyAggregateData()
+  
+
+      console.log('here')
+
+      const batch = firestore.batch();
       await surveyRef.set(data);
       await awardRef.set(awardData);
-      await userDoc.update({completedSurvey: true, points: increment(10)})
-     
+      console.log('here2')
+      batch.update(userDoc, {completedSurvey: false, points: increment(10)});
+      console.log('here3')
+
+      surveyPairs.map((pair, i) => {
+        if(pair[1] == true && i == 0){
+          batch.update(resultsDoc, {attendCivicTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 1){
+          batch.update(resultsDoc, {believeFundsTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 2){
+          batch.update(resultsDoc, {knowLeaderTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 3){
+          batch.update(resultsDoc, {moneyDedicationKnowledgeTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 4){
+          batch.update(resultsDoc, {participatedFundsTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 5){
+          batch.update(resultsDoc, {solutionIdeasTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 6){
+          batch.update(resultsDoc, {volunteerTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 7){
+          batch.update(resultsDoc, {voteSpendAppTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 8){
+          batch.update(resultsDoc, {voteSpendAttendTrue: increment(1)})
+        }
+
+        if(pair[1] == true && i == 9){
+          batch.update(resultsDoc, {voteSpendTrue: increment(1)})
+        }
+
+        if(pair[1] == false && i == 0){
+          batch.update(resultsDoc, {attendCivicFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 1){
+          batch.update(resultsDoc, {believeFundsFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 2){
+          batch.update(resultsDoc, {knowLeaderFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 3){
+          batch.update(resultsDoc, {moneyDedicationKnowledgeFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 4){
+          batch.update(resultsDoc, {participatedFundsFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 5){
+          batch.update(resultsDoc, {solutionIdeasFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 6){
+          batch.update(resultsDoc, {volunteerFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 7){
+          batch.update(resultsDoc, {voteSpendAppFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 8){
+          batch.update(resultsDoc, {voteSpendAttendFalse: increment(1)})
+        }
+
+        if(pair[1] == false && i == 9){
+          batch.update(resultsDoc, {voteSpendTrueFalse: increment(1)})
+        }
+      })
+
+      console.log('here')
+      await batch.commit();
+      console.log('here5')
       toast.success('Successfully completed our community survey')
       toast.success('Gained 10 points and a BADGE')
     }
@@ -409,7 +519,7 @@ export default function CommunitySurvey() {
           <TextField
             className={styles.form_input}
             id="outlined-required"
-            label="Optional"
+            label="Required"
             defaultValue="Your Instagram"
             onChange={async(e) => {
               await setInstagram(e.target.value)

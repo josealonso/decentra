@@ -3,7 +3,6 @@ import PageWrapper from '@components/layout/PageWrapper';
 import Head from 'next/head'
 import { Toaster } from 'react-hot-toast';
 import { UserContext } from '../lib/context';
-import CommunitySurveyContainer from '@components/layout/CommunitySurveyContainer';
 import { useUserData } from '../lib/hooks';
 import Header from '@components/layout/Header/index';
 import { useEffect } from 'react';
@@ -50,12 +49,6 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </PageWrapper>
         <Toaster />
-        {
-          userData.SurveyStatus ? 
-          ''
-          :
-          <CommunitySurveyContainer isUser={userData.user} username={userData.username}/>
-        }
       </UserContext.Provider>
     </>
   );
