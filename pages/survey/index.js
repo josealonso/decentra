@@ -61,7 +61,7 @@ export default function SurveyPage(props) {
   return (
     <main className={styles.wrapper}>
       <AuthCheck>
-        <FeedTab path={1}/>
+        <FeedTab path={0}/>
         <CreateNewSurvey />
         <SurveyFeed surveys={surveys}/>
         {!loading && !surveysEnd && <button onClick={getMoreSurveys} className={styles.loadBtn}>Load more</button>} 
@@ -122,7 +122,7 @@ function CreateNewSurvey() {
       <input 
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="My Awesome Survey"
+        placeholder="Proposal Title Here"
         className={styles.input}
       />
       <p className={styles.slug}>
