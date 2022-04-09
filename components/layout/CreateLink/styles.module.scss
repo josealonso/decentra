@@ -25,6 +25,9 @@
   color: white;
   padding: 0.5em;
   background-color: #222121;
+  border: 1px solid #3D3B39;
+  border-radius: 7.5px;
+  box-shadow: 0 5px 4px 0px #1d1c1a4f;
 }
 
 .link_maker{
@@ -37,6 +40,8 @@
 }
 
 .newBtn{
-  background-color: white;
-  color:#3D3B39;
+  background-color: transparent;
+  color: #B4B3B2;
+  border: 0px;
+  padding: 0rem;
 }
