@@ -1,5 +1,6 @@
 import Navbar from '../components/layout/Navbar/index'
 import PageWrapper from '@components/layout/PageWrapper';
+import CommunityBar from '@components/layout/CommunityBar';
 import '@styles/globals.css';
 import { Toaster } from 'react-hot-toast';
 import { UserContext } from '../lib/context';
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }) {
       <PageWrapper>
         <Component {...pageProps} />
       </PageWrapper>
+      <CommunityBar />
       <Toaster/>
       </UserContext.Provider>
     </>

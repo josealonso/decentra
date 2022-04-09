@@ -1,7 +1,21 @@
 @import '../../../theme/variables.scss';
 
 @media screen and (min-width: 786px) {
-  
+  .profile{
+    padding: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    min-height: 30vh;
+  }
+
+  .circularImg{
+    border-radius: 50%;
+    height: 20vh;
+    width: 20vh;
+    margin-bottom: 2em;
+  }
 }
 
 @media screen and (max-width: 786px) {
