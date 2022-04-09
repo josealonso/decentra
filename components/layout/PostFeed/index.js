@@ -1,19 +1,9 @@
 import * as React from 'react';
 import Link from 'next/link'
 import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
+
 import styles from './styles.module.scss'
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 export default function PostFeed({posts, admin}) {
   return posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin}/>) : null;
