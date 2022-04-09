@@ -105,21 +105,6 @@ function UsernameForm() {
     batch.set(usernameDoc, { uid: user.uid });
 
     await batch.commit();
-
-    const awardRef = firestore.collection('users').doc(auth.currentUser.uid).collection('awards').doc('communityBadge');
-
-    const data = {
-      received: true,
-      joinedAt: serverTimestamp(),
-      img: "https://i.imgur.com/bvJUIdL.png",
-      title: "Community Member"
-    }
-
-    await awardRef.set(data);
-    router.push(`/`);
-    toast.success('You are now a community member!')
-    toast.success('You have gained 10 points and a community member badge!')
-
   };
 
   const onChange = (e) => {

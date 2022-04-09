@@ -36,19 +36,19 @@ export default function Navbar() {
             </li>
 
             <li className={styles.li}>
-              <Link href="/main">
+              <Link href="/Main">
                 <button className={styles.link_btn}>Home</button>
               </Link>
             </li>
 
             <li className={styles.li}>
-              <Link href="/admin">
+              <Link href="/Admin">
                 <button className={styles.link_btn}>Create</button>
               </Link>
             </li>
 
             <li className={styles.li}>
-              <Link href="/forum">
+              <Link href="/">
                 <button className={styles.link_btn}>Forum</button>
               </Link>
             </li>

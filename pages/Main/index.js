@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import PostFeed from '@components/layout/PostFeed';
-import { firestore, fromMillis, postToJSON } from '@lib/firebase';
+import { firestore, fromMillis, postToJSON, auth } from '@lib/firebase';
 import AuthCheck from '@components/helpers/AuthCheck';
+import { collection, getFirestore, query, orderBy } from 'firebase/firestore';
 import CreateLink from '@components/layout/CreateLink';
+import { useCollection } from 'react-firebase-hooks/firestore';
 import styles from '../styles.module.scss'
 
 const LIMIT = 5

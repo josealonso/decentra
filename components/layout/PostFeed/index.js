@@ -51,58 +51,38 @@ function PostItem({post, admin = false}) {
   };
 
   return (
-    <Card style={{marginTop: '0.5em', width: '95%', marginLeft: '2.5%', border: '1px solid lightgray', backgroundColor: '#DCF7FF'}}>
-      <Link href={`/${post.username}/${post.slug}`}>
-        <CardHeader  
-          avatar={
-            <Avatar aria-label="recipe">
-              P
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={post?.title}
-          subheader={minutesToRead + ' Minutes to read'}
-        />
-      </Link>
-     
-      <CardMedia
-        component="img"
-        height="0"
-        image=""
-        alt=""
-      />
-      <CardContent>
-        <Link href={`/${post.username}`}>
-          <h4 className={styles.post_title}>By {post?.username}</h4>
+    <div className={styles.card}>
+    <Link href={`/${post.username}`}>
+      <a>
+        <strong>By @{post.username}</strong>
+      </a>
+    </Link>
+
+    <Link href={`/${post.username}/${post.slug}`}>
+      <h2>
+        <a>{post.title}</a>
+      </h2>
+    </Link>
+
+    <footer>
+      <span>
+        {wordCount} words. {minutesToRead} min read
+      </span>
+      <span className="push-left">💗 {post.heartCount || 0} Hearts</span>
+    </footer>
+
+    {/* If admin view, show extra controls for user */}
+    {admin && (
+      <>
+        <Link href={`/admin/${post.slug}`}>
+          <h3>
+            <button className="btn-blue">Edit</button>
+          </h3>
         </Link>
-        <Typography variant="body2" color="text.secondary">
-          {contentPreview.join(' ')}...
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <ReactMarkdown paragraph>
-            {post?.content}
-          </ReactMarkdown>
-        </CardContent>
-      </Collapse>
-    </Card>
+
+        {post.published ? <p className="text-success">Live</p> : <p className="text-danger">Unpublished</p>}
+      </>
+    )}
+  </div>
   );
 }

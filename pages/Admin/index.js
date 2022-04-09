@@ -70,25 +70,19 @@ function CreateNewPost() {
   } 
 
   return (
-    <form onSubmit={createPost} className={styles.createPost}>
-      <div>
-        <input 
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="My Awesome Post"
-          className={styles.input}
-        />
-        <p className={styles.slug}>
-          <strong >
-            Title: 
-          </strong>
-          {slug}
-        </p>
-      </div>
-      
-      <button type="submit" disabled={!isValid} className={styles.submit}>
+    <form onSubmit={createPost}>
+      <input
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="My Awesome Article!"
+        className={styles.input}
+      />
+      <p>
+        <strong>Slug:</strong> {slug}
+      </p>
+      <button type="submit" disabled={!isValid} className="btn-green">
         Create New Post
       </button>
     </form>
-  )
+  );
 }
