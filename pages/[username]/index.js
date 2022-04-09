@@ -20,7 +20,6 @@ export async function getServerSideProps({query}){
 
   let user = null;
   let posts = null;
-  let awards = null;
 
   if(userDoc) {
     console.log('working', userDoc)
@@ -32,25 +31,21 @@ export async function getServerSideProps({query}){
       .limit(5);
 
     posts = (await postsQuery.get()).docs.map(postToJSON);
-
-    const awardsQuery = userDoc.ref
-      .collection('awards')
-    awards = (await awardsQuery.get()).docs.map(awardsToJSON);
   }  
   
   return {
-    props: {user, posts, awards},
+    props: {user, posts},
   }
 }
 
 
 
-export default function UserProfilePage({ user, posts, awards}) {
+export default function UserProfilePage({ user, posts}) {
   return (
     <AuthCheck>
       <main className={styles.container}>
         <Metatags title={`${user.username}'s page`}/>
-        <UserProfile user={user} awards={awards}/>
+        <UserProfile user={user}/>
         <div className={styles.posts}>
           <PostFeed posts={posts}/>
         </div>

@@ -1,49 +1,91 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import PersonIcon from '@mui/icons-material/Person';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import HomeIcon from '@mui/icons-material/Home';
-import Link from 'next/link'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useContext } from 'react';
-import { UserContext } from '../../../lib/context';
+import { UserContext } from '@lib/context';
+import { auth } from '@lib/firebase';
+import { signOut } from 'firebase/auth';
 
 import styles from './styles.module.scss'
 
-export default function SimpleBottomNavigation() {
-  const [value, setValue] = React.useState(0);
-  
-  const {username} = useContext(UserContext)
+// Top navbar
+export default function Navbar() {
+  const { user, username } = useContext(UserContext);
+
+  const router = useRouter();
+
+  const signOutNow = () => {
+    signOut(auth);
+    router.reload();
+  }
 
   return (
-    <Box className={styles.navbar}>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
+    <nav className="navbar">
+      <ul className={styles.ul}>
+       
 
-        <Link href="/">
-          <BottomNavigationAction label="home" icon={<HomeIcon />} />
-        </Link>
+        {/* user is signed-in and has username */}
+        {username && (
+          <div className={styles.links}>
 
-        <Link href="/Admin">
-          <BottomNavigationAction label="proposals" icon={<AddBoxIcon />} />
-        </Link>
+              
+        
+            <li className={styles.li}>
+              <Link href="/">
+                <div className={styles.logo} />
+              </Link>
+            </li>
 
-        <Link href="/ComingSoon">
-          <BottomNavigationAction label="balance" icon={<AccountBalanceWalletIcon />} />
-        </Link>
+            <li className={styles.li}>
+              <Link href="/main">
+                <button className={styles.link_btn}>Home</button>
+              </Link>
+            </li>
 
-        <Link href={`/${username}`}>
-          <BottomNavigationAction label="account" icon={<PersonIcon />} />
-        </Link>
+            <li className={styles.li}>
+              <Link href="/admin">
+                <button className={styles.link_btn}>Create</button>
+              </Link>
+            </li>
 
-      </BottomNavigation>
-    </Box>
+            <li className={styles.li}>
+              <Link href="/forum">
+                <button className={styles.link_btn}>Forum</button>
+              </Link>
+            </li>
+
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>Resources</button>
+              </Link>
+            </li>
+
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>Chat</button>
+              </Link>
+            </li>
+           
+            <li className={styles.li}>
+              <button onClick={signOutNow}>Log Out</button>
+            </li>
+
+            <li className={styles.li_last}>
+              <Link href={`/${username}`}>
+                <img src={`${user?.photoURL}` || ''} alt={`${username}` || ''}></img>
+              </Link>
+            </li>
+          </div>
+        )}
+
+        {/* user is not signed OR has not created username */}
+        {!username && (
+          <li className={styles.li_profile}>
+            <Link href="/Enter">
+              <button>Log in</button>
+            </Link>
+          </li>
+        )}
+      </ul>
+    </nav>
   );
 }

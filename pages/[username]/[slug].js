@@ -61,37 +61,34 @@ export default function Post(props) {
   const { user: currentUser } = useContext(UserContext);
 
   return (
-    <main>
-      <AuthCheck>
-        <Metatags title={post.title} description={post.title} />
-        
-        <section>
-          <PostContent post={post} />
-        </section>
+    <main className={styles.main}>
+      <Metatags title={post.title} description={post.title} />
 
-        <aside className="card">
-          <p>
-            <strong className={styles.btnheart}>{post.heartCount || 0} 🤍</strong>
-          </p>
+      <section>
+        <PostContent post={post} />
+      </section>
 
-          <AuthCheck
-            fallback={
-              <Link href="/Enter">
-                <button>💗 Sign Up</button>
-              </Link>
-            }
-          >
-            <Heart postRef={postRef} />
-          </AuthCheck>
+      <aside className="card">
+        <p>
+          <strong>{post.heartCount || 0} 🤍</strong>
+        </p>
 
-          {currentUser?.uid === post.uid && (
-            <Link href={`/Admin/${post.slug}`}>
-              <button className={styles.blueBtn}>Edit Post</button>
+        <AuthCheck
+          fallback={
+            <Link href="/enter">
+              <button>💗 Sign Up</button>
             </Link>
-          )}
-        </aside>
-      </AuthCheck>
-      
+          }
+        >
+          <HeartButton postRef={postRef} />
+        </AuthCheck>
+
+        {currentUser?.uid === post.uid && (
+          <Link href={`/admin/${post.slug}`}>
+            <button className="btn-blue">Edit Post</button>
+          </Link>
+        )}
+      </aside>
     </main>
   );
 }

@@ -73,14 +73,9 @@ function SignOutButton() {
     <>
       <div className={styles.announcement}>
         <div className={styles.background_img} />
-        <h2 className={styles.header}>Welcome to Metrodao!</h2>
+        <h2 className={styles.header}>Welcome to Decentra!</h2>
         <p className={styles.para}>
-          Over the next few months we will be building a platform to elevate public private relations.
-          <br></br>
-          <br></br>
-          Our goal is simple, we want everyone to get a chance at being heard. 
-          And to celebrate your opinions we are offering 1 of our community members <em><b>500$ to for completing the survey</b></em>
-          <br></br>
+        hu
         </p>
       </div>
       <button style={{marginTop: '2em'}} className={styles.sign_up_btn} onClick={() => auth.signOut()}>Sign Out</button>
