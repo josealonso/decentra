@@ -1,30 +1,22 @@
-@media screen and (max-width: 786px) {
-  .container{
-    height: 91vh;
-    width: 100vw;
-    position: fixed;
-    margin-top: 7vh;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-    background-color: rgb(255, 255, 255);
-    overflow-x: hidden;
-  }
-}
 
 @media screen and (min-width: 786px) {
   .container{
     position: fixed;
+    left: 0;
     top: 0;
-    left: 220px;
-    height: 100%;
-    min-height: 100vh;
-    overflow-y: auto;
-    padding-top: 5em;
+    height: 100vh;
+    width: 100vw;
+    background-color: #272522;
+  }
+  
+  .inner_container{
+    margin-left: 220px;
     width: calc(100% - 500px);
     background-color:  #2E2B29;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+
   }
+  
 }

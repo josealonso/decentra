@@ -1,3 +1,16 @@
+.navbar{
+  height: 100vh;
+  width: 220px;
+  background: #272522;
+  color: var(--colors-text);
+  position: fixed;
+  top: 0;
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-gray);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+}
 
 .logo{
   background-color: #303030;
@@ -25,7 +38,9 @@
 
 .ul{
   display: flex;
+  justify-content: center;
   align-items: center;
+  width: 200px;
 }
 
 .li{
@@ -37,9 +52,15 @@
 }
 
 .link_btn{
-  margin-left: 1em;
-  width: 80%;
-  background-color: #303030;
+  width: 180px;
+  height: 40px;
+  color: white;
+  background-color: #272522;
+  border: none;
+  &:hover{
+   
+    background-color: #303030;
+  }
 }
 
 .li_profile{
@@ -92,61 +113,6 @@
     height: 2.2vh;
     width: 100%;
     display: none;
-  }
-}
-
-
-
-@media screen and (min-width: 786px) {
-  .navbar{
-    width: 100vw;
-    height: 7vh;
-    background-color: #303030;
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-weight: bold;
-    z-index: 99;
-    padding-left: 10vw;
-  }
-  
-  .linkList{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    list-style: none;
-  }
-  
-  .btnBlue{
-    margin-top: 0.5em;
-    margin-right: 1em;
-    border: none;
-    color: white;
-    width: 20vw;
-    background-color: rgb(50, 99, 196);
-    border-radius: 10px;
-    height: 5vh;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-  
-  .btnLogo{
-    margin-top: 0.5em;
-    margin-right: 1em;
-    border: none;
-    font-weight: 500;
-    font-size: larger;
-    color: rgb(0, 0, 0);
-    width: 20vw;
-    background-color: rgb(167, 179, 208);
-    height: 5vh;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-  
-  .btnBlue:hover{
-    transform: scale(0.9);
   }
 }
 

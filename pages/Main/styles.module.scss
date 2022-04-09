@@ -8,10 +8,11 @@
   padding: 1em;
   padding-right: 5vw;
   padding-left: 5vw;
+  height: 100%;
+
 }
 
 .main_grid{
-  max-height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
