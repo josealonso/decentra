@@ -4,7 +4,6 @@ import { Toaster } from 'react-hot-toast';
 import { UserContext } from '../lib/context';
 import { useUserData } from '../lib/hooks';
 
-import '../theme/global.scss'
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();

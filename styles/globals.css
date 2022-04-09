@@ -32,10 +32,9 @@ main {
   left: 7vw;
   height: 100vh;
   padding: 2em;
-  padding-top: 0;
+  margin-left: 5vw;
   padding-top: 5em;
-  padding-bottom: 0;
-  width: calc(100% - 220px);
+  width: calc(100% - 500px);
 }
 
 h1 { font-size: 2rem; }

@@ -15,7 +15,7 @@ export default function Enter(props) {
   // 2. user signed in, but missing username <UsernameForm />
   // 3. user signed in, has username <SignOutButton />
   return (
-    <main className={styles.container}>
+    <main>
       {user ? !username ? <UsernameForm /> 
       : 
       <div className={styles.survey_container}>

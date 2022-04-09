@@ -34,7 +34,6 @@ export default function PostFeed({posts, admin}) {
 
 function PostItem({post, admin = false}) {
   const wordCount = post?.content.trim().split(/\s+/g).length;
-  const [expanded, setExpanded] = React.useState(false);
 
   const contentPreview = post?.content.trim().split(/\s+/g).map((word, i) => {
     let preview = [];
@@ -45,10 +44,6 @@ function PostItem({post, admin = false}) {
   })
   
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <div className={styles.card}>
