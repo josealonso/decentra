@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { UserContext } from '../../lib/context'
 import { useContext } from 'react'
 import PostContent from '../../components/layout/PostContent'
-import Heart from '../../components/layout/HeartButton'
+import Heart from '@components/layout/HeartButton'
 import Metatags from '../../components/helpers/metatags'
 import {getUserWithUsername, firestore, postToJSON } from '../../lib/firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
@@ -80,7 +80,7 @@ export default function Post(props) {
             </Link>
           }
         >
-          <HeartButton postRef={postRef} />
+          <Heart postRef={postRef} />
         </AuthCheck>
 
         {currentUser?.uid === post.uid && (
