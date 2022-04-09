@@ -19,7 +19,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       <ul className={styles.ul}>
        
 

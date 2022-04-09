@@ -1,7 +1,7 @@
 import Navbar from '../components/layout/Navbar/index'
 import PageWrapper from '@components/layout/PageWrapper';
 import CommunityBar from '@components/layout/CommunityBar';
-import '@styles/globals.css';
+import '../theme/global.scss';
 import { Toaster } from 'react-hot-toast';
 import { UserContext } from '../lib/context';
 import { useUserData } from '../lib/hooks';
