@@ -8,6 +8,7 @@ import { UserContext } from '@lib/context';
 import kebabCase from 'lodash.kebabcase';
 import toast from 'react-hot-toast';
 import styles from './styles.module.scss'
+import ImageUploader from '../ImageUploader';
 
 
 function CreateNewLink(props){
@@ -67,12 +68,9 @@ function CreateNewLink(props){
           placeholder="link"
           className={styles.input}
         />
-        <input
-          value={icon}
-          onChange={(e) => setIcon(e.target.value)}
-          placeholder="Image"
-          className={styles.input}
-        />
+
+        <ImageUploader placeImage={setIcon}/>
+        
         <p className={styles.para}>
           <strong>Title:</strong> {slug}
         </p>

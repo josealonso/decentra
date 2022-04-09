@@ -3,7 +3,7 @@ import {auth, storage, STATE_CHANGED} from '../../../lib/firebase'
 import Loader from '../../simple/Loader'
 import styles from './styles.module.css'
 
-export default function ImageUploader() {
+export default function ImageUploader({placeImage}) {
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0)
   const [downloadURL, setDownloadURL] = useState(null)
@@ -28,6 +28,7 @@ export default function ImageUploader() {
         .then((url) => {
           setDownloadURL(url);
           setUploading(false);
+          placeImage(`![alt](${url})`)
         })
     })
   }
