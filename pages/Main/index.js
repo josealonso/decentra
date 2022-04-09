@@ -4,6 +4,7 @@ import { firestore, fromMillis, postToJSON, auth } from '@lib/firebase';
 import AuthCheck from '@components/helpers/AuthCheck';
 import { collection, getFirestore, query, orderBy } from 'firebase/firestore';
 import CreateLink from '@components/layout/CreateLink';
+import LinkItem from '@components/simple/LinkItem';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import styles from '../styles.module.scss'
 
