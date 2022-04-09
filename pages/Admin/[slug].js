@@ -6,7 +6,7 @@ import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-
+import { deleteDoc } from 'firebase/firestore';
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore';
 import { useForm } from 'react-hook-form'; 
 
@@ -20,6 +20,7 @@ export default function AdminPostEdit(props) {
     </AuthCheck>
   );
 }
+
 
 function PostManager() {
   const [preview, setPreview] = useState(false);
@@ -47,8 +48,6 @@ function PostManager() {
           <Link href={`/${post.username}/${post.slug}`}>
             <button className="btn-blue">Live view</button>
           </Link>
-          
-          <DeletePostButton postRef={postRef} />
         </aside>
       </>
     )}
@@ -107,27 +106,12 @@ function PostForm({ defaultValues, postRef, preview }) {
         <button className={styles.greenBtn} type="submit" disabled={!isDirty || !isValid}>
           Save Changes
         </button>
+        
       </div>
     </form>
   )
+
+
 }
 
 
-function DeletePostButton({ postRef }) {
-  const router = useRouter();
-
-  const deletePost = async () => {
-    const doIt = confirm('are you sure!');
-    if (doIt) {
-      await deleteDoc(postRef);
-      router.push('/admin');
-      toast('post annihilated ', { icon: '🗑️' });
-    }
-  };
-
-  return (
-    <button className="btn-red" onClick={deletePost}>
-      Delete
-    </button>
-  );
-}

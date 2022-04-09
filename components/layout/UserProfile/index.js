@@ -1,8 +1,10 @@
+import styles from './styles.module.scss'
+
 // UI component for user profile
 export default function UserProfile({ user }) {
   return (
-    <div className="box-center">
-      <img src={user.photoURL || '/hacker.png'} className="card-img-center" />
+    <div className={styles.profile}>
+      <img src={user.photoURL || '/hacker.png'} className={styles.circularImg} />
       <p>
         <i>@{user.username}</i>
       </p>

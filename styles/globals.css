@@ -218,7 +218,9 @@ button.btn-logo {
 /* File uploads */
 
 input[type="file"] {
-  display: none;
+
+  height: 100%;
+  width: 100%;
 }
 
 .upload-snippet {

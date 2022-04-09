@@ -21,9 +21,10 @@
     top: 0;
     left: 220px;
     height: 100%;
+    min-height: 100vh;
     overflow-y: auto;
     padding-top: 5em;
     width: calc(100% - 500px);
-    background-color: aliceblue;
+    background-color:  #2E2B29;
   }
 }
