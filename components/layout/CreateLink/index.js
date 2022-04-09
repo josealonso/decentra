@@ -23,7 +23,7 @@ function CreateNewLink(props){
    const slug = encodeURI(kebabCase(title));
 
    // Validate length
-   const isValid = title.length > 3 && title.length < 100;
+   const isValid = title.length > 3 && title.length < 100 && link.length != 0 && icon.length != 0;
  
    // Create a new post in firestore
    const createLink = async (e) => {
@@ -56,12 +56,14 @@ function CreateNewLink(props){
         <div>
           <h4>Add link</h4>
         </div>
+        <label>Name</label>
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Name"
           className={styles.input}
         />
+        <label>Link</label>
         <input
           value={link}
           onChange={(e) => setLink(e.target.value)}
@@ -70,7 +72,7 @@ function CreateNewLink(props){
         />
 
         <ImageUploader placeImage={setIcon}/>
-        
+
         <p className={styles.para}>
           <strong>Title:</strong> {slug}
         </p>

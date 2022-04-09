@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {auth, storage, STATE_CHANGED} from '../../../lib/firebase'
 import Loader from '../../simple/Loader'
+import toast from 'react-hot-toast'
 import styles from './styles.module.css'
 
 export default function ImageUploader({placeImage}) {
@@ -29,26 +30,29 @@ export default function ImageUploader({placeImage}) {
           setDownloadURL(url);
           setUploading(false);
           placeImage(`![alt](${url})`)
+          toast.success('Image uploaded successfully')
         })
     })
   }
 
   return (
-    <div>
-      <Loader show={uploading}/>
+    <>
+      <div className={styles.uploader}>
+        <Loader show={uploading}/>
 
-      {uploading && <h3>{progress} %</h3>}
+        {uploading && <h3>{progress} %</h3>}
 
-      {!uploading && (
-        <>
-          <label>
-            Upload Image
-            <input type="file" onChange={uploadFile} accept="image/x-png,image/gif,image/jpeg"/>
-          </label>
-        </>
-      )} 
-
-      {downloadURL && <code className={styles.snippet}>{`![alt](${downloadURL})`}</code>}
-    </div>
+        {!uploading && (
+          <>
+            <label>
+              Upload Image
+              <input type="file" onChange={uploadFile} disabled={downloadURL} accept="image/x-png,image/gif,image/jpeg" className={styles.input}/>
+            </label>
+          </>
+        )} 
+      </div>
+      {downloadURL && <div>Image uploaded successfully</div>}
+    </>
+   
   )
 }
