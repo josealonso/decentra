@@ -12,7 +12,7 @@
 }
 
 .card{
-  @include section(92vh, 90vw, 1em);
+  @include section(100%, 50vw, 1em);
   border: 2px solid rgba(0, 0, 0, 0.525);
 } 
 

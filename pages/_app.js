@@ -1,4 +1,5 @@
 import Navbar from '../components/layout/Navbar/index'
+import PageWrapper from '@components/layout/PageWrapper';
 import '@styles/globals.css';
 import { Toaster } from 'react-hot-toast';
 import { UserContext } from '../lib/context';
@@ -12,7 +13,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <UserContext.Provider value={userData}>
       <Navbar />
-      <Component {...pageProps} />
+      <PageWrapper>
+        <Component {...pageProps} />
+      </PageWrapper>
       <Toaster/>
       </UserContext.Provider>
     </>

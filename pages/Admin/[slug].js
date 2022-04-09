@@ -32,25 +32,27 @@ function PostManager() {
 
   return (
     <main className={styles.container}>
-      {post && (
-        <>
-          <section>
-            <h1 className={styles.title}>{post.title}</h1>
-            <p className={styles.slug}>ID: {post.slug}</p>
+    {post && (
+      <>
+        <section>
+          <h1>{post.title}</h1>
+          <p>ID: {post.slug}</p>
 
-            <PostForm postRef={postRef} defaultValues={post} preview={preview} />
-          </section>
+          <PostForm postRef={postRef} defaultValues={post} preview={preview} />
+        </section>
 
-          <aside>
+        <aside>
           <h3>Tools</h3>
-            <button className={styles.greenBtn} onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview'}</button>
-            <Link href={`/${post.username}/${post.slug}`}>
-              <button className={styles.greenBtn}>Live view</button>
-            </Link>
-          </aside>
-        </>
-      )}
-    </main>
+          <button onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview'}</button>
+          <Link href={`/${post.username}/${post.slug}`}>
+            <button className="btn-blue">Live view</button>
+          </Link>
+          
+          <DeletePostButton postRef={postRef} />
+        </aside>
+      </>
+    )}
+  </main>
   );
 }
 
@@ -85,7 +87,7 @@ function PostForm({ defaultValues, postRef, preview }) {
   
       <ImageUploader />
 
-        <textarea  className={styles.text_area} {...register(
+        <textarea {...register(
           "content", {
             required: "content is required",
             maxLength: {
@@ -97,9 +99,8 @@ function PostForm({ defaultValues, postRef, preview }) {
               message: 'content is too short'
             }
           })}></textarea>
-
-          <fieldset className={styles.field}>
-            <input className={styles.checkbox} name="published" type="checkbox" {...register("published")} />
+          <fieldset>
+            <input className={styles.checkbox} name="published" type="checkbox"  {...register("published")} />
             <label >Published</label>
           </fieldset>
 
@@ -109,4 +110,24 @@ function PostForm({ defaultValues, postRef, preview }) {
       </div>
     </form>
   )
+}
+
+
+function DeletePostButton({ postRef }) {
+  const router = useRouter();
+
+  const deletePost = async () => {
+    const doIt = confirm('are you sure!');
+    if (doIt) {
+      await deleteDoc(postRef);
+      router.push('/admin');
+      toast('post annihilated ', { icon: '🗑️' });
+    }
+  };
+
+  return (
+    <button className="btn-red" onClick={deletePost}>
+      Delete
+    </button>
+  );
 }

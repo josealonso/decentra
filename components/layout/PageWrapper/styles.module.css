@@ -16,5 +16,13 @@
 }
 
 @media screen and (min-width: 786px) {
-  
+  .container{
+    position: fixed;
+    top: 0;
+    left: 220px;
+    height: 100vh;
+    padding-top: 5em;
+    width: calc(100% - 500px);
+    background-color: aliceblue;
+  }
 }

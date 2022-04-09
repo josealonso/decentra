@@ -6,7 +6,7 @@ import { collection, getFirestore, query, orderBy } from 'firebase/firestore';
 import CreateLink from '@components/layout/CreateLink';
 import LinkItem from '@components/simple/LinkItem';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import styles from '../styles.module.scss'
+import styles from './styles.module.scss'
 
 const LIMIT = 5
 
@@ -26,18 +26,17 @@ export async function getServerSideProps(context){
 
 export default function index({posts}) {
   return (
-
-      <main className={styles.main}>
-        <AuthCheck>
-          <div className={styles.main_grid}>
-            <CreateLink />
-            <LinkList />
-            </div>
-            <div className={styles.long_block}>
-              <PostFeed posts={posts}/>
-          </div> 
-        </AuthCheck>
-      </main>
+    <main className={styles.main}>
+      <AuthCheck>
+        <div className={styles.main_grid}>
+          <CreateLink />
+          <LinkList />
+          </div>
+          <div className={styles.long_block}>
+            <PostFeed posts={posts}/>
+        </div> 
+      </AuthCheck>
+    </main>
   )
 }
 

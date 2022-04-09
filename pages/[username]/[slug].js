@@ -61,7 +61,7 @@ export default function Post(props) {
   const { user: currentUser } = useContext(UserContext);
 
   return (
-    <main className={styles.main}>
+    <main>
       <Metatags title={post.title} description={post.title} />
 
       <section>
