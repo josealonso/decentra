@@ -41,7 +41,7 @@ a {
   box-sizing: border-box;
 }
 
-img {max-width: 100%;}
+img {  height: 80px; }
 
 input { 
   display: inline-block; 

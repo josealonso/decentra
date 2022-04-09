@@ -2,10 +2,9 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { firestore, auth } from '@lib/firebase';
 import { serverTimestamp, query, orderBy, getFirestore, setDoc, doc } from 'firebase/firestore';
+
 import { useContext, useState } from 'react';
-import { useCollection } from 'react-firebase-hooks/firestore';
 import { UserContext } from '@lib/context';
-import { collection } from 'firebase/firestore';
 import kebabCase from 'lodash.kebabcase';
 import toast from 'react-hot-toast';
 import styles from './styles.module.scss'
