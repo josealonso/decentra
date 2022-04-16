@@ -10,7 +10,7 @@
   }
   
   .inner_container{
-    margin-left: 220px;
+    margin-left: 66px;
     width: calc(100% - 500px);
     background-color:  #2E2B29;
     overflow-y: scroll;
