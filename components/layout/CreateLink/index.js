@@ -56,6 +56,7 @@ function CreateNewLink(props){
         <div>
           <h4>Add link</h4>
         </div>
+        <hr />
         <label>Name</label>
         <input
           value={title}
@@ -64,6 +65,7 @@ function CreateNewLink(props){
           className={styles.input}
         />
         <label>Link</label>
+
         <input
           value={link}
           onChange={(e) => setLink(e.target.value)}
@@ -73,17 +75,16 @@ function CreateNewLink(props){
 
         <ImageUploader placeImage={setIcon}/>
 
-        <p className={styles.para}>
-          <strong>Title:</strong> {slug}
-        </p>
+        <div className={styles.btns}>
+          <button onClick={props.toggle} className={styles.cancel}>
+            cancel
+          </button>
 
-        <button onClick={props.toggle} style={{backgroundColor: 'red', marginTop: '3em', marginLeft: '0em', marginBottom: '2em'}}>
-          cancel
-        </button>
-
-        <button type="submit" disabled={!isValid} className="btn-green">
-          Create New Link
-        </button>
+          <button type="submit" disabled={!isValid} className={styles.approve}>
+            Create New Link
+          </button>
+        </div>
+       
       </form>
     </div>
   );

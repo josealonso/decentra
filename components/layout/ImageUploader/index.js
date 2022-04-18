@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {auth, storage, STATE_CHANGED} from '../../../lib/firebase'
 import Loader from '../../simple/Loader'
 import toast from 'react-hot-toast'
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 export default function ImageUploader({placeImage}) {
   const [uploading, setUploading] = useState(false);
@@ -46,8 +46,8 @@ export default function ImageUploader({placeImage}) {
           <>
             <label>
               Upload Image
-              <input type="file" onChange={uploadFile} disabled={downloadURL} accept="image/x-png,image/gif,image/jpeg" className={styles.input}/>
             </label>
+            <input type="file" onChange={uploadFile} disabled={downloadURL} accept="image/x-png,image/gif,image/jpeg" className={styles.input}/>
           </>
         )} 
       </div>

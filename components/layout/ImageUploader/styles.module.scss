@@ -1,0 +1,17 @@
+.uploader{
+  min-height: 200px;
+  min-width: 200px;
+  width: 130px;
+  background-color: #272522;
+  margin-top: 2em;
+  border-radius: 15px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+
+  label{
+    color: white;
+    margin-bottom: 2em;
+  }
+}
+

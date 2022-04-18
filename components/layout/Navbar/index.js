@@ -21,14 +21,9 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <ul className={styles.ul}>
-       
-
         {/* user is signed-in and has username */}
         {username && (
           <div className={styles.links}>
-
-              
-        
             <li className={styles.li}>
               <Link href="/">
                 <div className={styles.logo} />
@@ -37,36 +32,39 @@ export default function Navbar() {
 
             <li className={styles.li}>
               <Link href="/Main">
-                <button className={styles.link_btn}>Home</button>
+                <button className={styles.link_btn}>
+                  <img src="https://i.imgur.com/uWbklNq.png" alt="Home"/>
+                </button>
               </Link>
             </li>
-
+            <div className={styles.seperator}/>
             <li className={styles.li}>
               <Link href="/Admin">
-                <button className={styles.link_btn}>Create</button>
+                <button className={styles.link_btn}>
+                  <img src="https://i.imgur.com/Y2V8lSk.png" alt="Create"></img>
+                </button>
               </Link>
             </li>
-
+            <div className={styles.seperator}/>
             <li className={styles.li}>
               <Link href="/">
-                <button className={styles.link_btn}>Forum</button>
+                <button className={styles.link_btn}>
+                  <img src="https://i.imgur.com/6mFM695.png" alt="Forum"/>
+                </button>
               </Link>
             </li>
-
+            <div className={styles.seperator}/>
             <li className={styles.li}>
               <Link href="/404">
-                <button className={styles.link_btn}>Resources</button>
+                <button className={styles.link_btn}>
+                  <img src="https://i.imgur.com/IiSpU9I.png" alt="resources" />
+                </button>
               </Link>
             </li>
-
+            <div className={styles.seperator}/>
+            <div className={styles.seperator}/>
             <li className={styles.li}>
-              <Link href="/404">
-                <button className={styles.link_btn}>Chat</button>
-              </Link>
-            </li>
-           
-            <li className={styles.li}>
-              <button onClick={signOutNow}>Log Out</button>
+              <button onClick={signOutNow} className={styles.logout}>Log Out</button>
             </li>
 
             <li className={styles.li_last}>
