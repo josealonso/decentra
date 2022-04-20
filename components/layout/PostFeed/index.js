@@ -28,23 +28,27 @@ function PostItem({post, admin = false}) {
       <img src="https://i.imgur.com/jPSFaL7.png" alt="blog-preview-cover"/>
 
       <div className={styles.content_preview}>
-        <Link href={`/${post.username}`}>
-          <a>
-            <strong>By @{post.username}</strong>
-          </a>
-        </Link>
-
         <Link href={`/${post.username}/${post.slug}`}>
           <h2>
             <a>{post.title}</a>
           </h2>
         </Link>
 
+        <Link href={`/${post.username}`}>
+          <a>
+            <strong>By @{post.username}</strong>
+            <span>
+              {wordCount} words. {minutesToRead} min read
+            </span>
+          </a>
+        </Link>
+
+        <span className={styles.preview}>
+          {contentPreview.join(' ')}
+        </span>
+
         <footer>
-          <span>
-            {wordCount} words. {minutesToRead} min read
-          </span>
-          <span className="push-left">💗 {post.heartCount || 0} Hearts</span>
+          <span className={styles.count}>💗 {post.heartCount || 0} Hearts</span>
         </footer>
       </div>
       

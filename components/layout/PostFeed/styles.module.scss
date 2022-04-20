@@ -14,17 +14,35 @@
     border-bottom: 1px solid rgb(53, 53, 53);
 
     a{
-      color: rgb(255, 255, 255);
+      color: rgba(255, 255, 255, 0.635);
       text-decoration: none;
+      margin-top: 1em;
+      cursor: pointer;
+      transition: 0.5s;
+      
+      &:hover{
+        color: rgb(255, 255, 255);
+      }
+
+      span{
+        margin-left: 1em;
+        color: rgba(211, 211, 211, 0.519);
+      }
     }
 
     strong{
-      color: rgba(255, 255, 255, 0.475); 
+      color: rgba(255, 255, 255, 0.499); 
     }
 
     img{
       min-width: 20vw;
       margin-right: 1em;
+      border-radius: 12px;
+    }
+
+    footer{
+      margin-top: 1em;
+      color: white;
     }
   }
 
@@ -33,6 +51,13 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  .preview{
+    color: rgba(220, 220, 220, 0.892);
+    margin-top: 1em;
+    width: 85%;
+    line-height: 1.3em;
   }
 }
 

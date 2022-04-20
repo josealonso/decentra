@@ -33,7 +33,7 @@ export default function index({posts}) {
           <LinkList />
           </div>
           <div className={styles.long_block}>
-            <h3>Feed</h3>
+            <h3>Latest</h3>
             <hr />
             <PostFeed posts={posts}/>
         </div> 

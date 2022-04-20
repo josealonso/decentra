@@ -5,9 +5,30 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Montaga', serif;
+  font-family:Arial, Helvetica, sans-serif, serif;
 }
 
 img{
   max-width: 8vw;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(100, 100, 109) #2E2B29;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #2E2B29;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(100, 100, 109);
+  border-radius: 20px;
+  border: 3px solid #2E2B29;
 }
