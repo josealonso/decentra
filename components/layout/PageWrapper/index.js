@@ -7,7 +7,7 @@ export default function PageWrapper(props) {
     <div className={styles.container}>
 
       <div className={styles.inner_container}>
-        <div className="main_container">
+        <div className={styles.main_container}>
         {props.children}
         <CommunityBar />
         </div>
