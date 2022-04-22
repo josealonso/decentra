@@ -1,4 +1,5 @@
 import React from 'react'
+import CommunityBar from '@components/layout/CommunityBar'
 import styles from './styles.module.css'
 
 export default function PageWrapper(props) {
@@ -9,6 +10,9 @@ export default function PageWrapper(props) {
         {props.children}
       </div>
 
+      <div>
+        <CommunityBar />
+      </div>
     </div>
   )
 }

@@ -1,4 +1,3 @@
-
 @media screen and (min-width: 786px) {
   .container{
     position: fixed;
@@ -20,4 +19,14 @@
     padding-right: 5vw;
   }
   
+}
+
+@media screen and (max-width: 786px) {
+  .inner_container{
+    width: 100vw;
+    background-color:  #2E2B29;
+    height: 100%;
+    padding-top: 10vh;
+    overflow-y: hidden;
+  }
 }
