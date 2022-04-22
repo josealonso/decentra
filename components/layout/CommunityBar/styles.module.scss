@@ -18,6 +18,10 @@
     height: calc(100vh);
 
     background-color: #2E2B29;
+    
+    ::-webkit-scrollbar {
+      display:none
+    }
   }
 
   .events{
