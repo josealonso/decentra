@@ -10,15 +10,19 @@
   
   .inner_container{
     margin-left: 66px;
-    width: calc(100% - 500px);
+    width: calc(100% - 66px);
     background-color:  #2E2B29;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
-    padding-left: 5vw;
-    padding-right: 5vw;
   }
-  
+  .main_container {
+    display: grid;
+    grid-template-columns: 720px 300px;
+    width: 1048px;
+    margin: auto;
+    grid-gap: 28px;
+  }
 }
 
 @media screen and (max-width: 786px) {
