@@ -6,10 +6,8 @@
 
 @media screen and (min-width: 786px) {
   .bar{
-    width: 434px;
-    padding: 1em;
-    position: fixed;
-    right: 0;
+    padding-top: 1em;
+    position: sticky;
     top: 0;
     overflow-y: auto;
     max-height: 100vh;
@@ -23,7 +21,6 @@
   }
 
   .events{
-    margin-top: 0.5em;
     margin-bottom: 2em;
   }
 }
