@@ -29,7 +29,7 @@ export default function Navbar() {
                 <div className={styles.logo} />
               </Link>
             </li>
-
+            <div className={styles.seperator}/>
             <li className={styles.li}>
               <Link href="/Main">
                 <button className={styles.link_btn}>
@@ -37,7 +37,6 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
-            <div className={styles.seperator}/>
             <li className={styles.li}>
               <Link href="/Admin">
                 <button className={styles.link_btn}>
@@ -45,7 +44,6 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
-            <div className={styles.seperator}/>
             <li className={styles.li}>
               <Link href="/">
                 <button className={styles.link_btn}>
@@ -53,7 +51,6 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
-            <div className={styles.seperator}/>
             <li className={styles.li}>
               <Link href="/404">
                 <button className={styles.link_btn}>
@@ -62,7 +59,20 @@ export default function Navbar() {
               </Link>
             </li>
             <div className={styles.seperator}/>
-            <div className={styles.seperator}/>
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/5rWyV5p/sahdasdjhasj.png" alt="createcommunity" />
+                </button>
+              </Link>
+            </li>
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/37sVsBX/disco.png" alt="discover" />
+                </button>
+              </Link>
+            </li>
             <li className={styles.li}>
               <button onClick={signOutNow} className={styles.logout}>Log Out</button>
             </li>
