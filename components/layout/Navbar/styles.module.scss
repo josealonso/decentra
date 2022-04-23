@@ -23,7 +23,7 @@
     height: 45px;
     background-size: cover;
     width: 45px;
-    border-radius: 50%;
+    border-radius: 7.5px;
   }
   
   .links{
@@ -58,8 +58,8 @@
   }
   
   .link_btn{
-    width: 56px;
-    height: 56px;
+    width: 45px;
+    height: 45px;
     color: white;
     background-color: #272522;
     border: none;
@@ -84,6 +84,7 @@
     border: 0;
     color: white;
     cursor: pointer;
+    
     &:hover{
       background-color: #272522;
       border: 1px solid white;
@@ -93,17 +94,16 @@
   .seperator{
     height: 1.25px;
     background: #3d3b39;
-    width: 80%;
+    width: 100%;
   }
   
   .li_last{
     position: fixed;
     bottom: 80px;
-    background-color: white;
     list-style: none;
-    height: 56px;
-    width: 56px;
-    border-radius: 12px;
+    height: 45px;
+    width: 45px;
+    border-radius: 7.5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,6 +112,10 @@
   
     &:hover{
       background-color: rgb(206, 206, 236);
+    }
+    img {
+    max-width: 45px;
+    border-radius: 7.5px;
     }
   }
 }
