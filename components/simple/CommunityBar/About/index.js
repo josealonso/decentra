@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 export default function About() {
   return (
     <div className={styles.about_card}>
-      <h2>About</h2>
+      <h3>Decentra</h3>
 
       <hr />
       <p>
