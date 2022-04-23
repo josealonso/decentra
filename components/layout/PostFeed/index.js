@@ -25,7 +25,7 @@ function PostItem({post, admin = false}) {
   return (
     <div className={styles.card}>
 
-      <img src="https://i.imgur.com/jPSFaL7.png" alt="blog-preview-cover"/>
+      <img src="https://miro.medium.com/max/1400/1*0nmEea4SDHU8hY0CZyhvxw.png" alt="blog-preview-cover"/>
 
       <div className={styles.content_preview}>
         <Link href={`/${post.username}/${post.slug}`}>
@@ -37,19 +37,14 @@ function PostItem({post, admin = false}) {
         <Link href={`/${post.username}`}>
           <a>
             <strong>By @{post.username}</strong>
-            <span>
-              {wordCount} words. {minutesToRead} min read
-            </span>
+          <span className={styles.count}>💗 {post.heartCount || 0}</span>
           </a>
         </Link>
 
         <span className={styles.preview}>
           {contentPreview.join(' ')}
         </span>
-
-        <footer>
-          <span className={styles.count}>💗 {post.heartCount || 0}</span>
-        </footer>
+        
       </div>
       
 
