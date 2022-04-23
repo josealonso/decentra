@@ -29,14 +29,14 @@ export default function index({posts}) {
     <main className={styles.main}>
       <AuthCheck>
         <div className={styles.main_grid}>
-          <CreateLink />
           <LinkList />
-          </div>
+          <CreateLink />
+        </div>
           <div className={styles.long_block}>
             <h3>Latest</h3>
             <hr />
             <PostFeed posts={posts}/>
-        </div> 
+          </div> 
       </AuthCheck>
     </main>
   )
