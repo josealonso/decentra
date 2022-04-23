@@ -14,6 +14,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1em;
+    grid-row-gap: 22.5px;
   }
   
   .link_block{
@@ -63,6 +64,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1em;
+    grid-row-gap: 22.5px;
     max-height: 100vh;
     padding: 0.5em;
     padding-bottom: 1em;
