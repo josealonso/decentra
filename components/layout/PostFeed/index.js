@@ -29,9 +29,9 @@ function PostItem({post, admin = false}) {
 
       <div className={styles.content_preview}>
         <Link href={`/${post.username}/${post.slug}`}>
-          <h2>
+          <h3>
             <a>{post.title}</a>
-          </h2>
+          </h3>
         </Link>
 
         <Link href={`/${post.username}`}>
@@ -48,7 +48,7 @@ function PostItem({post, admin = false}) {
         </span>
 
         <footer>
-          <span className={styles.count}>💗 {post.heartCount || 0} Hearts</span>
+          <span className={styles.count}>💗 {post.heartCount || 0}</span>
         </footer>
       </div>
       
