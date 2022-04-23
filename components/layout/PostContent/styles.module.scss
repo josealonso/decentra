@@ -12,7 +12,9 @@
 }
 
 .card{
-  @include section(100%, 50vw, 1em);
-  border: 2px solid rgba(0, 0, 0, 0.525);
+  @include section(100%, 100%, 18.5px);
+  background: #272522;
+  border-radius: 12px;
+  color: #b6b5b5;
 } 
 
