@@ -1,5 +1,4 @@
-import { auth, firestore, googleAuthProvider, serverTimestamp } from '../../lib/firebase';
-import { increment } from "firebase/firestore";
+import { auth, firestore, googleAuthProvider } from '../../lib/firebase';
 import { SignInForm, SignUpForm } from '@components/forms/SignInForm';
 import { UserContext } from '../../lib/context';
 import { useEffect, useState, useCallback, useContext } from 'react';
@@ -43,25 +42,14 @@ function SignInButton() {
       {signIn? 
         <>
           <h2 className={styles.header}>Sign Up</h2>
-            <SignUpForm />
-            <button className={styles.sign_up_btn} onClick={() => {ToggleSignIn(!signIn)}}>
-              Or {signIn? 'Sign In' : 'Sign Up'}
-            </button>
+            <SignUpForm handleGoogleSignIn={signInWithGoogle}  toggleProcess={async()=> {await ToggleSignIn(!signIn)}}/>
         </>
         :
         <>
           <h2  className={styles.header}>Sign In</h2>
-          <SignInForm />
-          <button className={styles.sign_up_btn} onClick={() => {ToggleSignIn(!signIn)}}>
-            Or {signIn? 'Sign In' : 'Sign Up'}
-          </button>
+          <SignInForm handleGoogleSignIn={signInWithGoogle} toggleProcess={async()=> {await ToggleSignIn(!signIn)}}/>
         </>
       }
-      
-      
-      <button className={styles.google_btn} style={{marginTop: '1em'}} onClick={signInWithGoogle}>
-        <img src={'/google.jpg'}  width="30px" /> Sign in with Google
-      </button>
     </>
       
   );
@@ -101,10 +89,12 @@ function UsernameForm() {
 
     // Commit both docs together as a batch write.
     const batch = firestore.batch();
-    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName, completedSurvey: false, points: increment(10)});
+    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName, });
     batch.set(usernameDoc, { uid: user.uid });
 
     await batch.commit();
+    toast.success('Created user successfully.')
+    router.push('/Main')
   };
 
   const onChange = (e) => {

@@ -46,6 +46,7 @@
     margin-bottom: 1em;
     min-height: 40px;
     min-width: 100px;
+  
     width: 80%;
     background-color: #005583;
     font-size: medium;
@@ -161,5 +162,8 @@
 }
 
 @media screen and (min-width: 786px) {
-  
+  .sign_up_btn{
+    z-index: 1001;
+    position: fixed;
+  }
 }
