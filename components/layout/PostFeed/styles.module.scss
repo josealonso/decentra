@@ -3,19 +3,18 @@
 @media screen and (min-width: 786px) {
   .card{
     min-height: 15vh;
-    padding-bottom: 1em;
-    padding-top: 1em;
+    padding: 22.5px 0;
     width: 100%;
     background-color: #272522;
     display: grid;
-    grid-template-columns: 300px 328px;
-    grid-gap: 28px;
+    grid-template-columns: 300px 352.5px;
+    grid-gap: 22.5px;
     border-bottom: 1px solid rgb(53, 53, 53);
 
     a{
       color: rgba(255, 255, 255, 0.635);
       text-decoration: none;
-      margin-top: 1em;
+      margin-top: 0.75em;
       cursor: pointer;
       transition: 0.5s;
       
@@ -52,7 +51,7 @@
 
   .preview{
     color: rgba(220, 220, 220, 0.892);
-    margin-top: 1em;
+    margin-top: 0.75em;
     line-height: 1.3em;
   }
 }
