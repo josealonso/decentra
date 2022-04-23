@@ -10,6 +10,11 @@
     grid-template-columns: 300px 352.5px;
     grid-gap: 22.5px;
     border-bottom: 1px solid rgb(53, 53, 53);
+    
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
 
     a{
       color: rgba(255, 255, 255, 0.635);
@@ -22,11 +27,6 @@
         color: rgb(255, 255, 255);
       }
       
-      &:last-child {
-        padding-bottom: 0;
-        border-bottom: 0;
-      }
-
       span{
         margin-left: 1em;
         color: #939290;
