@@ -31,8 +31,8 @@ export default function Navbar() {
             </li>
             <div className={styles.seperator}/>
             <li className={styles.li_last}>
-              <Link href="{`/${username}`}">
-                <img src="{`${user?.photoURL}` || ''} alt={`${username}` || ''}"></img>
+              <Link href={`/${username}`}>
+                <img src={`${user?.photoURL}` || ''} alt={`${username}` || ''}></img>
               </Link>
             </li>
             <li className={styles.li}>
