@@ -68,8 +68,7 @@ export default function Navbar() {
             </li>
            </div> 
             <div className={styles.seperator}/>
-           <div className={styles.communities-section}> 
-            <div className={styles.communities-section-quicklink}
+           <div className={styles.communities-section-quicklink}
             <li className={styles.li}>
               <Link href="/404">
                 <button className={styles.link_btn}>
@@ -77,8 +76,8 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
-            </div>
-            <div className={styles.communities-section-actions}
+           </div>
+           <div className={styles.communities-section-actions}
             <li className={styles.li}>
               <Link href="/404">
                 <button className={styles.link_btn}>
@@ -93,8 +92,7 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
-            </div>
-           </div> 
+           </div>
             <li className={styles.li}>
               <button onClick={signOutNow} className={styles.logout}>Log Out</button>
             </li>
