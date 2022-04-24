@@ -24,13 +24,16 @@ export default function Navbar() {
         {/* user is signed-in and has username */}
         {username && (
           <div className={styles.links}>
+           <div className={styles.logo-section}>
             <li className={styles.li}>
               <Link href="/">
                 <div className={styles.logo} />
               </Link>
             </li>
+           </div>
             <div className={styles.seperator}/>
-            <li className={styles.li_last}>
+           <div className={styles.general-section}>
+             <li className={styles.li_last}>
               <Link href={`/${username}`}>
                 <img src={`${user?.photoURL}` || ''} alt={`${username}` || ''}></img>
               </Link>
@@ -63,7 +66,19 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
+           </div> 
             <div className={styles.seperator}/>
+           <div className={styles.communities-section}> 
+            <div className={styles.communities-section-quicklink}
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>
+                  <img src="https://i.imgur.com/YeqM8du.png" alt="decentra" />
+                </button>
+              </Link>
+            </li>
+            </div>
+            <div className={styles.communities-section-actions}
             <li className={styles.li}>
               <Link href="/404">
                 <button className={styles.link_btn}>
@@ -78,6 +93,8 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
+            </div>
+           </div> 
             <li className={styles.li}>
               <button onClick={signOutNow} className={styles.logout}>Log Out</button>
             </li>
