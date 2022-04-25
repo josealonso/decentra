@@ -30,6 +30,7 @@ export default function Navbar() {
               </Link>
             </li>
             <div className={styles.seperator}/>
+           <ul className={styles.ul_universal}>
             <li className={styles.li_last}>
               <Link href={`/${username}`}>
                 <img src={`${user?.photoURL}` || ''} alt={`${username}` || ''}></img>
@@ -63,7 +64,9 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
+           </ul>
             <div className={styles.seperator}/>
+           <ul className={styles.ul_actions}> 
             <li className={styles.li}>
               <Link href="/404">
                 <button className={styles.link_btn}>
@@ -78,6 +81,7 @@ export default function Navbar() {
                 </button>
               </Link>
             </li>
+           </ul> 
             <li className={styles.li}>
               <button onClick={signOutNow} className={styles.logout}>Log Out</button>
             </li>
