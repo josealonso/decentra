@@ -46,6 +46,19 @@
     width: 200px;
     margin-top: 9px;
   }
+  .ul_universal {
+    display:flex;
+    flex-direction:column;
+  }
+  
+  .ul_actions  {
+    display:flex;
+    flex-direction:column;
+    
+    .link_btn {
+    background: #80808024;
+    }    
+  }
   
   .li{
     width: 100%;
