@@ -70,7 +70,7 @@ export default function Navbar() {
            <li className={styles.li}>
               <Link href="/decentra">
                 <button className={styles.link_btn}>
-                  <img src="https://i.imgur.com/YeqM8du.png" alt="decentra" />
+                  <img src="https://i.ibb.co/8KyXHCk/k-LRh4bm-Y-400x400.jpg" alt="decentra" />
                 </button>
               </Link>
             </li>
