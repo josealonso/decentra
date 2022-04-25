@@ -13,13 +13,13 @@ export default function About() {
 
       <div>
         <span>
-          <img src="https://i.imgur.com/VgBTWqn.png" alt="Online" />
-          <h5>Members Online</h5>
+          <img src="https://i.imgur.com/g84cmcH.png" alt="Members" className={styles.community}/>
+          <a>213 members</a>
         </span>
 
-        <span>
-          <img src="https://i.imgur.com/g84cmcH.png" alt="Members" className={styles.community}/>
-          <h5>Community Members</h5>
+          <span>
+          <img src="https://i.imgur.com/VgBTWqn.png" alt="Online" />
+          <a>17 members online</a>
         </span>
       </div>
     </div>
