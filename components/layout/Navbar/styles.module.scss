@@ -50,7 +50,10 @@
     display:flex;
     flex-direction:column;
   }
-  
+  .ul_decentra_community {
+    display:flex;
+    flex-direction:column;
+  }  
   .ul_actions  {
     display:flex;
     flex-direction:column;
@@ -103,7 +106,7 @@
   }
   
   .seperator{
-    height: 1.25px;
+    height: 1.35px;
     background: #3d3b39;
     width: 100%;
     margin: 9px 0;
