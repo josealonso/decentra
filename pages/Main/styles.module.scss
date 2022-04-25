@@ -40,6 +40,7 @@
 
     hr{
       margin-top: 1em;
+      border: 0.68px solid #3d3b39;
     }
   }
   
@@ -82,5 +83,9 @@
     z-index: 100;
     margin-top: 100%;
   
+    hr{
+      margin-top: 1em;
+      border: 0.68px solid #3d3b39;
+    }    
   }
 }
