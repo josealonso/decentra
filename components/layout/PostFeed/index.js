@@ -34,12 +34,14 @@ function PostItem({post, admin = false}) {
           </h3>
         </Link>
 
+        <div className={styles.post_details}>
         <Link href={`/${post.username}`}>
           <a>
-            <strong>By @{post.username}</strong>
-          <span className={styles.count}>💗 {post.heartCount || 0}</span>
+            <strong>{post.username}</strong>
           </a>
         </Link>
+        <span className={styles.count}>💗 {post.heartCount || 0}</span>
+        </div>
 
         <span className={styles.preview}>
           {contentPreview.join(' ')}
