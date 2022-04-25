@@ -11,16 +11,16 @@
     z-index: 99;
     }
   }
-  .events:nth-of-type(1) {
+  .events:nth-child(1) {
   box-shadow: none;
   }
-  .events:nth-of-type(2) {
+  .events:nth-child(2) {
   top: 75px;
   }
-   .events:nth-of-type(3) {
+   .events:nth-child(3) {
   top: 150px;
   }
-  .events:nth-of-type(4) {
+  .events:nth-child(4) {
   top: 225px;
   }
    .preview_card{
