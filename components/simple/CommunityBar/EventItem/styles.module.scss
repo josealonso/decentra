@@ -7,29 +7,22 @@
     box-shadow: 0px 21px 18px -200px #00000050, 0px -21px 36px 0px #00000050;
     position: absolute;
   }
-  .event_accordion:nth-child(1) {
+  .event_accordion:nth-of-type(1) {
   box-shadow: none;
   }
-  .event-accordion:nth-child(2) {
+  .event-accordion:nth-of-type(2) {
   top: 75px;
   }
-  .event-accordion:nth-child(2):hover {
-  z-index: 2;
-  }
-  .event-accordion:nth-child(3) {
+   .event-accordion:nth-of-type(3) {
   top: 150px;
   }
-  .event-accordion:nth-child(3):hover {
-  z-index: 2;
-  }
-  .event-accordion:nth-child(4) {
+  .event-accordion:nth-of-type(4) {
   top: 225px;
   }
-  .event-accordion:nth-child(4):hover {
-  z-index: 2;
+  .event-accordion:hover {
+  z-index: 99;
   }
-  .event-
-  .preview_card{
+   .preview_card{
     padding-left: 0.5em;
     min-height: 100px;
     h4{
