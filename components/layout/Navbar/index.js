@@ -66,6 +66,17 @@ export default function Navbar() {
             </li>
            </ul>
             <div className={styles.seperator}/>
+           <ul className={styles.ul_decentra_community}> 
+           <li className={styles.li}>
+              <Link href="/decentra">
+                <button className={styles.link_btn}>
+                  <img src="https://i.imgur.com/YeqM8du.png" alt="decentra" />
+                </button>
+              </Link>
+            </li>
+           </ul>
+           <ul className={styles.ul_joined_communities}> 
+           </ul>
            <ul className={styles.ul_actions}> 
             <li className={styles.li}>
               <Link href="/404">
