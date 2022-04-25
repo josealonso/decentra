@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: 300px 352.5px;
     grid-gap: 22.5px;
-    border-bottom: 1px solid rgb(53, 53, 53);
+    border-bottom: 1.35px solid #3d3b39;
     
     &:last-child {
         padding-bottom: 0;
@@ -19,18 +19,12 @@
     a{
       color: rgba(255, 255, 255, 0.635);
       text-decoration: none;
-      margin-top: 0.75em;
       cursor: pointer;
       transition: 0.5s;
       
       &:hover{
         color: rgb(255, 255, 255);
-      }
-      
-      span{
-        margin-left: 1em;
-        color: #939290;
-      }
+      }      
     }
 
     strong{
@@ -47,6 +41,15 @@
       color: white;
     }
   }
+  
+  .post_details {
+      margin-top: 0.75em;
+      color: #939290;
+          
+    span{
+        margin-left: 16px;
+      }  
+  }
 
   .content_preview{
     display: flex;
@@ -54,7 +57,7 @@
   }
 
   .preview{
-    color: rgba(220, 220, 220, 0.892);
+    color: #b6b5b5;
     margin-top: 0.75em;
     line-height: 1.3em;
   }
