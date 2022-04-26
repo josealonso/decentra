@@ -39,28 +39,31 @@ export default function Navbar() {
             <li className={styles.li}>
               <Link href="/Main">
                 <button className={styles.link_btn}>
-                  <img src="https://i.imgur.com/uWbklNq.png" alt="Home"/>
+                  <img src="https://i.ibb.co/NWVN8NB/die-einstellungen.png" alt="Home"/>
                 </button>
               </Link>
             </li>
-            <li className={styles.li}>
+           </ul>
+            <div className={styles.seperator}/>
+           <ul className={styles.ul_community_specific}>
+             <li className={styles.li}>
               <Link href="/Admin">
                 <button className={styles.link_btn}>
-                  <img src="https://i.imgur.com/Y2V8lSk.png" alt="Create"></img>
+                  <img src="https://i.ibb.co/GRgdJCy/kalender.png" alt="Create"></img>
                 </button>
               </Link>
             </li>
             <li className={styles.li}>
               <Link href="/">
                 <button className={styles.link_btn}>
-                  <img src="https://i.imgur.com/6mFM695.png" alt="Forum"/>
+                  <img src="https://i.ibb.co/ZY6Z6Jx/tipps.png" alt="Forum"/>
                 </button>
               </Link>
             </li>
             <li className={styles.li}>
               <Link href="/404">
                 <button className={styles.link_btn}>
-                  <img src="https://i.imgur.com/IiSpU9I.png" alt="resources" />
+                  <img src="https://i.ibb.co/rHsRNL2/doktorhut.png" alt="resources" />
                 </button>
               </Link>
             </li>
