@@ -19,7 +19,7 @@ export default function PostContent({ post }) {
         <div className={styles.publicationdate}>{createdAt.toISOString()}</div>
       </div>
 </div>
-<div className={styles.blogpostcontent}
+<div className={styles.blogpostcontent}>
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
       <div className={styles.postcontent}>
       <ReactMarkdown>{post?.content}</ReactMarkdown>
