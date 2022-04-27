@@ -10,6 +10,7 @@ export default function PostContent({ post }) {
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
      
       <h1 className={styles.title}>{post?.title}</h1>
+      <h3>{post?.subtitle}</h3>
       <span className={styles.small_title}>
         Written by{' '}
         <Link href={`/${post.username}/`}>
