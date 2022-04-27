@@ -43,7 +43,7 @@ export async function getServerSideProps({query}){
 export default function UserProfilePage({ user, posts}) {
   return (
     <AuthCheck>
-       <main >
+       <main className={styles.main}>
         <Metatags title={user.username} description={`${user.username}'s public profile`} />
         <UserProfile user={user} />
         <PostFeed posts={posts} />

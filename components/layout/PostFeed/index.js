@@ -1,11 +1,10 @@
 import * as React from 'react';
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown';
 import styles from './styles.module.scss'
 
-
 export default function PostFeed({posts, admin}) {
-  
-  
+    
   return (
     <div className={styles.long_block}>
       <h3>Latest</h3>
@@ -13,9 +12,7 @@ export default function PostFeed({posts, admin}) {
       { posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin}/>) : null }
     </div>
   )
-  
 
-  
 }
 
 function PostItem({post, admin = false}) {
@@ -34,7 +31,7 @@ function PostItem({post, admin = false}) {
   return (
     <div className={styles.card}>
 
-      <img src="https://miro.medium.com/max/1400/1*0nmEea4SDHU8hY0CZyhvxw.png" alt="blog-preview-cover"/>
+      <ReactMarkdown>{post?.icon}</ReactMarkdown>
 
       <div className={styles.content_preview}>
         <Link href={`/${post.username}/${post.slug}`}>

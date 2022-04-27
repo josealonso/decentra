@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 export default function UserProfile({ user }) {
   return (
     <div className={styles.profile}>
-      <img src={user.photoURL || '/hacker.png'} className={styles.circularImg} />
+      <img src={user.photoURL} className={styles.circularImg} />
       <p>
         <i>@{user.username}</i>
       </p>

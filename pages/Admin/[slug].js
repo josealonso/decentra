@@ -1,15 +1,13 @@
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import AuthCheck from '../../components/helpers/AuthCheck';
-
+import { useState, } from 'react';
 import ImageUploader from '../../components/layout/ImageUploader';
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 import ReactMarkdown from 'react-markdown';
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { deleteDoc } from 'firebase/firestore';
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore';
 import { useForm } from 'react-hook-form'; 
-
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 
@@ -36,6 +34,7 @@ function PostManager() {
     {post && (
       <>
         <section>
+          <ReactMarkdown> {post?.icon} </ReactMarkdown>
           <h1>{post.title}</h1>
           <p>ID: {post.slug}</p>
 
@@ -58,17 +57,19 @@ function PostManager() {
 function PostForm({ defaultValues, postRef, preview }) {
   const router = useRouter();
   const { register, handleSubmit, reset, watch, formState } = useForm({ defaultValues, mode: 'onChange' });
-
+  const [icon, setIcon] = useState('');
   const { isValid, isDirty } = formState;
 
-  const updatePost = async ({ content, published }) => {
+  const updatePost = async ({ content, published, subtitle }) => {
     await postRef.update({
       content,
       published,
       updatedAt: serverTimestamp(),
+      icon,
+      subtitle,
     });
 
-    reset({ content, published });
+    reset({ content, published, subtitle });
 
     toast.success('Post updated successfully!')
     router.push('/')
@@ -83,9 +84,14 @@ function PostForm({ defaultValues, postRef, preview }) {
       )}
 
       <div className={preview ? styles.hidden : styles.controls}>
-  
-      <ImageUploader />
+        
+        <fieldset>
+          <label>Subtitle</label>
+          <input name="subtitle" type="text"  {...register("subtitle")} />
+        </fieldset>
 
+        <ImageUploader placeImage={setIcon}/>
+        <ReactMarkdown>{icon}</ReactMarkdown>
         <textarea {...register(
           "content", {
             required: "content is required",

@@ -8,11 +8,11 @@ import kebabCase from 'lodash.kebabcase';
 import toast from 'react-hot-toast';
 
 import { useContext, useState } from 'react';
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 export default function AdminPostsPage(props) {
   return (
-    <main className={styles.wrapper}>
+    <main className={styles.container}>
       <AuthCheck>
         <CreateNewPost />
         <PostList />
