@@ -9,15 +9,17 @@ export default function PostContent({ post }) {
     <div className={styles.card}>   
       <h1 className={styles.title}>{post?.title}</h1>
       <h3 className={styles.subtitle}>{post?.subtitle}</h3>
-      <ReactMarkdown>{post?.icon}</ReactMarkdown>
       <span className={styles.small_title}>
         Written by{' '}
         <Link href={`/${post.username}/`}>
           <a className={styles.small_title}>{post.username}</a>
         </Link>{' '}
         on {createdAt.toISOString()}
-        </span>
-        <ReactMarkdown>{post?.content}</ReactMarkdown>
+       </span>
+      <ReactMarkdown>{post?.icon}</ReactMarkdown>
+      <div className={styles.postcontent}>
+      <ReactMarkdown>{post?.content}</ReactMarkdown>
+      </div>
     </div>
   );
 }
