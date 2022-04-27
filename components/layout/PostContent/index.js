@@ -14,7 +14,7 @@ export default function PostContent({ post }) {
    </div>
       <div>
         <Link href={`/${post.username}/`}>
-          <a className={styles.small_title}>{post.username}</a>
+          <a className={styles.user-blog}>{post.username}</a>
         </Link>
         <div className={styles.publicationdate}>{createdAt.toISOString()}</div>
       </div>
