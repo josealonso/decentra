@@ -5,16 +5,21 @@
   margin-top: 1em;
   color: var(--color-text);
 }
+.kicker {
+  font-color: #959595;
+  margin-bottom: 0.5em;
+}
 
 .title{
-  margin-bottom: 1em;
-  color: var(--color-text);
+  margin-bottom: 0.25em;
+  color: #b6b5b5;
+  font-size: 38px;
 }
 
 .card{
-  @include section(100%, 100%, 18.5px);
-  background: #272522;
-  border-radius: 12px;
   color: #b6b5b5;
+  width: 720px;
+  margin: auto;
+  padding-top: 2em;
 } 
 
