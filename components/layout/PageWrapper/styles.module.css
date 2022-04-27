@@ -15,14 +15,9 @@
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
+
   }
-  .main_container {
-    display: grid;
-    grid-template-columns: 720px 300px;
-    width: 1048px;
-    margin: auto;
-    grid-gap: 28px;
-  }
+ 
 }
 
 @media screen and (max-width: 786px) {

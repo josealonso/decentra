@@ -10,9 +10,6 @@ export default function PageWrapper(props) {
       <div className={styles.inner_container}>
         <div className={styles.main_container}>
         {props.children}
-        <AuthCheck>
-          <CommunityBar />
-        </AuthCheck>
         </div>
       </div>
     </div>

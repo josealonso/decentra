@@ -8,7 +8,7 @@ import Metatags from '../../components/helpers/metatags'
 import {getUserWithUsername, firestore, postToJSON } from '../../lib/firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import AuthCheck from '@components/helpers/AuthCheck';
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 
 export async function getStaticProps({ params }) {

@@ -4,7 +4,7 @@ import UserProfile from '../../components/layout/UserProfile'
 import PostFeed from '../../components/layout/PostFeed'
 import { getUserWithUsername, postToJSON, awardsToJSON } from '../../lib/firebase'
 import AuthCheck from '@components/helpers/AuthCheck';
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 export async function getServerSideProps({query}){
 
@@ -48,7 +48,6 @@ export default function UserProfilePage({ user, posts}) {
         <UserProfile user={user} />
         <PostFeed posts={posts} />
       </main>
-    </AuthCheck>
-    
+    </AuthCheck> 
   )
 }

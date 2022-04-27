@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import PostFeed from '@components/layout/PostFeed';
 import { firestore, fromMillis, postToJSON, auth } from '@lib/firebase';
+import CommunityBar from '@components/layout/CommunityBar'
 import AuthCheck from '@components/helpers/AuthCheck';
 import { collection, getFirestore, query, orderBy } from 'firebase/firestore';
 import CreateLink from '@components/layout/CreateLink';
@@ -27,17 +28,22 @@ export async function getServerSideProps(context){
 export default function index({posts}) {
   return (
     <main className={styles.main}>
-      <AuthCheck>
-        <div className={styles.main_grid}>
-          <LinkList />
-          <CreateLink />
-        </div>
-          <div className={styles.long_block}>
-            <h3>Latest</h3>
-            <hr />
-            <PostFeed posts={posts}/>
-          </div> 
-      </AuthCheck>
+      <div>
+        <AuthCheck>
+          <div className={styles.main_grid}>
+            <LinkList />
+            <CreateLink />
+          </div>
+            <div className={styles.long_block}>
+              <h3>Latest</h3>
+              <hr />
+              <PostFeed posts={posts}/>
+            </div> 
+        </AuthCheck>
+      </div>
+      
+
+      <CommunityBar/>
     </main>
   )
 }
