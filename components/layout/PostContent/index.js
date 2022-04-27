@@ -14,15 +14,17 @@ export default function PostContent({ post }) {
    </div>
       <div>
         <Link href={`/${post.username}/`}>
-          <a className={styles.user-blog}>{post.username}</a>
+          <a className={styles.user_blog}>{post.username}</a>
         </Link>
         <div className={styles.publicationdate}>{createdAt.toISOString()}</div>
       </div>
 </div>
+<div className={styles.blogpostcontent}
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
       <div className={styles.postcontent}>
       <ReactMarkdown>{post?.content}</ReactMarkdown>
       </div>
+</div>      
     </div>
   );
 }
