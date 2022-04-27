@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import PostFeed from '@components/layout/PostFeed';
 import { firestore, fromMillis, postToJSON, auth } from '@lib/firebase';
 import CommunityBar from '@components/layout/CommunityBar'
-import AuthCheck from '@components/helpers/AuthCheck';
 import { collection, getFirestore, query, orderBy } from 'firebase/firestore';
 import CreateLink from '@components/layout/CreateLink';
 import LinkItem from '@components/simple/LinkItem';
@@ -29,13 +28,11 @@ export default function index({posts}) {
   return (
     <main className={styles.main}>
       <div>
-        <AuthCheck>
           <div className={styles.main_grid}>
             <LinkList />
             <CreateLink />
           </div>  
           <PostFeed posts={posts}/>
-        </AuthCheck>
       </div>
       <CommunityBar/>
     </main>
