@@ -10,13 +10,13 @@ export default function PostContent({ post }) {
       <h1 className={styles.title}>{post?.title}</h1>
       <h3 className={styles.subtitle}>{post?.subtitle}</h3>
       <div className={styles.small_title}>
-        <div className={styles.userprofilepicture}><img src="https://i.ibb.co/8KyXHCk/k-LRh4bm-Y-400x400.jpg"></div>
-        <div>
+        <span className={styles.userprofilepicture}><img src="https://i.ibb.co/8KyXHCk/k-LRh4bm-Y-400x400.jpg"></span>
+        <span>
         <Link href={`/${post.username}/`}>
           <a className={styles.small_title}>{post.username}</a>
         </Link>{' '}
         <div className={styles.publicationdate}>{createdAt.toISOString()}</div>
-        </div>
+        </span>
       </div>
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
       <div className={styles.postcontent}>
