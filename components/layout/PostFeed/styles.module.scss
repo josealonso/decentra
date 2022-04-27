@@ -88,6 +88,24 @@
 }
 
 @media screen and (max-width: 786px) {
+  
+  .long_block{
+    position: absolute;
+    background-color: #272522;
+    padding: 1em;
+    border-radius: 25px 25px 0px 0px;
+    min-height: 100%;
+    z-index: 100;
+    margin-top: 100%;
+  
+    hr{
+      margin-top: 1em;
+      border: none;
+      height: 1.35px;
+      background: #3d3b39;
+    }    
+  }
+  
   .card{
     min-height: 15vh;
     padding-bottom: 1em;
