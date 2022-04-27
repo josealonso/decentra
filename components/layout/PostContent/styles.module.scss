@@ -1,6 +1,9 @@
 @import '../../../theme/variables.scss';
 @import '../../../theme/mixins.scss';
 
+.kicker_nav {
+  color: #959595;
+}
 .small_title{
   margin-top: 1.5em;
   display: flex;
@@ -14,7 +17,7 @@
   
 }
 .title{
-  margin-bottom: 0.25em;
+  margin-bottom: 0.25em 0;
   color: #b6b5b5;
   font-size: 38px;
 }
@@ -39,9 +42,10 @@ font-size: 17px;
 .blogpostcontent {
   img {
     max-width: 100%;
+    margin: 0.5em 0;
   }
   p {
-  padding-top: 1.75em;
+  padding-top: 1em;
   }
 }
 .card{
