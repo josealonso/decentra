@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import PostFeed from '@components/layout/PostFeed';
 import { firestore, fromMillis, postToJSON, auth } from '@lib/firebase';
-import CommunityBar from '@components/layout/CommunityBar'
+import CommunityBar from '@components/layout/CommunityBar';
 import { collection, getFirestore, query, orderBy } from 'firebase/firestore';
 import CreateLink from '@components/layout/CreateLink';
 import LinkItem from '@components/simple/LinkItem';
