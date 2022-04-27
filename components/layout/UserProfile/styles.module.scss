@@ -1,19 +1,102 @@
 @import '../../../theme/variables.scss';
 
 @media screen and (min-width: 786px) {
-  .profile{
-    padding: 3em;
+
+  .coverPhoto{
+    width: 100%;
+    height: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; 
-    min-height: 30vh;
+    background-image: url('https://media-exp1.licdn.com/dms/image/C4E16AQHv2M49YlshjA/profile-displaybackgroundimage-shrink_200_800/0/1643426199901?e=2147483647&v=beta&t=42PPkg7RAwKppUfdHT2gUfvsrw-Ug3MziLAnCDAqBAI');
+    background-size: cover;
+    border-radius: 12px 12px 0px 0px; 
   }
 
-  .circularImg{
-    border-radius: 50%;
-    width: 20vh;
-    margin-bottom: 2em;
+  .profile{
+    display: flex;
+    flex-direction: column; 
+    min-height: 30vh;
+    color: white;
+    background-color: #272522;
+    border-radius: 12px;
+
+    p{
+      margin-top: 0.3em;
+      color: rgba(255, 255, 255, 0.597);
+    }
+
+    .circularImg{
+      border-radius: 50%;
+      width: 20vh;
+      margin-bottom: 2em;
+      position: relative;
+      top: -10vh;
+      left: 5%;
+      border: 5px solid #303030;
+    }
+
+  }
+
+  .profileGrid{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    main{
+      margin-top: -7%;
+      padding: 2em;
+      padding-top: 0;
+    }
+
+    aside{
+      margin-top: -7%;
+      padding: 2em;      
+
+      ul{
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        height: 100%;
+        li{
+          height: 100%;
+          width: 100%;
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+          background-color: #1f1f1f;
+          padding: 0.5em;
+
+          a{
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .toolbar{
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    button{
+      height: 40px;
+      width: 100px;
+      margin-right: 1em;
+      background-color: #272522;
+      border: 2px solid white;
+      color: white;
+      border-radius: 12px; 
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover{
+        background-color: #141414;
+      }
+    }
   }
 }
 
