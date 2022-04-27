@@ -1,6 +1,30 @@
 @import '../../../theme/variables.scss';
 
 @media screen and (min-width: 786px) {
+
+  .long_block{
+    max-height: 100%;
+    width: 100%;
+    background-color: #272522;
+    padding: 22.5px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 12px;
+    max-width: 1048px;
+    
+    h3{
+      color: rgb(187, 183, 183);
+      font-size: 18px
+    }
+
+    hr{
+      margin-top: 1em;
+      border: none;
+      height: 1.35px;
+      background: #3d3b39;
+    }
+  }
+  
   .card{
     min-height: 15vh;
     padding: 22.5px 0;

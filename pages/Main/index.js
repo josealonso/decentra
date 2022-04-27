@@ -33,16 +33,10 @@ export default function index({posts}) {
           <div className={styles.main_grid}>
             <LinkList />
             <CreateLink />
-          </div>
-            <div className={styles.long_block}>
-              <h3>Latest</h3>
-              <hr />
-              <PostFeed posts={posts}/>
-            </div> 
+          </div>  
+          <PostFeed posts={posts}/>
         </AuthCheck>
       </div>
-      
-
       <CommunityBar/>
     </main>
   )

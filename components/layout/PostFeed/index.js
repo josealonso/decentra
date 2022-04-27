@@ -1,12 +1,21 @@
 import * as React from 'react';
 import Link from 'next/link'
-import { styled } from '@mui/material/styles';
-
 import styles from './styles.module.scss'
 
 
 export default function PostFeed({posts, admin}) {
-  return posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin}/>) : null;
+  
+  
+  return (
+    <div className={styles.long_block}>
+      <h3>Latest</h3>
+      <hr />
+      { posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin}/>) : null }
+    </div>
+  )
+  
+
+  
 }
 
 function PostItem({post, admin = false}) {
