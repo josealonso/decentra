@@ -7,15 +7,6 @@ export default function PostContent({ post }) {
 
   return (
     <div className={styles.card}>   
-      <span className={styles.kicker-nav}>
-      <Link href={`/home/`}>
-          <a className={styles.small_title}>Home</a>
-        </Link>{' '}
-        / <Link href={`/blog/`}>
-          <a className={styles.small_title}>Blog</a>
-        </Link>{' '}
-        / <a className={styles.small_title}>{post?.title}</a>        
-      </span>
       <h1 className={styles.title}>{post?.title}</h1>
       <h3>{post?.subtitle}</h3>
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
