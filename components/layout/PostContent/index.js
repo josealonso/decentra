@@ -8,7 +8,7 @@ export default function PostContent({ post }) {
   return (
     <div className={styles.card}>
       <div className={styles.kicker}
-      <a>Home</a> > <a>Blog</a> > <a>{post?.title}</a>
+      <a>Home</a> / <a>Blog</a> / <a>{post?.title}</a>
       </div>
       <h1 className={styles.title}>{post?.title}</h1>
       <span className={styles.small_title}>
