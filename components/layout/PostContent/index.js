@@ -7,7 +7,6 @@ export default function PostContent({ post }) {
 
   return (
     <div className={styles.card}>   
-      <div className={styles.kicker-nav}>Home / Blog / {post?.title}</div>
       <h1 className={styles.title}>{post?.title}</h1>
       <h3 className={styles.subtitle}>{post?.subtitle}</h3>
       <div className={styles.small_title}>
@@ -16,7 +15,7 @@ export default function PostContent({ post }) {
           <a className={styles.small_title}>{post.username}</a>
         </Link>{' '}
         on {createdAt.toISOString()}
-       </div>
+      </div>
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
       <div className={styles.postcontent}>
       <ReactMarkdown>{post?.content}</ReactMarkdown>
