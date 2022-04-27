@@ -26,23 +26,23 @@
 .userprofilepicture {
 margin-right: 12px;
 }
-.user-blog {
+.user_blog {
   text-decoration: none;
   font-weight: 600;
 }
 .postcontent {
 font-size: 17px;
 }
-
+.blogpostcontent {
+  img {
+    max-width: 100%;
+    margin: 1.75em 0;
+  }
+}
 .card{
   color: #b6b5b5;
   width: 720px;
   margin: auto;
   padding-top: 2em;
-  
-  img {
-    max-width: 100%;
-    margin: 1.75em 0;
-  }
 } 
 
