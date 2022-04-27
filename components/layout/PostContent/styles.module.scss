@@ -3,7 +3,6 @@
 
 .small_title{
   margin-top: 1.5em;
-  color: var(--color-text);
   display: flex;
   
   img {
@@ -29,6 +28,7 @@ margin-right: 12px;
 .user_blog {
   text-decoration: none;
   font-weight: 600;
+  color: #b6b5b5;
 }
 .postcontent {
 font-size: 17px;
