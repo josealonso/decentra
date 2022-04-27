@@ -8,7 +8,7 @@ export default function PostContent({ post }) {
   return (
     <div className={styles.card}>   
       <h1 className={styles.title}>{post?.title}</h1>
-      <h3>{post?.subtitle}</h3>
+      <h3 className={styles.subtitle}>{post?.subtitle}</h3>
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
       <span className={styles.small_title}>
         Written by{' '}
