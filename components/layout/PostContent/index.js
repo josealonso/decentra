@@ -7,7 +7,13 @@ export default function PostContent({ post }) {
 
   return (
     <div className={styles.card}>
+<<<<<<< HEAD
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
+=======
+      <div className={styles.kicker}
+      <a>Home</a> / <a>Blog</a> / <a>{post?.title}</a>
+      </div>
+>>>>>>> d5262f9c32c88df934ad8d3868808d911ad94d1e
       <h1 className={styles.title}>{post?.title}</h1>
       <span className={styles.small_title}>
         Written by{' '}
