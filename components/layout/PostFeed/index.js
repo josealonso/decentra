@@ -29,7 +29,7 @@ function PostItem({post, admin = false}) {
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onclick="location.href={`/${post.username}/${post.slug}`}">
 
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
 
