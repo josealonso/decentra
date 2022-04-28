@@ -9,10 +9,8 @@
   display: flex;
   
   img {
-    height: 44px;
-    width: 44px;
+    max-width: 44px;
     border-radius: 12px;
-    margin: 0;
   }
   
 }
@@ -34,7 +32,8 @@ margin-right: 12px;
   color: #b6b5b5;
 }
 .publicationdate {
-font-size: 15px;
+  font-size: 15px;
+  margin-top: 0.25em;
 }
 .postcontent {
 font-size: 17px;

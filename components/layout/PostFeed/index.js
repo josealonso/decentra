@@ -36,7 +36,7 @@ function PostItem({post, admin = false}) {
       <div className={styles.content_preview}>
         <Link href={`/${post.username}/${post.slug}`}>
           <h3>
-            <a>{post.title}</a>
+            <a href={`/${post.username}/${post.slug}`}>{post.title}</a>
           </h3>
         </Link>
 
