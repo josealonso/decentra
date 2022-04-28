@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import EditPorfileModal from './EditProfileModal';
 import { UserContext } from "../../../lib/context";
 import styles from './styles.module.scss'
 
@@ -10,6 +11,7 @@ export default function UserProfile({ user }) {
   const admin = router.query;
 
   const [editor, setEditor] = useState(false)
+  const [editOpen, setEditOpen] = useState(false)
 
   useEffect(() => {
     if(admin.username === username){
@@ -65,6 +67,13 @@ export default function UserProfile({ user }) {
           editor ? <button>Edit</button> : ''
         }
       </div>
+
+      {
+        editOpen ? 
+        <EditPorfileModal />
+        :
+        ''
+      }
     </div>
   );
 }
