@@ -16,7 +16,7 @@ export default function TextField({
     .join('-');
 
   return (
-    <div>
+    <div className={styles.input_container}>
       <label htmlFor={id}>
         {label}
       </label>

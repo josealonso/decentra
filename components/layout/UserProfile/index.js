@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import EditPorfileModal from './EditProfileModal';
 import { UserContext } from "../../../lib/context";
 import styles from './styles.module.scss'
+import ReactMarkdown from 'react-markdown';
 
 // UI component for user profile
 export default function UserProfile({ user }) {
@@ -13,6 +14,8 @@ export default function UserProfile({ user }) {
   const [editor, setEditor] = useState(false)
   const [editOpen, setEditOpen] = useState(false)
 
+  
+
   useEffect(() => {
     if(admin.username === username){
       setEditor(true)
@@ -21,7 +24,10 @@ export default function UserProfile({ user }) {
 
   return (
     <div className={styles.profile}>
-      <div className={styles.coverPhoto} />
+      <div className={styles.banner}>
+        <ReactMarkdown>{user?.banner}</ReactMarkdown>
+      </div>
+ 
       <img src={user?.photoURL} className={styles.circularImg} />
 
 
@@ -64,13 +70,13 @@ export default function UserProfile({ user }) {
         <button>More</button>
 
         {
-          editor ? <button>Edit</button> : ''
+          editor ? <button onClick={() => setEditOpen(true)}>Edit</button> : ''
         }
       </div>
 
       {
         editOpen ? 
-        <EditPorfileModal />
+        <EditPorfileModal user={user} handleOnClick={() => setEditOpen(false)}/>
         :
         ''
       }
