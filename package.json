@@ -12,6 +12,7 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@hookform/error-message": "^2.0.0",
+    "@superfluid-finance/sdk-core": "^0.3.2",
     "@uniswap/widgets": "^1.0.0",
     "babel-preset-es2015": "^6.24.1",
     "cross-env": "^7.0.2",
