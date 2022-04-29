@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Metatags from '../../components/helpers/metatags'
 import UserProfile from '../../components/layout/UserProfile'
 import PostFeed from '../../components/layout/PostFeed'
