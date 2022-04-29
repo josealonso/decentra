@@ -18,13 +18,10 @@ service cloud.firestore {
         allow update: if isValidUser(userId);
       }
       
-      
       match /usernames/{username} {
       	allow read;
         allow create: if isValidUsername(username);
       }
-      
-
       
       match /users/{userId}/posts/{postId} {
       	allow read;

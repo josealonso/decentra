@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import { firestore } from '../../../../lib/firebase';
-import TextField from '@components/forms/assets/TextField'
-import styles from './styles.module.scss'
+import { auth, firestore } from '../../../../lib/firebase';
+import TextField from '@components/forms/assets/TextField';
+import ImageUploader from '@components/layout/ImageUploader';
+import toast from 'react-hot-toast'
+import styles from './styles.module.scss';
 import ReactMarkdown from 'react-markdown';
 
 const defaultValues = {
@@ -11,19 +13,23 @@ const defaultValues = {
   organization: '',
 };
 
-export default function EditPorfileModal({user, handleOnClick}) {
+export default function EditProfileModal({user, handleOnClick}) {
   const [values, setValues] = useState(defaultValues)
   const { name, bio, website, organization} = values;
+  const [icon, setIcon] = useState(`${user?.photoURL}`);
+  const [banner, setBanner] = useState(`${user?.banner}`);
+
+  console.log(user.uid)
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    const uid = auth.currentUser.uid;
     // Create refs for both documents
-    const userDoc = firestore.doc(`users/${user.uid}`);
+    const userDoc = firestore.doc(`users/${uid}`);
 
     // Commit both docs together as a batch write.
     const batch = firestore.batch();
-    batch.update(userDoc, { photoURL: 'icon', displayName: name, bio, website, organization});
+    batch.update(userDoc, { banner, photoURL: icon, displayName: name, bio, website, organization});
 
     await batch.commit();
     toast.success('Update successfully.')
@@ -41,11 +47,11 @@ export default function EditPorfileModal({user, handleOnClick}) {
         <div>
           <h4>Banner</h4>
           <ReactMarkdown>{user?.banner}</ReactMarkdown>
-          <button>Edit</button>
+          <ImageUploader placeImage={setBanner}/>
 
           <h4>Profile Picture</h4>
           <img src={user?.photoURL} alt={`${user.displayName}'s image`}/>
-          <button>Edit</button>
+          <ImageUploader placeImage={setIcon}/>
         </div>
 
         <div>

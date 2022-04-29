@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import EditPorfileModal from './EditProfileModal';
+import EditProfileModal from './EditProfileModal';
 import { UserContext } from "../../../lib/context";
 import styles from './styles.module.scss'
 import ReactMarkdown from 'react-markdown';
@@ -28,8 +28,9 @@ export default function UserProfile({ user }) {
         <ReactMarkdown>{user?.banner}</ReactMarkdown>
       </div>
  
-      <img src={user?.photoURL} className={styles.circularImg} />
-
+      <div className={styles.pfp}>
+        <ReactMarkdown>{user?.photoURL}</ReactMarkdown>
+      </div>
 
       <div className={styles.profileGrid}>
         <main>
@@ -39,29 +40,11 @@ export default function UserProfile({ user }) {
           </p>
           <br />
           <p>
-            My Name is x, I am y i went to school in this place, here there.
-            My Name is x, I am y i went to school in this place, here there.
-            My Name is x, I am y i went to school in this place, here there.
-            My Name is x, I am y i went to school in this place, here there.
+            {user?.bio}
           </p>
         </main>
 
-        <aside>
-          <ul>
-            <li>
-              <a href={"https://www.google.com"} target={"_blank"} rel={"nonreferrer"}><h4>Work 1 here</h4></a>
-            </li>
-            <li>
-              <a href={"https://www.google.com"} target={"_blank"} rel={"nonreferrer"}><h4>Work 1 here</h4></a>
-            </li>
-            <li>
-              <a href={"https://www.google.com"} target={"_blank"} rel={"nonreferrer"}><h4>Work 1 here</h4></a>
-            </li>
-            <li>
-              <a href={"https://www.google.com"} target={"_blank"} rel={"nonreferrer"}><h4>Work 1 here</h4></a>
-            </li>
-          </ul>  
-        </aside>
+        <a href={"https://www.google.com"} target={"_blank"}> google.com </a>
       </div>
       
       <div className={styles.toolbar}>
@@ -76,7 +59,7 @@ export default function UserProfile({ user }) {
 
       {
         editOpen ? 
-        <EditPorfileModal user={user} handleOnClick={() => setEditOpen(false)}/>
+        <EditProfileModal user={user} handleOnClick={() => setEditOpen(false)}/>
         :
         ''
       }
