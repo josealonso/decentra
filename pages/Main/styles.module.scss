@@ -6,7 +6,6 @@
   }
   
   .main{
-    padding-top: 1em;
     height: 100%;
     display: grid;
     grid-template-columns: 720px 300px;
@@ -14,6 +13,9 @@
     margin: auto;
     grid-gap: 28px;
     padding-right: 5vw;
+  }
+  .left_main {
+  padding-top: 1em;
   }
   
   .main_grid{
