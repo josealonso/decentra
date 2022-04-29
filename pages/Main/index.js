@@ -28,14 +28,12 @@ export async function getServerSideProps(context){
 export default function index({posts}) {
   return (
     <main className={styles.main}>
-      <div>
-        <AuthCheck>
+      <div className={styles.left_main}>
           <div className={styles.main_grid}>
             <LinkList />
             <CreateLink />
           </div>  
           <PostFeed posts={posts}/>
-        </AuthCheck>
       </div>
       <CommunityBar/>
     </main>
