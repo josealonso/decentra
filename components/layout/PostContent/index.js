@@ -13,19 +13,19 @@ export default function PostContent({ post }) {
       <div className={styles.small_title}>
         <div className={styles.userprofilepicture}><img src="https://i.ibb.co/8KyXHCk/k-LRh4bm-Y-400x400.jpg"></img>
    </div>
-      <div>
-        <Link href={`/${post.username}/`}>
-          <a className={styles.user_blog}>{post.username}</a>
-        </Link>
-        <div className={styles.publicationdate}>{createdAt.toISOString()}</div>
-      </div>
-</div>
-<div className={styles.blogpostcontent}>
+    <div>
+      <Link href={`/${post.username}/`}>
+        <a className={styles.user_blog}>{post.username}</a>
+      </Link>
+      <div className={styles.publicationdate}>{createdAt.toISOString()}</div>
+    </div>
+  </div>
+    <div className={styles.blogpostcontent}>
       <ReactMarkdown>{post?.icon}</ReactMarkdown>
       <div className={styles.postcontent}>
-      <ReactMarkdown>{post?.content}</ReactMarkdown>
+        <ReactMarkdown>{post?.content}</ReactMarkdown>
       </div>
-</div>      
-    </div>
+    </div>      
+  </div>
   );
 }

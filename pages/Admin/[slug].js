@@ -25,7 +25,6 @@ function PostManager() {
 
   const router = useRouter();
   const { slug } = router.query;
-console.log(slug)
   const postRef = firestore.collection('users').doc(auth.currentUser.uid).collection('posts').doc(slug);
   const [post] = useDocumentDataOnce(postRef);
 
@@ -76,10 +75,10 @@ function PostForm({ defaultValues, postRef, preview }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(updatePost)}>
+    <form onSubmit={handleSubmit(updatePost)} className={styles.postForm}>
       {preview && (
         <div className="card">
-        <ReactMarkdown>{watch('content')}</ReactMarkdown>
+          <ReactMarkdown>{watch('content')}</ReactMarkdown>
         </div>
       )}
 
@@ -91,8 +90,18 @@ function PostForm({ defaultValues, postRef, preview }) {
         </fieldset>
 
         <ImageUploader placeImage={setIcon}/>
+
         <ReactMarkdown>{icon}</ReactMarkdown>
-        <textarea {...register(
+
+        <div>
+
+          <div className={styles.textTools}>
+            <ul>
+
+            </ul>
+          </div>
+
+          <textarea {...register(
           "content", {
             required: "content is required",
             maxLength: {
@@ -103,7 +112,9 @@ function PostForm({ defaultValues, postRef, preview }) {
               value: 10,
               message: 'content is too short'
             }
-          })}></textarea>
+          })} />
+        </div>
+       
           <fieldset>
             <input className={styles.checkbox} name="published" type="checkbox"  {...register("published")} />
             <label >Published</label>
@@ -116,8 +127,6 @@ function PostForm({ defaultValues, postRef, preview }) {
       </div>
     </form>
   )
-
-
 }
 
 
