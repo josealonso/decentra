@@ -14,8 +14,6 @@ export default function UserProfile({ user }) {
   const [editor, setEditor] = useState(false)
   const [editOpen, setEditOpen] = useState(false)
 
-  
-
   useEffect(() => {
     if(admin.username === username){
       setEditor(true)

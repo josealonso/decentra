@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <UserContext.Provider value={userData}>
-      <Navbar />
+      <Navbar/>
       <PageWrapper>
         <Component {...pageProps} />
       </PageWrapper>

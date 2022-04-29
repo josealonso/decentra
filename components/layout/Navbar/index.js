@@ -4,13 +4,12 @@ import { useContext } from 'react';
 import { UserContext } from '@lib/context';
 import { auth } from '@lib/firebase';
 import { signOut } from 'firebase/auth';
-
 import styles from './styles.module.scss'
 
 // Top navbar
 export default function Navbar() {
-  const { user, username } = useContext(UserContext);
-
+  const { username } = useContext(UserContext);
+  
   const router = useRouter();
 
   const signOutNow = () => {
@@ -33,7 +32,7 @@ export default function Navbar() {
            <ul className={styles.ul_universal}>
             <li className={styles.li_last}>
               <Link href={`/${username}`}>
-                <img src={`${user?.photoURL}` || ''} alt={`${username}` || ''}></img>
+                <img src="https://i.imgur.com/CuDMssO.png" alt="profile" className={styles.profile_img} />
               </Link>
             </li>
             <li className={styles.li}>
