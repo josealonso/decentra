@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { ethers } from 'ethers';
 import '@uniswap/widgets';
+import { StreamContainer } from '@components/web3/Streaming/StreamContainer';
 import { SwapWidget } from '@uniswap/widgets'
 import styles from './styles.module.scss'
 
@@ -32,6 +33,8 @@ export const WalletEthers = () => {
       .then(balanceResult => {
         setAccountBalance(ethers.utils.formatEther(balanceResult))
       })
+    }else{
+      connectWallet()
     };
   }, [currentAccount]);
 
@@ -52,6 +55,7 @@ export const WalletEthers = () => {
                 provider={provider}
                 jsonRpcEndpoint={'https://polygon-rpc.com/'}
               />
+              <StreamContainer sender={currentAccount}/>
             </div>
           </div>
       }
