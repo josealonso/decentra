@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import { ethers } from 'ethers'
+import { ethers } from 'ethers';
+import '@uniswap/widgets';
+import { SwapWidget } from '@uniswap/widgets'
 import styles from './styles.module.scss'
 
 export const WalletEthers = () => {
@@ -10,8 +12,12 @@ export const WalletEthers = () => {
   const connectWallet = async () => {
     if(window.ethereum && currentAccount == null) {
       console.log('1')
-      setProvider(new ethers.providers.Web3Provider(window.ethereum))
-      const accounts = await provider.send("eth_requestAccounts", []);
+      await setProvider(new ethers.providers.Web3Provider(window.ethereum))
+      const accounts =""
+      if (provider){
+        accounts = await provider.send("eth_requestAccounts", []);
+      }
+
       console.log(accounts)
       setCurrentAccount(accounts[0])
     }
@@ -38,7 +44,16 @@ export const WalletEthers = () => {
       </button>
 
       {
-        currentAccount && <div> <h5>Address: {currentAccount}</h5> <h5>Balance: {accountBalance}</h5> </div>
+        currentAccount && 
+          <div> 
+            <h5>Address: {currentAccount}</h5> <h5>Balance: {accountBalance}</h5> 
+            <div className="Uniswap">
+              <SwapWidget
+                provider={provider}
+                jsonRpcEndpoint={'https://polygon-rpc.com/'}
+              />
+            </div>
+          </div>
       }
     </div>
   )
