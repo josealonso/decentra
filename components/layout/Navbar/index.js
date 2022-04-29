@@ -104,12 +104,86 @@ export default function Navbar() {
 
         {/* user is not signed OR has not created username */}
         {!username && (
-          <li className={styles.li_profile}>
+          <div className={styles.links}>
+            <li className={styles.li}>
+              <Link href="/">
+                <div className={styles.logo} />
+              </Link>
+            </li>
+            <div className={styles.seperator}/>
+           <ul className={styles.ul_universal}>
+            <li className={styles.li_last}>
+              <Link href={`/${username}`}>
+                <img src={`${user?.photoURL}` || ''} alt={`${username}` || ''}></img>
+              </Link>
+            </li>
+            <li className={styles.li}>
+              <Link href="/Main">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/NWVN8NB/die-einstellungen.png" alt="Home"/>
+                </button>
+              </Link>
+            </li>
+           </ul>
+            <div className={styles.seperator}/>
+           <ul className={styles.ul_community_specific}>
+             <li className={styles.li}>
+              <Link href="/Admin">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/GRgdJCy/kalender.png" alt="Create"></img>
+                </button>
+              </Link>
+            </li>
+            <li className={styles.li}>
+              <Link href="/">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/ZY6Z6Jx/tipps.png" alt="Forum"/>
+                </button>
+              </Link>
+            </li>
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/rHsRNL2/doktorhut.png" alt="resources" />
+                </button>
+              </Link>
+            </li>
+           </ul>
+            <div className={styles.seperator}/>
+           <ul className={styles.ul_decentra_community}> 
+           <li className={styles.li}>
+              <Link href="/decentra">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/8KyXHCk/k-LRh4bm-Y-400x400.jpg" alt="decentra" />
+                </button>
+              </Link>
+            </li>
+           </ul>
+           <ul className={styles.ul_joined_communities}> 
+           </ul>
+           <ul className={styles.ul_actions}> 
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/5rWyV5p/sahdasdjhasj.png" alt="createcommunity" />
+                </button>
+              </Link>
+            </li>
+            <li className={styles.li}>
+              <Link href="/404">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/37sVsBX/disco.png" alt="discover" />
+                </button>
+              </Link>
+            </li>
+           </ul> 
+            <li className={styles.li_profile}>
             <Link href="/Enter">
               <button>Log in</button>
             </Link>
           </li>
-        )}
+          </div>
+                  )}
       </ul>
     </nav>
   );
