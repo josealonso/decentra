@@ -53,4 +53,9 @@ font-size: 17px;
   margin: auto;
   padding-top: 2em;
 } 
-
+@media screen and (max-width: 786px) {
+  .card {
+    width: 100%;
+    padding: 1em;
+  }
+}
