@@ -28,7 +28,7 @@ export async function getServerSideProps(context){
 export default function index({posts}) {
   return (
     <main className={styles.main}>
-      <div>
+      <div className={styles.left_main}>
         <AuthCheck>
           <div className={styles.main_grid}>
             <LinkList />
