@@ -32,13 +32,20 @@ export default function Navbar() {
            <ul className={styles.ul_universal}>
             <li className={styles.li_last}>
               <Link href={`/${username}`}>
-                <img src="https://i.imgur.com/CuDMssO.png" alt="profile" className={styles.profile_img} />
+                <img src="https://i.ibb.co/HY6BFQ4/727399.png" alt="profile" className={styles.profile_img} />
               </Link>
             </li>
             <li className={styles.li}>
               <Link href="/Main">
                 <button className={styles.link_btn}>
-                  <img src="https://i.ibb.co/NWVN8NB/die-einstellungen.png" alt="Home"/>
+                  <img src="https://i.ibb.co/p4dvDmP/3845819.png" alt="Wallet"/>
+                </button>
+              </Link>
+            </li>
+            <li className={styles.li}>
+              <Link href="/Main">
+                <button className={styles.link_btn}>
+                  <img src="https://i.ibb.co/NWVN8NB/die-einstellungen.png" alt="Settings"/>
                 </button>
               </Link>
             </li>
