@@ -94,7 +94,6 @@ function UsernameForm() {
 
     await batch.commit();
     toast.success('Created user successfully.')
-    router.push('/Main')
   };
 
   const onChange = (e) => {
