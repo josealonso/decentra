@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function [slug]() {
+export default function index() {
   return (
-    <div>[slug]</div>
+    <div>hi</div>
   )
 }
