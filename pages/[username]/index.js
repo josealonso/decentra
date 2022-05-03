@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import Metatags from '../../components/helpers/metatags'
 import UserProfile from '../../components/layout/UserProfile'
 import PostFeed from '../../components/layout/PostFeed'
-import { getUserWithUsername, postToJSON, awardsToJSON } from '../../lib/firebase'
+import { getUserWithUsername, postToJSON } from '../../lib/firebase'
+import CreateLink from '@components/layout/CreateLink'
 import AuthCheck from '@components/helpers/AuthCheck';
+import { LinkList } from '@components/layout/LinkList'
 import styles from './styles.module.scss'
 
 export async function getServerSideProps({query}){
@@ -46,6 +48,10 @@ export default function UserProfilePage({ user, posts}) {
        <main className={styles.main}>
         <Metatags title={user.username} description={`${user.username}'s public profile`} />
         <UserProfile user={user} />
+        <div className={styles.main_grid}>
+            <LinkList />
+            <CreateLink />
+          </div>  
         <PostFeed posts={posts} />
       </main>
     </AuthCheck> 

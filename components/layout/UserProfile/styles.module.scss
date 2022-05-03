@@ -88,80 +88,85 @@
 
 @media screen and (max-width: 786px) {
 
-  .heading{
-    font-size: larger;
+  .profile{
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column; 
+    min-height: 100%;
+    color: white;
+    background-color: #151514;
+    border-radius: 12px;
+
+    .banner{
+      width: 100%;
+      height: 100%;
+
+      img{
+        min-width: 100vw;
+        width: 100vw;
+        border-radius: 12px 12px 0px 0px;
+        margin-top: -2%;
+      }
+    }
+
+    p{
+      margin-top: 0.3em;
+      color: rgba(255, 255, 255, 0.597);
+    }
   }
 
-  .circularImg{
-    border-radius: 50%;
-    height: 5vh;
-    width: 5vh;
-  }
-  
-  .container{
-    background-color: #e1e1e1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .text{
-    margin-top: 1em;
-    font-size: large;
+  .profileGrid{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    main{
+     
+      padding: 1em;
+      padding-top: 0;
+    }
+
+    aside{
+      padding: 2em;      
+    }
+
+    a{
+      color: white;
+      display: none;
+    }
   }
 
-  .badge_container{
-    width: 100vw;
-    overflow-x: scroll;
-    margin-top: 1em;
-    margin-bottom: 1em;
+  .toolbar{
+    width: 100%;
+    min-height: 60px;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    box-sizing: border-box;
     padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 1em;
-    background-color: #9c9c9c;
+    padding-bottom: 2em;
+    button{
+      height: 40px;
+      width: 100px;
+      margin-right: 1em;
+      background-color: #272522;
+      border: 2px solid white;
+      color: white;
+      border-radius: 12px; 
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover{
+        background-color: #141414;
+      }
+    }
   }
 
-  .scrollable{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-  }
-
-  .badgeBlock{
-    width: 25vh;
-    border-radius: 12px;
-    height: 25vh;
-    background: linear-gradient(lightgray, black);
-    margin-right: 1em;
-    color: rgba(255, 255, 255, 0.734);
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .user{
-    margin-top: 1em;
-    font-size: large;
-    color: #5f5f5fbb;
-  }
-
-  .award_img{
-    height:100%;
-    width:100%;
-    border-radius: 12px;
-  }
-
-  .heading{
-    max-width: 100vw;
-    width: 100vw;
-    font-size: xx-large;
+  .pfp{
+    img{
+      max-width: 50vw;
+      max-height: 50vw;
+      margin-left: 1em;
+    }
   }
 }
 

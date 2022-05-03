@@ -3,10 +3,11 @@
 @media screen and (max-width: 786px) {
   .link_block{
     height: 100px;
-    width: 100%;
+    width: 100px;
     background-color: #272522;
     padding: 1em;
     display: flex;
+    margin: 0.5em;
     align-items: center;
     justify-content: center;
     flex-direction: column;

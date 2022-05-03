@@ -16,12 +16,16 @@
 
 .special_button{
   position: fixed;
-  top: 0;
+  bottom: 0;
   right: 0;
   cursor: pointer;
   z-index: 10000;
   height: 5vh;
-  width: 300px;
+  width: 200px;
+  background-color: #383735;
+  color: white;
+  border-bottom: 0px;
+  border-radius: 12px 12px 0px 0px;
 }
 
 .main_grid{

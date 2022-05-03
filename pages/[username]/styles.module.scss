@@ -20,30 +20,12 @@
 }
 
 @media screen and (max-width: 786px) {
-  
-  .blueBtn{
-    width: 30vw;
-    height: 7vh;
-    background-color: rgb(74, 126, 245);
-    border-radius: 12px;
-    padding: 1em;
-    margin-top: 3em;
-    border: 0;
-    color: white;
-    margin-left: 1em;
-  }
-
-  .btnheart{
-    background-color: rgba(255, 0, 0, 0.68);
-    padding: 0.2em;
-  }
-
-  .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 30vh;
+    
+  .main_grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+    grid-row-gap: 28px;
   }
 }
 
