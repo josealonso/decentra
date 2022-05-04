@@ -48,10 +48,7 @@ export default function UserProfilePage({ user, posts}) {
        <main className={styles.main}>
         <Metatags title={user.username} description={`${user.username}'s public profile`} />
         <UserProfile user={user} />
-        <div className={styles.main_grid}>
-            <LinkList />
-            <CreateLink />
-          </div>  
+         
         <PostFeed posts={posts} />
       </main>
     </AuthCheck> 

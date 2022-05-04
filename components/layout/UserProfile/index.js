@@ -2,7 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import EditProfileModal from './EditProfileModal';
 import { UserContext } from "../../../lib/context";
-import styles from './styles.module.scss'
+import { LinkList } from '../LinkList';
+import styles from './styles.module.scss';
+import CreateLink from '../CreateLink';
 import ReactMarkdown from 'react-markdown';
 
 // UI component for user profile
@@ -36,19 +38,15 @@ export default function UserProfile({ user }) {
           <p>
             <i>@{user.username}</i>
           </p>
-          <br />
-          <p>
-            {user?.bio}
-          </p>
         </main>
 
         <a href={"https://www.google.com"} target={"_blank"}> google.com </a>
       </div>
       
       <div className={styles.toolbar}>
-        <button>Share</button>
+
         <button>Connect</button>
-        <button>More</button>
+        <button>Subscribe</button>
 
         {
           editor ? <button onClick={() => setEditOpen(true)}>Edit</button> : ''
@@ -61,6 +59,22 @@ export default function UserProfile({ user }) {
         :
         ''
       }
+
+      <p className={styles.bio}>
+        {user?.bio}
+      </p>
+
+      <hr />
+
+      <div className={styles.main_grid}>
+        {
+          editor ?  <CreateLink /> : ''
+        }
+       
+        <LinkList />
+
+      </div>
+      
     </div>
   );
 }

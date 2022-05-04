@@ -100,7 +100,7 @@ export default function CreateLink() {
       createLink ? 
         <CreateNewLink toggle={() =>{toggleCreate(false)}}/>
         :
-        <button onClick={() => {toggleCreate(true)}} className={styles.newBtn}>+ Add link</button>
+        <button onClick={() => {toggleCreate(true)}} className={styles.newBtn}>+</button>
       }
     </div>
   )

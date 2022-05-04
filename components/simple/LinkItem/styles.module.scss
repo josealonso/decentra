@@ -2,9 +2,8 @@
 
 @media screen and (max-width: 786px) {
   .link_block{
-    height: 100px;
-    width: 100px;
-    background-color: #272522;
+    height: 60px;
+    width: 60px;
     padding: 1em;
     display: flex;
     margin: 0.5em;
@@ -13,12 +12,10 @@
     flex-direction: column;
     text-decoration: none;
     border-radius: 12px;
-    box-shadow: 0 5px 4px 0px #1d1c1a;
     color: #b4b3b2;
   
     h2{
-      font-size: medium;
-      margin-bottom: 0em;
+      display: none;
     }
   
     h5{

@@ -10,7 +10,7 @@
     color: white;
     background-color: #272522;
     border-radius: 12px;
-
+    
     .banner{
       width: 100%;
       height: 100%;
@@ -87,16 +87,27 @@
 }
 
 @media screen and (max-width: 786px) {
+  .main_grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    
+  }
 
   .profile{
-    position: fixed;
-    top: 0;
+    margin-bottom: 2em;
     display: flex;
     flex-direction: column; 
     min-height: 100%;
     color: white;
-    background-color: #151514;
+    background-color:  #2E2B29;
     border-radius: 12px;
+
+    hr{
+      width: 92vw;
+      margin-left: 4vw;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
 
     .banner{
       width: 100%;
@@ -111,7 +122,6 @@
     }
 
     p{
-      margin-top: 0.3em;
       color: rgba(255, 255, 255, 0.597);
     }
   }
@@ -165,8 +175,19 @@
     img{
       max-width: 50vw;
       max-height: 50vw;
+      width: 15vh;
+      height: 15vh;
       margin-left: 1em;
+      margin-top: -8vh;
+      border: 5px solid #2E2B29;
+      border-radius: 12px;
     }
   }
+
+  .bio{
+    margin-left: 1em;
+    width: 90%;
+  }
+  
 }
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
@@ -9,6 +10,8 @@ import styles from './styles.module.scss'
 // Top navbar
 export default function Navbar() {
   const { username } = useContext(UserContext);
+
+  const [mobileMenu, toggleMenu] = useState(false)
   
   const router = useRouter();
 
@@ -22,7 +25,7 @@ export default function Navbar() {
       <ul className={styles.ul}>
         {/* user is signed-in and has username */}
         {username && (
-          <div className={styles.links}>
+          <div className={ mobileMenu ? styles.mobile_wrap : styles.links}>
             <li className={styles.li}>
               <Link href="/">
                 <div className={styles.logo} />
@@ -100,6 +103,18 @@ export default function Navbar() {
             </li>
           </div>
         )}
+
+        {
+          mobileMenu ? 
+          <button className={styles.mobile_control} onClick={() => {toggleMenu(false)}}>
+            <img src="https://i.imgur.com/DbfV65K.png" alt="close mobile menu"/>
+          </button>
+          :
+          <button className={styles.mobile_control} onClick={() => {toggleMenu(true)}}>
+            <img src="https://i.imgur.com/rhTxXmI.png" alt="open mobile menu"/>
+          </button>
+        }
+        
 
         {/* user is not signed OR has not created username */}
         {!username && (

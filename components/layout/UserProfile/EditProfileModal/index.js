@@ -2,7 +2,9 @@ import React, {useState} from 'react'
 import { auth, firestore } from '../../../../lib/firebase';
 import TextField from '@components/forms/assets/TextField';
 import ImageUploader from '@components/layout/ImageUploader';
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
+import { WalletConnector } from '@components/web3/ConnectWallet';
+import {useRouter} from 'next/router'
 import styles from './styles.module.scss';
 import ReactMarkdown from 'react-markdown';
 
@@ -18,6 +20,8 @@ export default function EditProfileModal({user, handleOnClick}) {
   const { name, bio, website, organization} = values;
   const [icon, setIcon] = useState(`${user?.photoURL}`);
   const [banner, setBanner] = useState(`${user?.banner}`);
+  
+  const router = useRouter()
 
   console.log(user.uid)
 
@@ -40,10 +44,11 @@ export default function EditProfileModal({user, handleOnClick}) {
   return (
     <div className={styles.profileModal}>
 
-      <button onClick={handleOnClick}>Close</button>
+      <button onClick={handleOnClick} className={styles.close}>Close</button>
 
       <form className={styles.form} onSubmit={onSubmit}>
-
+        <h3>Edit your profile</h3>
+        <hr></hr>
         <div>
           <h4>Banner</h4>
           <ReactMarkdown>{user?.banner}</ReactMarkdown>
@@ -103,7 +108,7 @@ export default function EditProfileModal({user, handleOnClick}) {
           />
         </div>
 
-        <button>Save Changes</button>
+        <button >Save Changes</button>
       </form>
 
     </div>
