@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       <UserContext.Provider value={userData}>
       <Navbar/>
 
-      <button className={styles.special_button} onClick={() => {setWeb3(true)}}>Do web3 stuff</button>
+      <button className={styles.special_button} onClick={() => {setWeb3(true)}}><img src="https://i.ibb.co/FX9hrjH/3845819.png" alt="connect-web3-wallet"/></button>
 
       {
         web3Active ? 
