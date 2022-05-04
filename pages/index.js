@@ -58,7 +58,7 @@ export default function Home(props) {
     <main className={styles.main}>
   
 
-      <div className="card card-info">
+      <div className="card-info">
         <h2>Welcome to Decentra</h2>
         <p>A better way to organise your projects.</p>
         <p>Decentra is the future of social collaboration tools, providing users everything they need to create fully functional projects</p>
