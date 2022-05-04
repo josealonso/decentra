@@ -20,12 +20,18 @@
   right: 0;
   cursor: pointer;
   z-index: 10000;
-  height: 5vh;
-  width: 200px;
-  background-color: #383735;
-  color: white;
-  border-bottom: 0px;
-  border-radius: 12px 12px 0px 0px;
+  height: 60px;
+  width: 60px;
+  background-color: #272522;
+  margin: 25px;
+  border: 0px;
+  border-radius: 50px;
+  box-shadow: 0 5px 4px 0 #1d1c1a;
+  
+  img{
+      width: 30px;
+      margin-top: 11.5px;
+  }
 }
 
 .main_grid{
