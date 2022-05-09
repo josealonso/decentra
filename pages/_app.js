@@ -1,3 +1,4 @@
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 import Navbar from '../components/layout/Navbar/index'
 import PageWrapper from '@components/layout/PageWrapper';
 import '../theme/global.scss';
@@ -8,33 +9,21 @@ import { useState } from 'react';
 import { useUserData } from '../lib/hooks';
 import styles from './styles.module.scss'
 
+// This is the chainId your dApp will work on.
+const activeChainId = ChainId.Mumbai;
+
 function MyApp({ Component, pageProps }) {
-  const userData = useUserData();
-  const [web3Active, setWeb3] = useState(false)
+  // const userData = useUserData();
+  // const [web3Active, setWeb3] = useState(false)
 
   return (
-    <>
-      <UserContext.Provider value={userData}>
-        <WalletContext.Provider>
-          <Navbar/>
-
-          <button className={styles.special_button} onClick={() => {setWeb3(true)}}><img src="https://i.ibb.co/FX9hrjH/3845819.png" alt="connect-web3-wallet"/></button>
-
-          {
-            web3Active ? 
-            <WalletEthers />
-            :
-            ''
-          }
-
-          <PageWrapper>
-            <Component {...pageProps} />
-          </PageWrapper>
-          <Toaster/>
-        </WalletContext.Provider>
-      
-      </UserContext.Provider>
-    </>
+    <ThirdwebProvider desiredChainId={activeChainId}>
+      <Navbar />
+      <PageWrapper>
+        <Component {...pageProps} />
+      </PageWrapper>
+      <Toaster />
+    </ThirdwebProvider >
   );
 }
 
