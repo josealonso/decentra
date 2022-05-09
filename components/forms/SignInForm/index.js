@@ -1,4 +1,4 @@
-import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react';
+import { useAddress, useDisconnect, useMetamask, useNetworkMismatch } from '@thirdweb-dev/react';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@lib/firebase';
@@ -85,6 +85,7 @@ export function SignInForm({ handleGoogleSignIn, toggleProcess }) {
   const address = useAddress();
   const connectWithMetamask = useMetamask();
   const disconnectWallet = useDisconnect();
+  const isMismatched = useNetworkMismatch();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -154,6 +155,11 @@ export function SignInForm({ handleGoogleSignIn, toggleProcess }) {
                 <>
                   <button onClick={disconnectWallet}>Disconnect Wallet</button>
                   <p>Your address: {address}</p>
+                  {isMismatched ? (
+                    <div style={{ fontSize: "20px", fontFamily: "arial" }}>Please switch to the Mumbai network</div>
+                  ) : (
+                    <div></div>
+                  )}
                 </>
               ) : (
                 // <button onClick={connectWithMetamask}>Connect with Metamask</button>

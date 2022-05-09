@@ -1,4 +1,4 @@
-import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react';
+import { useAddress, useDisconnect, useMetamask, useNetworkMismatch } from '@thirdweb-dev/react';
 import React, { useState } from 'react'
 import PostFeed from '../components/layout/PostFeed';
 import Loader from '../components/simple/Loader';
@@ -26,6 +26,7 @@ export default function Home(props) {
   const address = useAddress();
   const connectWithMetamask = useMetamask();
   const disconnectWallet = useDisconnect();
+  const isMismatched = useNetworkMismatch();
 
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false);
@@ -81,6 +82,11 @@ export default function Home(props) {
           <>
             <button onClick={disconnectWallet}>Disconnect Wallet</button>
             <p>Your address: {address}</p>
+            {isMismatched ? (
+              <div style={{ fontSize: "20px", fontFamily: "arial" }}>Please switch to the Mumbai network</div>
+            ) : (
+              <div></div>
+            )}
           </>
         ) : (
           // <button onClick={connectWithMetamask}>Connect with Metamask</button>
