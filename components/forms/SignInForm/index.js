@@ -1,10 +1,15 @@
+import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@lib/firebase';
 import React, { useState } from 'react'
 import styles from './styles.module.scss'
 
-export function SignUpForm({handleGoogleSignIn, toggleProcess}) {
+export function SignUpForm({ handleGoogleSignIn, toggleProcess }) {
+  const address = useAddress();
+  const connectWithMetamask = useMetamask();
+  const disconnectWallet = useDisconnect();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   console.log(email, password);
@@ -22,19 +27,19 @@ export function SignUpForm({handleGoogleSignIn, toggleProcess}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  const { email, password } = event.target.elements;
-  createUserWithEmailAndPassword(auth, email.value, password.value)
-  .then(( userCredential) => {
-    console.log('user created');
-    console.log(userCredential)
-  })
-  .catch((error) => {
-    alert(error.message)
-    console.error(error)
-    }); 
+    const { email, password } = event.target.elements;
+    createUserWithEmailAndPassword(auth, email.value, password.value)
+      .then((userCredential) => {
+        console.log('user created');
+        console.log(userCredential)
+      })
+      .catch((error) => {
+        alert(error.message)
+        console.error(error)
+      });
     console.log(email.value);
   };
-  
+
   return (
     <div>
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -43,32 +48,32 @@ export function SignUpForm({handleGoogleSignIn, toggleProcess}) {
             <label className={styles.form_label}>
               Email
             </label>
-            <input type='email' name='email' onChange={(event) => handleChangeEmail(event)} className={styles.form_input}/>
+            <input type='email' name='email' onChange={(event) => handleChangeEmail(event)} className={styles.form_input} />
           </div>
 
           <div className={styles.form_collection}>
             <label className={styles.form_label}>
               password
             </label>
-            <input type='password' name='password' onChange={(event) => handleChangePassword(event)} className={styles.form_input}/>
+            <input type='password' name='password' onChange={(event) => handleChangePassword(event)} className={styles.form_input} />
           </div>
-          <button className={styles.form_submit} disabled={email =="" && password ==""}>Sign Up</button>
-        
-        
+          <button className={styles.form_submit} disabled={email == "" && password == ""}>Sign Up</button>
+
+
           <div className={styles.social_login}>
             <button onClick={handleSocialSignIn}>
               Google
             </button>
 
-            <button>
+            {/* <button onClick={connectWithMetamask}>
               Connect Wallet
-            </button>
+            </button> */}
 
             <button onClick={toggleProcess}>
               Or Sign In
             </button>
           </div>
-        </div>  
+        </div>
       </form>
 
       <br></br>
@@ -76,7 +81,11 @@ export function SignUpForm({handleGoogleSignIn, toggleProcess}) {
   )
 }
 
-export function SignInForm({handleGoogleSignIn, toggleProcess}) {
+export function SignInForm({ handleGoogleSignIn, toggleProcess }) {
+  const address = useAddress();
+  const connectWithMetamask = useMetamask();
+  const disconnectWallet = useDisconnect();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   console.log(email, password);
@@ -96,17 +105,17 @@ export function SignInForm({handleGoogleSignIn, toggleProcess}) {
     event.preventDefault();
     const { email, password } = event.target.elements;
     signInWithEmailAndPassword(auth, email.value, password.value)
-    .then(( userCredential) => {
-      const user = userCredential.user;
-      console.log(user)
-    })
-    .catch((error) => {
-      alert(error.message)
-      console.error(error)
-    }); 
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user)
+      })
+      .catch((error) => {
+        alert(error.message)
+        console.error(error)
+      });
     console.log(email.value);
   };
-  
+
   return (
     <div>
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -122,7 +131,7 @@ export function SignInForm({handleGoogleSignIn, toggleProcess}) {
             <label className={styles.form_label}>
               password
             </label>
-            <input type='password' name='password' onChange={(event) => handleChangePassword(event)} className={styles.form_input}/>
+            <input type='password' name='password' onChange={(event) => handleChangePassword(event)} className={styles.form_input} />
           </div>
 
           <div className={styles.pw_recover}>
@@ -131,7 +140,7 @@ export function SignInForm({handleGoogleSignIn, toggleProcess}) {
               <h3>Remember?</h3>
             </a>
           </div>
-          <button className={styles.form_submit} disabled={email =="" && password ==""}>Log In</button>
+          <button className={styles.form_submit} disabled={email == "" && password == ""}>Log In</button>
           <h3>Or log in with </h3>
           <hr></hr>
 
@@ -140,9 +149,17 @@ export function SignInForm({handleGoogleSignIn, toggleProcess}) {
               Google
             </button>
 
-            <button>
-              Connect Wallet
-            </button>
+            <div>
+              {address ? (
+                <>
+                  <button onClick={disconnectWallet}>Disconnect Wallet</button>
+                  <p>Your address: {address}</p>
+                </>
+              ) : (
+                // <button onClick={connectWithMetamask}>Connect with Metamask</button>
+                <button onClick={connectWithMetamask}>Connect Wallet</button>
+              )}
+            </div>
 
             <button onClick={toggleProcess}>
               Or Sign Up
